@@ -1,0 +1,1193 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: alltoall_perf
+# nThread 1 nGpus 1 minBytes 1 maxBytes 1048576 step: 1024(bytes) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 793134 on       n013 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 242839 on       n014 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+n013:793134:793134 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:793134:793134 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:793134:793134 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:793134:793134 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.16.5+cuda11.8
+n013:793134:793144 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n014:242839:242839 [0] NCCL INFO cudaDriverVersion 13010
+n013:793134:793144 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:793134:793144 [0] NCCL INFO Using network IB
+n013:793134:793144 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:242839:242839 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n014:242839:242839 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.14<0>
+n014:242839:242839 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n014:242839:242848 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n014:242839:242848 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.14<0>
+n014:242839:242848 [0] NCCL INFO Using network IB
+n014:242839:242848 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:242839:242848 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n014:242839:242848 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242848 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n014:242839:242848 [0] NCCL INFO CPU/1 (1/2/-1)
+n014:242839:242848 [0] NCCL INFO + PCI[24.0] - GPU/81000 (1)
+n014:242839:242848 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n014:242839:242848 [0] NCCL INFO               + NET[25.0] - NET/0 (5a862d0003f6ceb8/1/25.000000)
+n014:242839:242848 [0] NCCL INFO ==========================================
+n014:242839:242848 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n014:242839:242848 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n014:242839:242848 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:242839:242848 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:242839:242848 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:242839:242848 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:242839:242848 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:793134:793144 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:793134:793144 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:793134:793144 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:793134:793144 [0] NCCL INFO CPU/1 (1/2/-1)
+n013:793134:793144 [0] NCCL INFO + PCI[24.0] - GPU/81000 (0)
+n013:793134:793144 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:793134:793144 [0] NCCL INFO               + NET[25.0] - NET/0 (7a852d0003f6ceb8/1/25.000000)
+n013:793134:793144 [0] NCCL INFO ==========================================
+n013:793134:793144 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n013:793134:793144 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n013:793134:793144 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:793134:793144 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:793134:793144 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:793134:793144 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:793134:793144 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:793134:793144 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n013:793134:793144 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n013:793134:793144 [0] NCCL INFO Channel 00/02 :    0   1
+n013:793134:793144 [0] NCCL INFO Channel 01/02 :    0   1
+n013:793134:793144 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n013:793134:793144 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n013:793134:793144 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+n013:793134:793144 [0] NCCL INFO P2P Chunksize set to 131072
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242848 [0] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n014:242839:242848 [0] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n014:242839:242848 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n014:242839:242848 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n014:242839:242848 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+n014:242839:242848 [0] NCCL INFO P2P Chunksize set to 131072
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242848 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ca0
+n014:242839:242850 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n014:242839:242848 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242850 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n013:793134:793148 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n013:793134:793144 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d50
+n013:793134:793144 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:793134:793148 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n014:242839:242848 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ce0
+n014:242839:242848 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:242839:242850 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n013:793134:793144 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d90
+n013:793134:793144 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:793134:793148 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n014:242839:242848 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d20
+n014:242839:242848 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA
+n014:242839:242848 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:242839:242850 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n013:793134:793144 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000dd0
+n013:793134:793144 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA
+n013:793134:793144 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:793134:793148 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n014:242839:242848 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d60
+n014:242839:242848 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA
+n013:793134:793144 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e10
+n013:793134:793144 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA
+n013:793134:793148 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1772 mtu 5 LID 37
+n014:242839:242850 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 919 mtu 5 LID 43
+n014:242839:242850 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 920 mtu 5 LID 43
+n013:793134:793148 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1773 mtu 5 LID 37
+n014:242839:242848 [0] NCCL INFO Connected all rings
+n014:242839:242848 [0] NCCL INFO Connected all trees
+n014:242839:242848 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n014:242839:242848 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n014:242839:242850 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n013:793134:793144 [0] NCCL INFO Connected all rings
+n013:793134:793144 [0] NCCL INFO Connected all trees
+n013:793134:793144 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:793134:793144 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n013:793134:793148 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n014:242839:242848 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000da0
+n013:793134:793144 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e50
+n014:242839:242848 [0] NCCL INFO comm 0x5a1fd20 rank 1 nranks 2 cudaDev 0 busId 81000 commId 0x497b886c4b9b959c - Init COMPLETE
+n013:793134:793144 [0] NCCL INFO comm 0x5a367c0 rank 0 nranks 2 cudaDev 0 busId 81000 commId 0x497b886c4b9b959c - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+n013:793134:793150 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:793134:793148 [0] NCCL INFO New proxy recv connection 5 from local rank 0, transport 2
+n014:242839:242852 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242850 [0] NCCL INFO New proxy recv connection 5 from local rank 0, transport 2
+n014:242839:242852 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000de0
+n014:242839:242852 [0] NCCL INFO Channel 00/1 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n014:242839:242852 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:242839:242850 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 2
+n013:793134:793150 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e90
+n013:793134:793150 [0] NCCL INFO Channel 00/1 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n013:793134:793150 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:793134:793148 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 2
+n014:242839:242852 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e20
+n014:242839:242852 [0] NCCL INFO Channel 01/1 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n014:242839:242852 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:242839:242850 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 2
+n013:793134:793150 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ed0
+n013:793134:793150 [0] NCCL INFO Channel 01/1 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n013:793134:793150 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:793134:793148 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 2
+n014:242839:242852 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e60
+n014:242839:242852 [0] NCCL INFO Channel 00/1 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA/Shared
+n014:242839:242852 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:242839:242850 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n013:793134:793150 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f10
+n013:793134:793150 [0] NCCL INFO Channel 00/1 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA/Shared
+n013:793134:793150 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:793134:793148 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n013:793134:793150 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f50
+n013:793134:793150 [0] NCCL INFO Channel 01/1 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA/Shared
+n014:242839:242852 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ea0
+n014:242839:242852 [0] NCCL INFO Channel 01/1 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA/Shared
+n013:793134:793148 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1776 mtu 5 LID 37
+n014:242839:242850 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 923 mtu 5 LID 43
+n013:793134:793148 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1777 mtu 5 LID 37
+n014:242839:242850 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 924 mtu 5 LID 43
+           0             0     float    none      -1    26.09    0.00    0.00       0    24.94    0.00    0.00    N/A
+        1024           128     float    none      -1    33.78    0.03    0.02       0    33.25    0.03    0.02    N/A
+        2048           256     float    none      -1    34.94    0.06    0.03       0    33.47    0.06    0.03    N/A
+        3072           384     float    none      -1    33.33    0.09    0.05       0    33.29    0.09    0.05    N/A
+        4096           512     float    none      -1    33.87    0.12    0.06       0    33.07    0.12    0.06    N/A
+        5120           640     float    none      -1    33.78    0.15    0.08       0    33.15    0.15    0.08    N/A
+        6144           768     float    none      -1    33.41    0.18    0.09       0    34.24    0.18    0.09    N/A
+        7168           896     float    none      -1    33.86    0.21    0.11       0    32.36    0.22    0.11    N/A
+        8192          1024     float    none      -1    34.37    0.24    0.12       0    32.57    0.25    0.13    N/A
+        9216          1152     float    none      -1    35.48    0.26    0.13       0    34.96    0.26    0.13    N/A
+       10240          1280     float    none      -1    35.35    0.29    0.14       0    34.93    0.29    0.15    N/A
+       11264          1408     float    none      -1    36.40    0.31    0.15       0    35.07    0.32    0.16    N/A
+       12288          1536     float    none      -1    36.40    0.34    0.17       0    35.26    0.35    0.17    N/A
+       13312          1664     float    none      -1    35.49    0.38    0.19       0    35.09    0.38    0.19    N/A
+       14336          1792     float    none      -1    37.37    0.38    0.19       0    37.20    0.39    0.19    N/A
+       15360          1920     float    none      -1    37.88    0.41    0.20       0    37.00    0.42    0.21    N/A
+       16384          2048     float    none      -1    35.26    0.46    0.23       0    35.36    0.46    0.23    N/A
+       17408          2176     float    none      -1    37.96    0.46    0.23       0    37.16    0.47    0.23    N/A
+       18432          2304     float    none      -1    38.18    0.48    0.24       0    37.54    0.49    0.25    N/A
+       19456          2432     float    none      -1    37.85    0.51    0.26       0    37.43    0.52    0.26    N/A
+       20480          2560     float    none      -1    37.76    0.54    0.27       0    37.49    0.55    0.27    N/A
+       21504          2688     float    none      -1    38.08    0.56    0.28       0    37.79    0.57    0.28    N/A
+       22528          2816     float    none      -1    38.69    0.58    0.29       0    37.80    0.60    0.30    N/A
+       23552          2944     float    none      -1    35.93    0.66    0.33       0    35.28    0.67    0.33    N/A
+       24576          3072     float    none      -1    34.80    0.71    0.35       0    33.77    0.73    0.36    N/A
+       25600          3200     float    none      -1    36.42    0.70    0.35       0    35.48    0.72    0.36    N/A
+       26624          3328     float    none      -1    35.77    0.74    0.37       0    35.64    0.75    0.37    N/A
+       27648          3456     float    none      -1    36.26    0.76    0.38       0    36.13    0.77    0.38    N/A
+       28672          3584     float    none      -1    36.37    0.79    0.39       0    35.98    0.80    0.40    N/A
+       29696          3712     float    none      -1    37.29    0.80    0.40       0    36.03    0.82    0.41    N/A
+       30720          3840     float    none      -1    36.53    0.84    0.42       0    36.04    0.85    0.43    N/A
+       31744          3968     float    none      -1    36.62    0.87    0.43       0    35.76    0.89    0.44    N/A
+       32768          4096     float    none      -1    34.62    0.95    0.47       0    34.06    0.96    0.48    N/A
+       33792          4224     float    none      -1    36.94    0.91    0.46       0    36.73    0.92    0.46    N/A
+       34816          4352     float    none      -1    36.83    0.95    0.47       0    36.37    0.96    0.48    N/A
+       35840          4480     float    none      -1    37.21    0.96    0.48       0    36.64    0.98    0.49    N/A
+       36864          4608     float    none      -1    37.97    0.97    0.49       0    36.46    1.01    0.51    N/A
+       37888          4736     float    none      -1    37.29    1.02    0.51       0    36.45    1.04    0.52    N/A
+       38912          4864     float    none      -1    37.39    1.04    0.52       0    36.81    1.06    0.53    N/A
+       39936          4992     float    none      -1    37.26    1.07    0.54       0    36.70    1.09    0.54    N/A
+       40960          5120     float    none      -1    35.69    1.15    0.57       0    34.72    1.18    0.59    N/A
+       41984          5248     float    none      -1    38.00    1.10    0.55       0    36.88    1.14    0.57    N/A
+       43008          5376     float    none      -1    36.70    1.17    0.59       0    37.08    1.16    0.58    N/A
+       44032          5504     float    none      -1    38.67    1.14    0.57       0    37.23    1.18    0.59    N/A
+       45056          5632     float    none      -1    38.05    1.18    0.59       0    36.98    1.22    0.61    N/A
+       46080          5760     float    none      -1    32.18    1.43    0.72       0    31.15    1.48    0.74    N/A
+       47104          5888     float    none      -1    31.80    1.48    0.74       0    31.09    1.51    0.76    N/A
+       48128          6016     float    none      -1    32.50    1.48    0.74       0    30.79    1.56    0.78    N/A
+       49152          6144     float    none      -1    30.73    1.60    0.80       0    29.68    1.66    0.83    N/A
+       50176          6272     float    none      -1    31.51    1.59    0.80       0    31.29    1.60    0.80    N/A
+       51200          6400     float    none      -1    31.88    1.61    0.80       0    27.97    1.83    0.92    N/A
+       52224          6528     float    none      -1    28.01    1.86    0.93       0    27.93    1.87    0.93    N/A
+       53248          6656     float    none      -1    28.37    1.88    0.94       0    28.14    1.89    0.95    N/A
+       54272          6784     float    none      -1    28.58    1.90    0.95       0    28.23    1.92    0.96    N/A
+       55296          6912     float    none      -1    28.68    1.93    0.96       0    27.98    1.98    0.99    N/A
+       56320          7040     float    none      -1    29.60    1.90    0.95       0    28.08    2.01    1.00    N/A
+       57344          7168     float    none      -1    27.57    2.08    1.04       0    26.99    2.12    1.06    N/A
+       58368          7296     float    none      -1    29.27    1.99    1.00       0    27.92    2.09    1.05    N/A
+       59392          7424     float    none      -1    28.76    2.07    1.03       0    27.76    2.14    1.07    N/A
+       60416          7552     float    none      -1    28.42    2.13    1.06       0    28.10    2.15    1.08    N/A
+       61440          7680     float    none      -1    29.55    2.08    1.04       0    28.00    2.19    1.10    N/A
+       62464          7808     float    none      -1    29.29    2.13    1.07       0    28.37    2.20    1.10    N/A
+       63488          7936     float    none      -1    29.30    2.17    1.08       0    28.72    2.21    1.11    N/A
+       64512          8064     float    none      -1    28.94    2.23    1.11       0    28.42    2.27    1.13    N/A
+       65536          8192     float    none      -1    27.91    2.35    1.17       0    27.98    2.34    1.17    N/A
+       66560          8320     float    none      -1    31.99    2.08    1.04       0    31.53    2.11    1.06    N/A
+       67584          8448     float    none      -1    31.53    2.14    1.07       0    31.48    2.15    1.07    N/A
+       68608          8576     float    none      -1    31.81    2.16    1.08       0    31.54    2.18    1.09    N/A
+       69632          8704     float    none      -1    31.51    2.21    1.10       0    31.21    2.23    1.12    N/A
+       70656          8832     float    none      -1    32.03    2.21    1.10       0    31.64    2.23    1.12    N/A
+       71680          8960     float    none      -1    31.45    2.28    1.14       0    31.34    2.29    1.14    N/A
+       72704          9088     float    none      -1    31.87    2.28    1.14       0    31.50    2.31    1.15    N/A
+       73728          9216     float    none      -1    33.19    2.22    1.11       0    31.10    2.37    1.19    N/A
+       74752          9344     float    none      -1    32.63    2.29    1.15       0    32.07    2.33    1.17    N/A
+       75776          9472     float    none      -1    32.77    2.31    1.16       0    31.90    2.38    1.19    N/A
+       76800          9600     float    none      -1    32.46    2.37    1.18       0    31.92    2.41    1.20    N/A
+       77824          9728     float    none      -1    32.81    2.37    1.19       0    31.51    2.47    1.24    N/A
+       78848          9856     float    none      -1    31.92    2.47    1.24       0    31.93    2.47    1.23    N/A
+       79872          9984     float    none      -1    31.69    2.52    1.26       0    31.59    2.53    1.26    N/A
+       80896         10112     float    none      -1    31.96    2.53    1.27       0    31.96    2.53    1.27    N/A
+       81920         10240     float    none      -1    31.44    2.61    1.30       0    31.67    2.59    1.29    N/A
+       82944         10368     float    none      -1    32.76    2.53    1.27       0    31.97    2.59    1.30    N/A
+       83968         10496     float    none      -1    32.39    2.59    1.30       0    32.40    2.59    1.30    N/A
+       84992         10624     float    none      -1    31.92    2.66    1.33       0    32.35    2.63    1.31    N/A
+       86016         10752     float    none      -1    31.73    2.71    1.36       0    32.69    2.63    1.32    N/A
+       87040         10880     float    none      -1    32.16    2.71    1.35       0    31.66    2.75    1.37    N/A
+       88064         11008     float    none      -1    32.26    2.73    1.37       0    32.00    2.75    1.38    N/A
+       89088         11136     float    none      -1    31.88    2.79    1.40       0    31.88    2.79    1.40    N/A
+       90112         11264     float    none      -1    31.93    2.82    1.41       0    32.09    2.81    1.40    N/A
+       91136         11392     float    none      -1    32.87    2.77    1.39       0    32.47    2.81    1.40    N/A
+       92160         11520     float    none      -1    33.37    2.76    1.38       0    32.06    2.87    1.44    N/A
+       93184         11648     float    none      -1    33.97    2.74    1.37       0    32.64    2.85    1.43    N/A
+       94208         11776     float    none      -1    32.63    2.89    1.44       0    33.10    2.85    1.42    N/A
+       95232         11904     float    none      -1    33.13    2.87    1.44       0    32.41    2.94    1.47    N/A
+       96256         12032     float    none      -1    32.50    2.96    1.48       0    32.44    2.97    1.48    N/A
+       97280         12160     float    none      -1    33.18    2.93    1.47       0    32.59    2.98    1.49    N/A
+       98304         12288     float    none      -1    32.27    3.05    1.52       0    32.26    3.05    1.52    N/A
+       99328         12416     float    none      -1    32.60    3.05    1.52       0    32.69    3.04    1.52    N/A
+      100352         12544     float    none      -1    32.78    3.06    1.53       0    32.78    3.06    1.53    N/A
+      101376         12672     float    none      -1    32.70    3.10    1.55       0    33.00    3.07    1.54    N/A
+      102400         12800     float    none      -1    33.15    3.09    1.54       0    34.13    3.00    1.50    N/A
+      103424         12928     float    none      -1    33.33    3.10    1.55       0    32.59    3.17    1.59    N/A
+      104448         13056     float    none      -1    33.19    3.15    1.57       0    32.72    3.19    1.60    N/A
+      105472         13184     float    none      -1    33.53    3.15    1.57       0    32.74    3.22    1.61    N/A
+      106496         13312     float    none      -1    32.69    3.26    1.63       0    32.26    3.30    1.65    N/A
+      107520         13440     float    none      -1    34.33    3.13    1.57       0    32.68    3.29    1.64    N/A
+      108544         13568     float    none      -1    33.11    3.28    1.64       0    33.87    3.20    1.60    N/A
+      109568         13696     float    none      -1    33.69    3.25    1.63       0    33.39    3.28    1.64    N/A
+      110592         13824     float    none      -1    33.49    3.30    1.65       0    32.97    3.35    1.68    N/A
+      111616         13952     float    none      -1    33.12    3.37    1.68       0    33.26    3.36    1.68    N/A
+      112640         14080     float    none      -1    33.30    3.38    1.69       0    33.32    3.38    1.69    N/A
+      113664         14208     float    none      -1    34.90    3.26    1.63       0    33.44    3.40    1.70    N/A
+      114688         14336     float    none      -1    33.57    3.42    1.71       0    33.22    3.45    1.73    N/A
+      115712         14464     float    none      -1    33.54    3.45    1.72       0    34.44    3.36    1.68    N/A
+      116736         14592     float    none      -1    33.18    3.52    1.76       0    33.82    3.45    1.73    N/A
+      117760         14720     float    none      -1    33.71    3.49    1.75       0    33.40    3.53    1.76    N/A
+      118784         14848     float    none      -1    34.12    3.48    1.74       0    33.43    3.55    1.78    N/A
+      119808         14976     float    none      -1    33.74    3.55    1.78       0    33.76    3.55    1.77    N/A
+      120832         15104     float    none      -1    33.45    3.61    1.81       0    33.96    3.56    1.78    N/A
+      121856         15232     float    none      -1    33.34    3.66    1.83       0    33.54    3.63    1.82    N/A
+      122880         15360     float    none      -1    34.18    3.60    1.80       0    32.88    3.74    1.87    N/A
+      123904         15488     float    none      -1    35.20    3.52    1.76       0    33.85    3.66    1.83    N/A
+      124928         15616     float    none      -1    33.54    3.73    1.86       0    33.68    3.71    1.85    N/A
+      125952         15744     float    none      -1    33.97    3.71    1.85       0    33.73    3.73    1.87    N/A
+      126976         15872     float    none      -1    33.59    3.78    1.89       0    34.79    3.65    1.82    N/A
+      128000         16000     float    none      -1    33.81    3.79    1.89       0    33.73    3.79    1.90    N/A
+      129024         16128     float    none      -1    34.50    3.74    1.87       0    34.14    3.78    1.89    N/A
+      130048         16256     float    none      -1    34.87    3.73    1.86       0    34.23    3.80    1.90    N/A
+      131072         16384     float    none      -1    33.58    3.90    1.95       0    34.45    3.81    1.90    N/A
+      132096         16512     float    none      -1    37.12    3.56    1.78       0    36.51    3.62    1.81    N/A
+      133120         16640     float    none      -1    38.17    3.49    1.74       0    36.36    3.66    1.83    N/A
+      134144         16768     float    none      -1    37.57    3.57    1.79       0    36.40    3.69    1.84    N/A
+      135168         16896     float    none      -1    37.70    3.59    1.79       0    37.24    3.63    1.81    N/A
+      136192         17024     float    none      -1    37.59    3.62    1.81       0    37.52    3.63    1.82    N/A
+      137216         17152     float    none      -1    38.37    3.58    1.79       0    37.03    3.71    1.85    N/A
+      138240         17280     float    none      -1    37.20    3.72    1.86       0    37.38    3.70    1.85    N/A
+      139264         17408     float    none      -1    36.83    3.78    1.89       0    36.79    3.79    1.89    N/A
+      140288         17536     float    none      -1    37.39    3.75    1.88       0    37.88    3.70    1.85    N/A
+      141312         17664     float    none      -1    37.70    3.75    1.87       0    37.90    3.73    1.86    N/A
+      142336         17792     float    none      -1    38.48    3.70    1.85       0    37.35    3.81    1.91    N/A
+      143360         17920     float    none      -1    37.76    3.80    1.90       0    37.65    3.81    1.90    N/A
+      144384         18048     float    none      -1    37.71    3.83    1.91       0    37.78    3.82    1.91    N/A
+      145408         18176     float    none      -1    37.79    3.85    1.92       0    37.76    3.85    1.93    N/A
+      146432         18304     float    none      -1    38.10    3.84    1.92       0    38.12    3.84    1.92    N/A
+      147456         18432     float    none      -1    38.57    3.82    1.91       0    38.00    3.88    1.94    N/A
+      148480         18560     float    none      -1    38.68    3.84    1.92       0    38.11    3.90    1.95    N/A
+      149504         18688     float    none      -1    38.77    3.86    1.93       0    37.94    3.94    1.97    N/A
+      150528         18816     float    none      -1    39.03    3.86    1.93       0    37.96    3.97    1.98    N/A
+      151552         18944     float    none      -1    38.24    3.96    1.98       0    39.14    3.87    1.94    N/A
+      152576         19072     float    none      -1    38.12    4.00    2.00       0    37.87    4.03    2.01    N/A
+      153600         19200     float    none      -1    38.34    4.01    2.00       0    37.53    4.09    2.05    N/A
+      154624         19328     float    none      -1    39.43    3.92    1.96       0    38.24    4.04    2.02    N/A
+      155648         19456     float    none      -1    38.13    4.08    2.04       0    38.87    4.00    2.00    N/A
+      156672         19584     float    none      -1    38.43    4.08    2.04       0    39.16    4.00    2.00    N/A
+      157696         19712     float    none      -1    40.02    3.94    1.97       0    39.48    3.99    2.00    N/A
+      158720         19840     float    none      -1    40.13    3.96    1.98       0    38.65    4.11    2.05    N/A
+      159744         19968     float    none      -1    39.04    4.09    2.05       0    38.37    4.16    2.08    N/A
+      160768         20096     float    none      -1    38.94    4.13    2.06       0    39.21    4.10    2.05    N/A
+      161792         20224     float    none      -1    39.04    4.14    2.07       0    39.95    4.05    2.02    N/A
+      162816         20352     float    none      -1    39.25    4.15    2.07       0    38.72    4.20    2.10    N/A
+      163840         20480     float    none      -1    38.39    4.27    2.13       0    39.52    4.15    2.07    N/A
+      164864         20608     float    none      -1    38.73    4.26    2.13       0    38.79    4.25    2.12    N/A
+      165888         20736     float    none      -1    38.75    4.28    2.14       0    38.36    4.32    2.16    N/A
+      166912         20864     float    none      -1    38.37    4.35    2.17       0    38.37    4.35    2.18    N/A
+      167936         20992     float    none      -1    39.28    4.28    2.14       0    39.29    4.27    2.14    N/A
+      168960         21120     float    none      -1    38.55    4.38    2.19       0    38.73    4.36    2.18    N/A
+      169984         21248     float    none      -1    39.26    4.33    2.17       0    38.62    4.40    2.20    N/A
+      171008         21376     float    none      -1    38.60    4.43    2.22       0    39.03    4.38    2.19    N/A
+      172032         21504     float    none      -1    38.54    4.46    2.23       0    37.24    4.62    2.31    N/A
+      173056         21632     float    none      -1    39.18    4.42    2.21       0    38.41    4.51    2.25    N/A
+      174080         21760     float    none      -1    39.50    4.41    2.20       0    39.51    4.41    2.20    N/A
+      175104         21888     float    none      -1    38.59    4.54    2.27       0    38.59    4.54    2.27    N/A
+      176128         22016     float    none      -1    39.42    4.47    2.23       0    38.84    4.54    2.27    N/A
+      177152         22144     float    none      -1    39.16    4.52    2.26       0    39.31    4.51    2.25    N/A
+      178176         22272     float    none      -1    38.97    4.57    2.29       0    38.75    4.60    2.30    N/A
+      179200         22400     float    none      -1    38.70    4.63    2.32       0    39.14    4.58    2.29    N/A
+      180224         22528     float    none      -1    38.56    4.67    2.34       0    38.40    4.69    2.35    N/A
+      181248         22656     float    none      -1    38.97    4.65    2.33       0    39.21    4.62    2.31    N/A
+      182272         22784     float    none      -1    39.61    4.60    2.30       0    38.45    4.74    2.37    N/A
+      183296         22912     float    none      -1    38.63    4.75    2.37       0    38.95    4.71    2.35    N/A
+      184320         23040     float    none      -1    40.02    4.61    2.30       0    38.69    4.76    2.38    N/A
+      185344         23168     float    none      -1    39.02    4.75    2.37       0    38.69    4.79    2.40    N/A
+      186368         23296     float    none      -1    38.88    4.79    2.40       0    39.13    4.76    2.38    N/A
+      187392         23424     float    none      -1    39.07    4.80    2.40       0    39.44    4.75    2.38    N/A
+      188416         23552     float    none      -1    38.34    4.91    2.46       0    38.22    4.93    2.46    N/A
+      189440         23680     float    none      -1    38.85    4.88    2.44       0    38.94    4.86    2.43    N/A
+      190464         23808     float    none      -1    39.02    4.88    2.44       0    41.05    4.64    2.32    N/A
+      191488         23936     float    none      -1    39.64    4.83    2.42       0    38.70    4.95    2.47    N/A
+      192512         24064     float    none      -1    40.33    4.77    2.39       0    38.61    4.99    2.49    N/A
+      193536         24192     float    none      -1    39.88    4.85    2.43       0    39.89    4.85    2.43    N/A
+      194560         24320     float    none      -1    39.00    4.99    2.49       0    38.92    5.00    2.50    N/A
+      195584         24448     float    none      -1    39.98    4.89    2.45       0    38.83    5.04    2.52    N/A
+      196608         24576     float    none      -1    40.53    4.85    2.43       0    39.27    5.01    2.50    N/A
+      197632         24704     float    none      -1    41.16    4.80    2.40       0    41.32    4.78    2.39    N/A
+      198656         24832     float    none      -1    42.15    4.71    2.36       0    43.90    4.53    2.26    N/A
+      199680         24960     float    none      -1    42.75    4.67    2.34       0    41.51    4.81    2.41    N/A
+      200704         25088     float    none      -1    42.23    4.75    2.38       0    41.66    4.82    2.41    N/A
+      201728         25216     float    none      -1    41.75    4.83    2.42       0    41.34    4.88    2.44    N/A
+      202752         25344     float    none      -1    41.19    4.92    2.46       0    41.19    4.92    2.46    N/A
+      203776         25472     float    none      -1    42.38    4.81    2.40       0    41.39    4.92    2.46    N/A
+      204800         25600     float    none      -1    42.40    4.83    2.41       0    40.70    5.03    2.52    N/A
+      205824         25728     float    none      -1    43.21    4.76    2.38       0    41.60    4.95    2.47    N/A
+      206848         25856     float    none      -1    43.28    4.78    2.39       0    42.31    4.89    2.44    N/A
+      207872         25984     float    none      -1    42.07    4.94    2.47       0    41.90    4.96    2.48    N/A
+      208896         26112     float    none      -1    42.09    4.96    2.48       0    41.12    5.08    2.54    N/A
+      209920         26240     float    none      -1    42.63    4.92    2.46       0    41.84    5.02    2.51    N/A
+      210944         26368     float    none      -1    42.24    4.99    2.50       0    42.19    5.00    2.50    N/A
+      211968         26496     float    none      -1    43.52    4.87    2.44       0    41.55    5.10    2.55    N/A
+      212992         26624     float    none      -1    42.14    5.05    2.53       0    41.54    5.13    2.56    N/A
+      214016         26752     float    none      -1    42.80    5.00    2.50       0    42.61    5.02    2.51    N/A
+      215040         26880     float    none      -1    43.73    4.92    2.46       0    43.52    4.94    2.47    N/A
+      216064         27008     float    none      -1    43.64    4.95    2.48       0    43.05    5.02    2.51    N/A
+      217088         27136     float    none      -1    43.22    5.02    2.51       0    42.39    5.12    2.56    N/A
+      218112         27264     float    none      -1    43.17    5.05    2.53       0    42.65    5.11    2.56    N/A
+      219136         27392     float    none      -1    43.04    5.09    2.55       0    42.96    5.10    2.55    N/A
+      220160         27520     float    none      -1    42.90    5.13    2.57       0    42.51    5.18    2.59    N/A
+      221184         27648     float    none      -1    42.16    5.25    2.62       0    42.43    5.21    2.61    N/A
+      222208         27776     float    none      -1    42.19    5.27    2.63       0    43.88    5.06    2.53    N/A
+      223232         27904     float    none      -1    43.64    5.12    2.56       0    42.99    5.19    2.60    N/A
+      224256         28032     float    none      -1    43.52    5.15    2.58       0    42.68    5.25    2.63    N/A
+      225280         28160     float    none      -1    43.00    5.24    2.62       0    42.87    5.25    2.63    N/A
+      226304         28288     float    none      -1    43.99    5.14    2.57       0    43.47    5.21    2.60    N/A
+      227328         28416     float    none      -1    43.84    5.19    2.59       0    42.83    5.31    2.65    N/A
+      228352         28544     float    none      -1    44.31    5.15    2.58       0    43.60    5.24    2.62    N/A
+      229376         28672     float    none      -1    42.43    5.41    2.70       0    43.15    5.32    2.66    N/A
+      230400         28800     float    none      -1    43.76    5.27    2.63       0    42.98    5.36    2.68    N/A
+      231424         28928     float    none      -1    43.11    5.37    2.68       0    42.95    5.39    2.69    N/A
+      232448         29056     float    none      -1    43.31    5.37    2.68       0    43.23    5.38    2.69    N/A
+      233472         29184     float    none      -1    45.07    5.18    2.59       0    44.19    5.28    2.64    N/A
+      234496         29312     float    none      -1    43.82    5.35    2.68       0    43.01    5.45    2.73    N/A
+      235520         29440     float    none      -1    43.10    5.46    2.73       0    44.04    5.35    2.67    N/A
+      236544         29568     float    none      -1    43.28    5.47    2.73       0    43.68    5.42    2.71    N/A
+      237568         29696     float    none      -1    45.03    5.28    2.64       0    43.14    5.51    2.75    N/A
+      238592         29824     float    none      -1    44.38    5.38    2.69       0    43.29    5.51    2.76    N/A
+      239616         29952     float    none      -1    43.48    5.51    2.76       0    43.21    5.55    2.77    N/A
+      240640         30080     float    none      -1    43.91    5.48    2.74       0    44.19    5.45    2.72    N/A
+      241664         30208     float    none      -1    43.57    5.55    2.77       0    43.15    5.60    2.80    N/A
+      242688         30336     float    none      -1    43.26    5.61    2.81       0    42.83    5.67    2.83    N/A
+      243712         30464     float    none      -1    43.73    5.57    2.79       0    43.70    5.58    2.79    N/A
+      244736         30592     float    none      -1    43.31    5.65    2.83       0    43.27    5.66    2.83    N/A
+      245760         30720     float    none      -1    50.13    4.90    2.45       0    43.84    5.61    2.80    N/A
+      246784         30848     float    none      -1    44.00    5.61    2.80       0    43.24    5.71    2.85    N/A
+      247808         30976     float    none      -1    45.41    5.46    2.73       0    44.56    5.56    2.78    N/A
+      248832         31104     float    none      -1    43.57    5.71    2.86       0    43.71    5.69    2.85    N/A
+      249856         31232     float    none      -1    43.86    5.70    2.85       0    44.37    5.63    2.82    N/A
+      250880         31360     float    none      -1    43.45    5.77    2.89       0    44.25    5.67    2.83    N/A
+      251904         31488     float    none      -1    44.07    5.72    2.86       0    44.50    5.66    2.83    N/A
+      252928         31616     float    none      -1    43.43    5.82    2.91       0    43.76    5.78    2.89    N/A
+      253952         31744     float    none      -1    42.95    5.91    2.96       0    45.38    5.60    2.80    N/A
+      254976         31872     float    none      -1    44.02    5.79    2.90       0    44.01    5.79    2.90    N/A
+      256000         32000     float    none      -1    43.64    5.87    2.93       0    43.80    5.84    2.92    N/A
+      257024         32128     float    none      -1    43.84    5.86    2.93       0    44.77    5.74    2.87    N/A
+      258048         32256     float    none      -1    43.99    5.87    2.93       0    44.86    5.75    2.88    N/A
+      259072         32384     float    none      -1    44.67    5.80    2.90       0    43.28    5.99    2.99    N/A
+      260096         32512     float    none      -1    44.37    5.86    2.93       0    44.01    5.91    2.96    N/A
+      261120         32640     float    none      -1    46.58    5.61    2.80       0    45.01    5.80    2.90    N/A
+      262144         32768     float    none      -1    44.23    5.93    2.96       0    41.35    6.34    3.17    N/A
+      263168         32896     float    none      -1    43.72    6.02    3.01       0    41.44    6.35    3.18    N/A
+      264192         33024     float    none      -1    42.25    6.25    3.13       0    40.73    6.49    3.24    N/A
+      265216         33152     float    none      -1    40.88    6.49    3.24       0    41.55    6.38    3.19    N/A
+      266240         33280     float    none      -1    40.91    6.51    3.25       0    40.64    6.55    3.28    N/A
+      267264         33408     float    none      -1    41.01    6.52    3.26       0    41.95    6.37    3.19    N/A
+      268288         33536     float    none      -1    42.49    6.31    3.16       0    41.74    6.43    3.21    N/A
+      269312         33664     float    none      -1    42.67    6.31    3.16       0    41.44    6.50    3.25    N/A
+      270336         33792     float    none      -1    42.00    6.44    3.22       0    40.83    6.62    3.31    N/A
+      271360         33920     float    none      -1    42.79    6.34    3.17       0    41.28    6.57    3.29    N/A
+      272384         34048     float    none      -1    42.51    6.41    3.20       0    41.76    6.52    3.26    N/A
+      273408         34176     float    none      -1    43.49    6.29    3.14       0    41.82    6.54    3.27    N/A
+      274432         34304     float    none      -1    43.05    6.37    3.19       0    40.48    6.78    3.39    N/A
+      275456         34432     float    none      -1    42.49    6.48    3.24       0    40.78    6.76    3.38    N/A
+      276480         34560     float    none      -1    41.61    6.64    3.32       0    42.40    6.52    3.26    N/A
+      277504         34688     float    none      -1    42.53    6.52    3.26       0    41.07    6.76    3.38    N/A
+      278528         34816     float    none      -1    40.99    6.80    3.40       0    42.26    6.59    3.30    N/A
+      279552         34944     float    none      -1    42.45    6.59    3.29       0    41.49    6.74    3.37    N/A
+      280576         35072     float    none      -1    41.41    6.78    3.39       0    42.59    6.59    3.29    N/A
+      281600         35200     float    none      -1    41.87    6.72    3.36       0    41.11    6.85    3.42    N/A
+      282624         35328     float    none      -1    41.25    6.85    3.43       0    40.25    7.02    3.51    N/A
+      283648         35456     float    none      -1    42.72    6.64    3.32       0    40.71    6.97    3.48    N/A
+      284672         35584     float    none      -1    43.00    6.62    3.31       0    40.94    6.95    3.48    N/A
+      285696         35712     float    none      -1    41.10    6.95    3.48       0    40.51    7.05    3.53    N/A
+      286720         35840     float    none      -1    42.25    6.79    3.39       0    40.90    7.01    3.51    N/A
+      287744         35968     float    none      -1    42.75    6.73    3.37       0    40.30    7.14    3.57    N/A
+      288768         36096     float    none      -1    41.38    6.98    3.49       0    41.01    7.04    3.52    N/A
+      289792         36224     float    none      -1    41.26    7.02    3.51       0    41.16    7.04    3.52    N/A
+      290816         36352     float    none      -1    41.76    6.96    3.48       0    42.03    6.92    3.46    N/A
+      291840         36480     float    none      -1    41.60    7.02    3.51       0    40.59    7.19    3.60    N/A
+      292864         36608     float    none      -1    42.01    6.97    3.49       0    42.97    6.81    3.41    N/A
+      293888         36736     float    none      -1    41.63    7.06    3.53       0    42.52    6.91    3.46    N/A
+      294912         36864     float    none      -1    41.98    7.03    3.51       0    41.33    7.14    3.57    N/A
+      295936         36992     float    none      -1    44.92    6.59    3.29       0    41.44    7.14    3.57    N/A
+      296960         37120     float    none      -1    44.74    6.64    3.32       0    43.63    6.81    3.40    N/A
+      297984         37248     float    none      -1    45.32    6.57    3.29       0    42.07    7.08    3.54    N/A
+      299008         37376     float    none      -1    43.38    6.89    3.45       0    41.62    7.18    3.59    N/A
+      300032         37504     float    none      -1    44.27    6.78    3.39       0    41.86    7.17    3.58    N/A
+      301056         37632     float    none      -1    44.09    6.83    3.41       0    43.33    6.95    3.47    N/A
+      302080         37760     float    none      -1    44.57    6.78    3.39       0    41.20    7.33    3.67    N/A
+      303104         37888     float    none      -1    43.32    7.00    3.50       0    41.52    7.30    3.65    N/A
+      304128         38016     float    none      -1    44.57    6.82    3.41       0    43.60    6.98    3.49    N/A
+      305152         38144     float    none      -1    43.25    7.06    3.53       0    42.74    7.14    3.57    N/A
+      306176         38272     float    none      -1    43.40    7.06    3.53       0    41.44    7.39    3.69    N/A
+      307200         38400     float    none      -1    42.99    7.15    3.57       0    42.67    7.20    3.60    N/A
+      308224         38528     float    none      -1    45.75    6.74    3.37       0    42.71    7.22    3.61    N/A
+      309248         38656     float    none      -1    43.34    7.14    3.57       0    42.97    7.20    3.60    N/A
+      310272         38784     float    none      -1    45.55    6.81    3.41       0    41.64    7.45    3.73    N/A
+      311296         38912     float    none      -1    44.65    6.97    3.49       0    41.64    7.48    3.74    N/A
+      312320         39040     float    none      -1    43.92    7.11    3.56       0    41.40    7.54    3.77    N/A
+      313344         39168     float    none      -1    44.13    7.10    3.55       0    42.25    7.42    3.71    N/A
+      314368         39296     float    none      -1    45.07    6.98    3.49       0    42.95    7.32    3.66    N/A
+      315392         39424     float    none      -1    45.15    6.99    3.49       0    42.61    7.40    3.70    N/A
+      316416         39552     float    none      -1    43.57    7.26    3.63       0    41.15    7.69    3.84    N/A
+      317440         39680     float    none      -1    43.59    7.28    3.64       0    42.72    7.43    3.72    N/A
+      318464         39808     float    none      -1    45.85    6.95    3.47       0    42.05    7.57    3.79    N/A
+      319488         39936     float    none      -1    44.94    7.11    3.55       0    41.90    7.62    3.81    N/A
+      320512         40064     float    none      -1    44.95    7.13    3.57       0    43.28    7.41    3.70    N/A
+      321536         40192     float    none      -1    43.15    7.45    3.73       0    41.60    7.73    3.86    N/A
+      322560         40320     float    none      -1    44.17    7.30    3.65       0    41.57    7.76    3.88    N/A
+      323584         40448     float    none      -1    43.60    7.42    3.71       0    41.80    7.74    3.87    N/A
+      324608         40576     float    none      -1    44.25    7.34    3.67       0    42.55    7.63    3.81    N/A
+      325632         40704     float    none      -1    43.84    7.43    3.71       0    43.16    7.55    3.77    N/A
+      326656         40832     float    none      -1    43.87    7.45    3.72       0    43.52    7.51    3.75    N/A
+      327680         40960     float    none      -1    46.16    7.10    3.55       0    42.19    7.77    3.88    N/A
+      328704         41088     float    none      -1    44.37    7.41    3.70       0    42.97    7.65    3.82    N/A
+      329728         41216     float    none      -1    44.49    7.41    3.71       0    42.38    7.78    3.89    N/A
+      330752         41344     float    none      -1    45.63    7.25    3.62       0    42.44    7.79    3.90    N/A
+      331776         41472     float    none      -1    44.49    7.46    3.73       0    42.72    7.77    3.88    N/A
+      332800         41600     float    none      -1    44.77    7.43    3.72       0    41.96    7.93    3.97    N/A
+      333824         41728     float    none      -1    44.29    7.54    3.77       0    44.11    7.57    3.78    N/A
+      334848         41856     float    none      -1    43.70    7.66    3.83       0    41.99    7.97    3.99    N/A
+      335872         41984     float    none      -1    44.11    7.61    3.81       0    41.83    8.03    4.01    N/A
+      336896         42112     float    none      -1    44.13    7.63    3.82       0    45.78    7.36    3.68    N/A
+      337920         42240     float    none      -1    44.81    7.54    3.77       0    42.23    8.00    4.00    N/A
+      338944         42368     float    none      -1    45.08    7.52    3.76       0    42.33    8.01    4.00    N/A
+      339968         42496     float    none      -1    45.72    7.44    3.72       0    43.33    7.85    3.92    N/A
+      340992         42624     float    none      -1    44.68    7.63    3.82       0    42.25    8.07    4.04    N/A
+      342016         42752     float    none      -1    45.04    7.59    3.80       0    42.39    8.07    4.03    N/A
+      343040         42880     float    none      -1    45.37    7.56    3.78       0    44.57    7.70    3.85    N/A
+      344064         43008     float    none      -1    46.41    7.41    3.71       0    43.21    7.96    3.98    N/A
+      345088         43136     float    none      -1    45.46    7.59    3.80       0    42.17    8.18    4.09    N/A
+      346112         43264     float    none      -1    45.70    7.57    3.79       0    42.64    8.12    4.06    N/A
+      347136         43392     float    none      -1    45.99    7.55    3.77       0    42.93    8.09    4.04    N/A
+      348160         43520     float    none      -1    45.07    7.73    3.86       0    43.24    8.05    4.03    N/A
+      349184         43648     float    none      -1    44.00    7.94    3.97       0    42.35    8.25    4.12    N/A
+      350208         43776     float    none      -1    44.78    7.82    3.91       0    42.07    8.32    4.16    N/A
+      351232         43904     float    none      -1    44.42    7.91    3.95       0    43.41    8.09    4.05    N/A
+      352256         44032     float    none      -1    43.65    8.07    4.04       0    42.31    8.33    4.16    N/A
+      353280         44160     float    none      -1    44.76    7.89    3.95       0    43.27    8.17    4.08    N/A
+      354304         44288     float    none      -1    44.26    8.00    4.00       0    42.55    8.33    4.16    N/A
+      355328         44416     float    none      -1    45.46    7.82    3.91       0    42.11    8.44    4.22    N/A
+      356352         44544     float    none      -1    45.22    7.88    3.94       0    42.36    8.41    4.21    N/A
+      357376         44672     float    none      -1    46.03    7.76    3.88       0    42.65    8.38    4.19    N/A
+      358400         44800     float    none      -1    44.26    8.10    4.05       0    42.89    8.36    4.18    N/A
+      359424         44928     float    none      -1    44.34    8.11    4.05       0    43.92    8.18    4.09    N/A
+      360448         45056     float    none      -1    44.98    8.01    4.01       0    42.86    8.41    4.20    N/A
+      361472         45184     float    none      -1    44.31    8.16    4.08       0    41.88    8.63    4.32    N/A
+      362496         45312     float    none      -1    44.07    8.23    4.11       0    43.25    8.38    4.19    N/A
+      363520         45440     float    none      -1    44.50    8.17    4.08       0    43.83    8.29    4.15    N/A
+      364544         45568     float    none      -1    44.41    8.21    4.10       0    42.65    8.55    4.27    N/A
+      365568         45696     float    none      -1    45.89    7.97    3.98       0    42.26    8.65    4.33    N/A
+      366592         45824     float    none      -1    47.84    7.66    3.83       0    43.88    8.35    4.18    N/A
+      367616         45952     float    none      -1    44.87    8.19    4.10       0    42.15    8.72    4.36    N/A
+      368640         46080     float    none      -1    43.80    8.42    4.21       0    42.72    8.63    4.32    N/A
+      369664         46208     float    none      -1    44.25    8.35    4.18       0    43.06    8.58    4.29    N/A
+      370688         46336     float    none      -1    44.61    8.31    4.15       0    43.30    8.56    4.28    N/A
+      371712         46464     float    none      -1    45.09    8.24    4.12       0    42.80    8.68    4.34    N/A
+      372736         46592     float    none      -1    44.73    8.33    4.17       0    43.26    8.62    4.31    N/A
+      373760         46720     float    none      -1    46.38    8.06    4.03       0    44.10    8.48    4.24    N/A
+      374784         46848     float    none      -1    44.94    8.34    4.17       0    43.00    8.72    4.36    N/A
+      375808         46976     float    none      -1    45.16    8.32    4.16       0    42.30    8.88    4.44    N/A
+      376832         47104     float    none      -1    46.11    8.17    4.09       0    44.55    8.46    4.23    N/A
+      377856         47232     float    none      -1    45.69    8.27    4.13       0    42.76    8.84    4.42    N/A
+      378880         47360     float    none      -1    45.50    8.33    4.16       0    43.32    8.75    4.37    N/A
+      379904         47488     float    none      -1    45.46    8.36    4.18       0    44.80    8.48    4.24    N/A
+      380928         47616     float    none      -1    45.39    8.39    4.20       0    42.70    8.92    4.46    N/A
+      381952         47744     float    none      -1    45.40    8.41    4.21       0    44.23    8.63    4.32    N/A
+      382976         47872     float    none      -1    45.31    8.45    4.23       0    45.29    8.46    4.23    N/A
+      384000         48000     float    none      -1    46.37    8.28    4.14       0    43.92    8.74    4.37    N/A
+      385024         48128     float    none      -1    46.39    8.30    4.15       0    44.27    8.70    4.35    N/A
+      386048         48256     float    none      -1    46.17    8.36    4.18       0    42.87    9.01    4.50    N/A
+      387072         48384     float    none      -1    47.22    8.20    4.10       0    42.94    9.01    4.51    N/A
+      388096         48512     float    none      -1    46.06    8.43    4.21       0    43.14    9.00    4.50    N/A
+      389120         48640     float    none      -1    45.38    8.57    4.29       0    44.73    8.70    4.35    N/A
+      390144         48768     float    none      -1    47.73    8.17    4.09       0    43.57    8.95    4.48    N/A
+      391168         48896     float    none      -1    46.24    8.46    4.23       0    43.36    9.02    4.51    N/A
+      392192         49024     float    none      -1    45.59    8.60    4.30       0    43.31    9.06    4.53    N/A
+      393216         49152     float    none      -1    44.98    8.74    4.37       0    45.54    8.64    4.32    N/A
+      394240         49280     float    none      -1    47.46    8.31    4.15       0    45.23    8.72    4.36    N/A
+      395264         49408     float    none      -1    48.73    8.11    4.06       0    45.89    8.61    4.31    N/A
+      396288         49536     float    none      -1    49.02    8.08    4.04       0    46.21    8.58    4.29    N/A
+      397312         49664     float    none      -1    48.54    8.19    4.09       0    45.52    8.73    4.36    N/A
+      398336         49792     float    none      -1    49.71    8.01    4.01       0    45.94    8.67    4.33    N/A
+      399360         49920     float    none      -1    49.49    8.07    4.03       0    47.78    8.36    4.18    N/A
+      400384         50048     float    none      -1    48.05    8.33    4.17       0    45.33    8.83    4.42    N/A
+      401408         50176     float    none      -1    47.66    8.42    4.21       0    45.74    8.78    4.39    N/A
+      402432         50304     float    none      -1    48.32    8.33    4.16       0    47.35    8.50    4.25    N/A
+      403456         50432     float    none      -1    49.42    8.16    4.08       0    45.84    8.80    4.40    N/A
+      404480         50560     float    none      -1    48.51    8.34    4.17       0    45.82    8.83    4.41    N/A
+      405504         50688     float    none      -1    48.15    8.42    4.21       0    45.81    8.85    4.43    N/A
+      406528         50816     float    none      -1    49.38    8.23    4.12       0    46.99    8.65    4.33    N/A
+      407552         50944     float    none      -1    48.22    8.45    4.23       0    45.44    8.97    4.48    N/A
+      408576         51072     float    none      -1    47.76    8.56    4.28       0    45.59    8.96    4.48    N/A
+      409600         51200     float    none      -1    48.11    8.51    4.26       0    46.27    8.85    4.43    N/A
+      410624         51328     float    none      -1    48.84    8.41    4.20       0    46.27    8.88    4.44    N/A
+      411648         51456     float    none      -1    47.78    8.62    4.31       0    46.01    8.95    4.47    N/A
+      412672         51584     float    none      -1    50.89    8.11    4.05       0    45.92    8.99    4.49    N/A
+      413696         51712     float    none      -1    49.20    8.41    4.20       0    45.61    9.07    4.54    N/A
+      414720         51840     float    none      -1    49.39    8.40    4.20       0    46.78    8.86    4.43    N/A
+      415744         51968     float    none      -1    48.11    8.64    4.32       0    47.24    8.80    4.40    N/A
+      416768         52096     float    none      -1    48.25    8.64    4.32       0    45.95    9.07    4.54    N/A
+      417792         52224     float    none      -1    47.25    8.84    4.42       0    46.20    9.04    4.52    N/A
+      418816         52352     float    none      -1    47.51    8.82    4.41       0    45.75    9.15    4.58    N/A
+      419840         52480     float    none      -1    48.32    8.69    4.34       0    46.38    9.05    4.53    N/A
+      420864         52608     float    none      -1    47.25    8.91    4.45       0    45.82    9.18    4.59    N/A
+      421888         52736     float    none      -1    47.35    8.91    4.45       0    46.89    9.00    4.50    N/A
+      422912         52864     float    none      -1    48.42    8.73    4.37       0    46.02    9.19    4.59    N/A
+      423936         52992     float    none      -1    49.27    8.60    4.30       0    46.11    9.19    4.60    N/A
+      424960         53120     float    none      -1    47.17    9.01    4.50       0    45.77    9.28    4.64    N/A
+      425984         53248     float    none      -1    49.51    8.60    4.30       0    46.64    9.13    4.57    N/A
+      427008         53376     float    none      -1    48.67    8.77    4.39       0    46.82    9.12    4.56    N/A
+      428032         53504     float    none      -1    49.41    8.66    4.33       0    47.15    9.08    4.54    N/A
+      429056         53632     float    none      -1    50.49    8.50    4.25       0    46.91    9.15    4.57    N/A
+      430080         53760     float    none      -1    50.44    8.53    4.26       0    46.79    9.19    4.60    N/A
+      431104         53888     float    none      -1    50.03    8.62    4.31       0    46.53    9.27    4.63    N/A
+      432128         54016     float    none      -1    52.04    8.30    4.15       0    46.51    9.29    4.65    N/A
+      433152         54144     float    none      -1    49.67    8.72    4.36       0    47.48    9.12    4.56    N/A
+      434176         54272     float    none      -1    49.68    8.74    4.37       0    46.59    9.32    4.66    N/A
+      435200         54400     float    none      -1    49.77    8.74    4.37       0    48.01    9.07    4.53    N/A
+      436224         54528     float    none      -1    50.67    8.61    4.30       0    46.70    9.34    4.67    N/A
+      437248         54656     float    none      -1    49.65    8.81    4.40       0    47.22    9.26    4.63    N/A
+      438272         54784     float    none      -1    49.48    8.86    4.43       0    47.33    9.26    4.63    N/A
+      439296         54912     float    none      -1    49.83    8.82    4.41       0    48.13    9.13    4.56    N/A
+      440320         55040     float    none      -1    49.31    8.93    4.47       0    47.11    9.35    4.67    N/A
+      441344         55168     float    none      -1    50.04    8.82    4.41       0    47.39    9.31    4.66    N/A
+      442368         55296     float    none      -1    51.59    8.57    4.29       0    48.07    9.20    4.60    N/A
+      443392         55424     float    none      -1    51.10    8.68    4.34       0    46.52    9.53    4.77    N/A
+      444416         55552     float    none      -1    50.86    8.74    4.37       0    47.53    9.35    4.68    N/A
+      445440         55680     float    none      -1    50.76    8.78    4.39       0    47.86    9.31    4.65    N/A
+      446464         55808     float    none      -1    50.63    8.82    4.41       0    47.13    9.47    4.74    N/A
+      447488         55936     float    none      -1    52.37    8.55    4.27       0    46.77    9.57    4.78    N/A
+      448512         56064     float    none      -1    51.77    8.66    4.33       0    49.23    9.11    4.56    N/A
+      449536         56192     float    none      -1    49.77    9.03    4.52       0    46.25    9.72    4.86    N/A
+      450560         56320     float    none      -1    49.16    9.17    4.58       0    46.91    9.60    4.80    N/A
+      451584         56448     float    none      -1    50.70    8.91    4.45       0    47.62    9.48    4.74    N/A
+      452608         56576     float    none      -1    51.11    8.86    4.43       0    48.19    9.39    4.70    N/A
+      453632         56704     float    none      -1    50.65    8.96    4.48       0    47.72    9.51    4.75    N/A
+      454656         56832     float    none      -1    50.84    8.94    4.47       0    46.72    9.73    4.87    N/A
+      455680         56960     float    none      -1    52.27    8.72    4.36       0    46.89    9.72    4.86    N/A
+      456704         57088     float    none      -1    52.59    8.68    4.34       0    47.18    9.68    4.84    N/A
+      457728         57216     float    none      -1    50.77    9.02    4.51       0    49.83    9.19    4.59    N/A
+      458752         57344     float    none      -1    52.89    8.67    4.34       0    47.80    9.60    4.80    N/A
+      459776         57472     float    none      -1    50.35    9.13    4.57       0    45.99   10.00    5.00    N/A
+      460800         57600     float    none      -1    49.07    9.39    4.69       0    47.14    9.78    4.89    N/A
+      461824         57728     float    none      -1    48.55    9.51    4.76       0    46.04   10.03    5.02    N/A
+      462848         57856     float    none      -1    51.88    8.92    4.46       0    44.55   10.39    5.19    N/A
+      463872         57984     float    none      -1    50.27    9.23    4.61       0    45.91   10.10    5.05    N/A
+      464896         58112     float    none      -1    49.17    9.45    4.73       0    47.22    9.85    4.92    N/A
+      465920         58240     float    none      -1    49.78    9.36    4.68       0    45.21   10.31    5.15    N/A
+      466944         58368     float    none      -1    47.76    9.78    4.89       0    46.59   10.02    5.01    N/A
+      467968         58496     float    none      -1    47.93    9.76    4.88       0    45.75   10.23    5.11    N/A
+      468992         58624     float    none      -1    50.13    9.36    4.68       0    45.90   10.22    5.11    N/A
+      470016         58752     float    none      -1    48.98    9.60    4.80       0    46.96   10.01    5.00    N/A
+      471040         58880     float    none      -1    48.75    9.66    4.83       0    45.53   10.35    5.17    N/A
+      472064         59008     float    none      -1    50.99    9.26    4.63       0    46.71   10.11    5.05    N/A
+      473088         59136     float    none      -1    49.00    9.66    4.83       0    46.07   10.27    5.13    N/A
+      474112         59264     float    none      -1    49.40    9.60    4.80       0    48.03    9.87    4.94    N/A
+      475136         59392     float    none      -1    51.98    9.14    4.57       0    46.23   10.28    5.14    N/A
+      476160         59520     float    none      -1    52.15    9.13    4.57       0    47.75    9.97    4.99    N/A
+      477184         59648     float    none      -1    47.90    9.96    4.98       0    44.58   10.70    5.35    N/A
+      478208         59776     float    none      -1    48.13    9.94    4.97       0    47.06   10.16    5.08    N/A
+      479232         59904     float    none      -1    50.88    9.42    4.71       0    48.43    9.89    4.95    N/A
+      480256         60032     float    none      -1    49.56    9.69    4.84       0    45.81   10.48    5.24    N/A
+      481280         60160     float    none      -1    50.51    9.53    4.76       0    45.46   10.59    5.29    N/A
+      482304         60288     float    none      -1    50.02    9.64    4.82       0    45.61   10.57    5.29    N/A
+      483328         60416     float    none      -1    48.05   10.06    5.03       0    45.61   10.60    5.30    N/A
+      484352         60544     float    none      -1    52.17    9.28    4.64       0    48.29   10.03    5.02    N/A
+      485376         60672     float    none      -1    49.14    9.88    4.94       0    49.94    9.72    4.86    N/A
+      486400         60800     float    none      -1    48.52   10.02    5.01       0    45.65   10.66    5.33    N/A
+      487424         60928     float    none      -1    48.97    9.95    4.98       0    46.07   10.58    5.29    N/A
+      488448         61056     float    none      -1    48.76   10.02    5.01       0    47.04   10.38    5.19    N/A
+      489472         61184     float    none      -1    49.00    9.99    4.99       0    46.12   10.61    5.31    N/A
+      490496         61312     float    none      -1    49.93    9.82    4.91       0    47.42   10.34    5.17    N/A
+      491520         61440     float    none      -1    51.98    9.46    4.73       0    46.08   10.67    5.33    N/A
+      492544         61568     float    none      -1    49.12   10.03    5.01       0    46.25   10.65    5.32    N/A
+      493568         61696     float    none      -1    51.20    9.64    4.82       0    45.65   10.81    5.41    N/A
+      494592         61824     float    none      -1    49.22   10.05    5.02       0    47.49   10.41    5.21    N/A
+      495616         61952     float    none      -1    49.02   10.11    5.05       0    46.58   10.64    5.32    N/A
+      496640         62080     float    none      -1    49.51   10.03    5.02       0    46.15   10.76    5.38    N/A
+      497664         62208     float    none      -1    49.42   10.07    5.04       0    47.73   10.43    5.21    N/A
+      498688         62336     float    none      -1    51.15    9.75    4.88       0    46.63   10.69    5.35    N/A
+      499712         62464     float    none      -1    50.88    9.82    4.91       0    45.73   10.93    5.46    N/A
+      500736         62592     float    none      -1    52.94    9.46    4.73       0    48.97   10.22    5.11    N/A
+      501760         62720     float    none      -1    50.53    9.93    4.96       0    46.46   10.80    5.40    N/A
+      502784         62848     float    none      -1    51.93    9.68    4.84       0    46.42   10.83    5.42    N/A
+      503808         62976     float    none      -1    50.76    9.93    4.96       0    48.27   10.44    5.22    N/A
+      504832         63104     float    none      -1    50.81    9.94    4.97       0    47.97   10.52    5.26    N/A
+      505856         63232     float    none      -1    51.23    9.87    4.94       0    46.37   10.91    5.45    N/A
+      506880         63360     float    none      -1    49.63   10.21    5.11       0    48.08   10.54    5.27    N/A
+      507904         63488     float    none      -1    49.14   10.34    5.17       0    46.62   10.89    5.45    N/A
+      508928         63616     float    none      -1    52.47    9.70    4.85       0    46.21   11.01    5.51    N/A
+      509952         63744     float    none      -1    51.68    9.87    4.93       0    46.89   10.87    5.44    N/A
+      510976         63872     float    none      -1    54.95    9.30    4.65       0    46.54   10.98    5.49    N/A
+      512000         64000     float    none      -1    54.42    9.41    4.70       0    47.01   10.89    5.45    N/A
+      513024         64128     float    none      -1    50.39   10.18    5.09       0    48.04   10.68    5.34    N/A
+      514048         64256     float    none      -1    51.95    9.90    4.95       0    46.80   10.98    5.49    N/A
+      515072         64384     float    none      -1    51.38   10.02    5.01       0    48.46   10.63    5.31    N/A
+      516096         64512     float    none      -1    51.06   10.11    5.05       0    49.30   10.47    5.23    N/A
+      517120         64640     float    none      -1    51.94    9.96    4.98       0    48.69   10.62    5.31    N/A
+      518144         64768     float    none      -1    51.87    9.99    4.99       0    46.85   11.06    5.53    N/A
+      519168         64896     float    none      -1    50.22   10.34    5.17       0    46.48   11.17    5.58    N/A
+      520192         65024     float    none      -1    49.59   10.49    5.25       0    47.32   10.99    5.50    N/A
+      521216         65152     float    none      -1    51.13   10.19    5.10       0    46.97   11.10    5.55    N/A
+      522240         65280     float    none      -1    51.02   10.24    5.12       0    46.99   11.11    5.56    N/A
+      523264         65408     float    none      -1    51.00   10.26    5.13       0    46.73   11.20    5.60    N/A
+      524288         65536     float    none      -1    48.12   10.90    5.45       0    48.94   10.71    5.36    N/A
+      525312         65664     float    none      -1    52.35   10.03    5.02       0    49.00   10.72    5.36    N/A
+      526336         65792     float    none      -1    51.64   10.19    5.10       0    51.15   10.29    5.15    N/A
+      527360         65920     float    none      -1    53.86    9.79    4.90       0    48.25   10.93    5.47    N/A
+      528384         66048     float    none      -1    53.91    9.80    4.90       0    48.79   10.83    5.41    N/A
+      529408         66176     float    none      -1    51.70   10.24    5.12       0    50.24   10.54    5.27    N/A
+      530432         66304     float    none      -1    52.75   10.06    5.03       0    48.52   10.93    5.47    N/A
+      531456         66432     float    none      -1    51.29   10.36    5.18       0    50.28   10.57    5.28    N/A
+      532480         66560     float    none      -1    51.06   10.43    5.21       0    49.07   10.85    5.43    N/A
+      533504         66688     float    none      -1    50.84   10.49    5.25       0    48.20   11.07    5.53    N/A
+      534528         66816     float    none      -1    52.43   10.20    5.10       0    48.39   11.05    5.52    N/A
+      535552         66944     float    none      -1    50.47   10.61    5.31       0    48.30   11.09    5.54    N/A
+      536576         67072     float    none      -1    51.65   10.39    5.19       0    51.41   10.44    5.22    N/A
+      537600         67200     float    none      -1    53.18   10.11    5.05       0    49.54   10.85    5.43    N/A
+      538624         67328     float    none      -1    51.83   10.39    5.20       0    48.96   11.00    5.50    N/A
+      539648         67456     float    none      -1    51.28   10.52    5.26       0    48.55   11.11    5.56    N/A
+      540672         67584     float    none      -1    52.11   10.38    5.19       0    48.83   11.07    5.54    N/A
+      541696         67712     float    none      -1    52.95   10.23    5.12       0    50.62   10.70    5.35    N/A
+      542720         67840     float    none      -1    52.22   10.39    5.20       0    50.14   10.82    5.41    N/A
+      543744         67968     float    none      -1    52.13   10.43    5.22       0    48.09   11.31    5.65    N/A
+      544768         68096     float    none      -1    51.36   10.61    5.30       0    48.00   11.35    5.67    N/A
+      545792         68224     float    none      -1    51.43   10.61    5.31       0    49.12   11.11    5.56    N/A
+      546816         68352     float    none      -1    55.09    9.93    4.96       0    48.87   11.19    5.59    N/A
+      547840         68480     float    none      -1    51.34   10.67    5.34       0    52.12   10.51    5.26    N/A
+      548864         68608     float    none      -1    50.95   10.77    5.39       0    48.27   11.37    5.69    N/A
+      549888         68736     float    none      -1    52.54   10.47    5.23       0    48.82   11.26    5.63    N/A
+      550912         68864     float    none      -1    53.28   10.34    5.17       0    50.41   10.93    5.46    N/A
+      551936         68992     float    none      -1    50.89   10.85    5.42       0    48.25   11.44    5.72    N/A
+      552960         69120     float    none      -1    53.88   10.26    5.13       0    52.74   10.48    5.24    N/A
+      553984         69248     float    none      -1    51.22   10.82    5.41       0    48.12   11.51    5.76    N/A
+      555008         69376     float    none      -1    51.68   10.74    5.37       0    48.84   11.36    5.68    N/A
+      556032         69504     float    none      -1    54.58   10.19    5.09       0    48.59   11.44    5.72    N/A
+      557056         69632     float    none      -1    51.92   10.73    5.36       0    50.52   11.03    5.51    N/A
+      558080         69760     float    none      -1    53.22   10.49    5.24       0    50.22   11.11    5.56    N/A
+      559104         69888     float    none      -1    54.03   10.35    5.17       0    49.35   11.33    5.66    N/A
+      560128         70016     float    none      -1    55.13   10.16    5.08       0    48.97   11.44    5.72    N/A
+      561152         70144     float    none      -1    52.91   10.61    5.30       0    48.97   11.46    5.73    N/A
+      562176         70272     float    none      -1    52.68   10.67    5.34       0    54.78   10.26    5.13    N/A
+      563200         70400     float    none      -1    58.34    9.65    4.83       0    49.84   11.30    5.65    N/A
+      564224         70528     float    none      -1    52.69   10.71    5.35       0    50.27   11.22    5.61    N/A
+      565248         70656     float    none      -1    54.67   10.34    5.17       0    49.20   11.49    5.74    N/A
+      566272         70784     float    none      -1    52.30   10.83    5.41       0    49.16   11.52    5.76    N/A
+      567296         70912     float    none      -1    54.36   10.44    5.22       0    50.30   11.28    5.64    N/A
+      568320         71040     float    none      -1    53.54   10.62    5.31       0    50.17   11.33    5.66    N/A
+      569344         71168     float    none      -1    55.18   10.32    5.16       0    50.71   11.23    5.61    N/A
+      570368         71296     float    none      -1    54.34   10.50    5.25       0    49.72   11.47    5.74    N/A
+      571392         71424     float    none      -1    53.90   10.60    5.30       0    49.36   11.58    5.79    N/A
+      572416         71552     float    none      -1    55.07   10.39    5.20       0    55.16   10.38    5.19    N/A
+      573440         71680     float    none      -1    52.80   10.86    5.43       0    50.20   11.42    5.71    N/A
+      574464         71808     float    none      -1    54.44   10.55    5.28       0    52.11   11.02    5.51    N/A
+      575488         71936     float    none      -1    53.31   10.79    5.40       0    51.19   11.24    5.62    N/A
+      576512         72064     float    none      -1    53.57   10.76    5.38       0    50.74   11.36    5.68    N/A
+      577536         72192     float    none      -1    55.41   10.42    5.21       0    50.49   11.44    5.72    N/A
+      578560         72320     float    none      -1    55.23   10.48    5.24       0    51.77   11.17    5.59    N/A
+      579584         72448     float    none      -1    53.04   10.93    5.46       0    49.89   11.62    5.81    N/A
+      580608         72576     float    none      -1    53.12   10.93    5.46       0    49.91   11.63    5.82    N/A
+      581632         72704     float    none      -1    52.85   11.01    5.50       0    51.82   11.22    5.61    N/A
+      582656         72832     float    none      -1    57.25   10.18    5.09       0    50.06   11.64    5.82    N/A
+      583680         72960     float    none      -1    54.10   10.79    5.39       0    50.70   11.51    5.76    N/A
+      584704         73088     float    none      -1    54.15   10.80    5.40       0    49.87   11.72    5.86    N/A
+      585728         73216     float    none      -1    53.91   10.87    5.43       0    51.15   11.45    5.73    N/A
+      586752         73344     float    none      -1    55.25   10.62    5.31       0    49.95   11.75    5.87    N/A
+      587776         73472     float    none      -1    55.19   10.65    5.32       0    50.30   11.69    5.84    N/A
+      588800         73600     float    none      -1    54.73   10.76    5.38       0    52.15   11.29    5.65    N/A
+      589824         73728     float    none      -1    53.78   10.97    5.48       0    50.18   11.75    5.88    N/A
+      590848         73856     float    none      -1    55.09   10.73    5.36       0    51.47   11.48    5.74    N/A
+      591872         73984     float    none      -1    53.46   11.07    5.54       0    54.52   10.86    5.43    N/A
+      592896         74112     float    none      -1    53.14   11.16    5.58       0    50.51   11.74    5.87    N/A
+      593920         74240     float    none      -1    54.22   10.95    5.48       0    49.57   11.98    5.99    N/A
+      594944         74368     float    none      -1    53.81   11.06    5.53       0    50.46   11.79    5.89    N/A
+      595968         74496     float    none      -1    54.73   10.89    5.44       0    51.62   11.55    5.77    N/A
+      596992         74624     float    none      -1    53.79   11.10    5.55       0    50.52   11.82    5.91    N/A
+      598016         74752     float    none      -1    54.53   10.97    5.48       0    52.18   11.46    5.73    N/A
+      599040         74880     float    none      -1    56.13   10.67    5.34       0    49.95   11.99    6.00    N/A
+      600064         75008     float    none      -1    54.39   11.03    5.52       0    49.62   12.09    6.05    N/A
+      601088         75136     float    none      -1    55.12   10.91    5.45       0    50.59   11.88    5.94    N/A
+      602112         75264     float    none      -1    56.46   10.66    5.33       0    52.24   11.53    5.76    N/A
+      603136         75392     float    none      -1    55.34   10.90    5.45       0    50.26   12.00    6.00    N/A
+      604160         75520     float    none      -1    55.48   10.89    5.44       0    50.39   11.99    5.99    N/A
+      605184         75648     float    none      -1    52.82   11.46    5.73       0    50.32   12.03    6.01    N/A
+      606208         75776     float    none      -1    55.39   10.94    5.47       0    50.61   11.98    5.99    N/A
+      607232         75904     float    none      -1    56.29   10.79    5.39       0    50.89   11.93    5.97    N/A
+      608256         76032     float    none      -1    54.31   11.20    5.60       0    51.87   11.73    5.86    N/A
+      609280         76160     float    none      -1    56.06   10.87    5.43       0    52.54   11.60    5.80    N/A
+      610304         76288     float    none      -1    56.56   10.79    5.39       0    50.38   12.11    6.06    N/A
+      611328         76416     float    none      -1    55.04   11.11    5.55       0    53.24   11.48    5.74    N/A
+      612352         76544     float    none      -1    54.73   11.19    5.59       0    50.79   12.06    6.03    N/A
+      613376         76672     float    none      -1    54.41   11.27    5.64       0    50.82   12.07    6.04    N/A
+      614400         76800     float    none      -1    55.63   11.04    5.52       0    52.38   11.73    5.86    N/A
+      615424         76928     float    none      -1    54.49   11.29    5.65       0    50.54   12.18    6.09    N/A
+      616448         77056     float    none      -1    55.21   11.17    5.58       0    52.06   11.84    5.92    N/A
+      617472         77184     float    none      -1    54.80   11.27    5.63       0    52.76   11.70    5.85    N/A
+      618496         77312     float    none      -1    55.12   11.22    5.61       0    51.12   12.10    6.05    N/A
+      619520         77440     float    none      -1    55.01   11.26    5.63       0    50.59   12.25    6.12    N/A
+      620544         77568     float    none      -1    54.00   11.49    5.75       0    51.08   12.15    6.07    N/A
+      621568         77696     float    none      -1    55.35   11.23    5.61       0    53.16   11.69    5.85    N/A
+      622592         77824     float    none      -1    54.21   11.48    5.74       0    51.46   12.10    6.05    N/A
+      623616         77952     float    none      -1    53.42   11.67    5.84       0    50.62   12.32    6.16    N/A
+      624640         78080     float    none      -1    54.02   11.56    5.78       0    51.25   12.19    6.09    N/A
+      625664         78208     float    none      -1    55.10   11.35    5.68       0    51.57   12.13    6.07    N/A
+      626688         78336     float    none      -1    54.53   11.49    5.75       0    51.10   12.26    6.13    N/A
+      627712         78464     float    none      -1    57.23   10.97    5.48       0    51.34   12.23    6.11    N/A
+      628736         78592     float    none      -1    56.28   11.17    5.59       0    52.57   11.96    5.98    N/A
+      629760         78720     float    none      -1    53.79   11.71    5.85       0    51.02   12.34    6.17    N/A
+      630784         78848     float    none      -1    54.21   11.64    5.82       0    52.04   12.12    6.06    N/A
+      631808         78976     float    none      -1    54.30   11.64    5.82       0    51.43   12.28    6.14    N/A
+      632832         79104     float    none      -1    53.78   11.77    5.88       0    54.76   11.56    5.78    N/A
+      633856         79232     float    none      -1    55.73   11.37    5.69       0    50.81   12.48    6.24    N/A
+      634880         79360     float    none      -1    54.47   11.65    5.83       0    51.20   12.40    6.20    N/A
+      635904         79488     float    none      -1    55.75   11.41    5.70       0    51.07   12.45    6.23    N/A
+      636928         79616     float    none      -1    54.96   11.59    5.79       0    52.59   12.11    6.06    N/A
+      637952         79744     float    none      -1    55.94   11.40    5.70       0    51.29   12.44    6.22    N/A
+      638976         79872     float    none      -1    55.28   11.56    5.78       0    51.54   12.40    6.20    N/A
+      640000         80000     float    none      -1    55.52   11.53    5.76       0    53.98   11.86    5.93    N/A
+      641024         80128     float    none      -1    58.92   10.88    5.44       0    50.90   12.59    6.30    N/A
+      642048         80256     float    none      -1    54.77   11.72    5.86       0    51.28   12.52    6.26    N/A
+      643072         80384     float    none      -1    56.11   11.46    5.73       0    51.89   12.39    6.20    N/A
+      644096         80512     float    none      -1    55.72   11.56    5.78       0    51.61   12.48    6.24    N/A
+      645120         80640     float    none      -1    55.79   11.56    5.78       0    51.59   12.51    6.25    N/A
+      646144         80768     float    none      -1    54.63   11.83    5.91       0    51.43   12.56    6.28    N/A
+      647168         80896     float    none      -1    56.07   11.54    5.77       0    54.10   11.96    5.98    N/A
+      648192         81024     float    none      -1    56.49   11.47    5.74       0    52.18   12.42    6.21    N/A
+      649216         81152     float    none      -1    55.38   11.72    5.86       0    51.82   12.53    6.26    N/A
+      650240         81280     float    none      -1    54.72   11.88    5.94       0    53.00   12.27    6.13    N/A
+      651264         81408     float    none      -1    55.01   11.84    5.92       0    52.01   12.52    6.26    N/A
+      652288         81536     float    none      -1    55.89   11.67    5.84       0    53.23   12.25    6.13    N/A
+      653312         81664     float    none      -1    56.28   11.61    5.80       0    53.66   12.17    6.09    N/A
+      654336         81792     float    none      -1    56.86   11.51    5.75       0    53.57   12.21    6.11    N/A
+      655360         81920     float    none      -1    55.36   11.84    5.92       0    52.15   12.57    6.28    N/A
+      656384         82048     float    none      -1    57.37   11.44    5.72       0    50.91   12.89    6.45    N/A
+      657408         82176     float    none      -1    56.21   11.70    5.85       0    51.68   12.72    6.36    N/A
+      658432         82304     float    none      -1    54.67   12.04    6.02       0    51.56   12.77    6.39    N/A
+      659456         82432     float    none      -1    58.10   11.35    5.68       0    53.35   12.36    6.18    N/A
+      660480         82560     float    none      -1    57.44   11.50    5.75       0    52.40   12.60    6.30    N/A
+      661504         82688     float    none      -1    54.39   12.16    6.08       0    52.77   12.54    6.27    N/A
+      662528         82816     float    none      -1    54.95   12.06    6.03       0    52.03   12.73    6.37    N/A
+      663552         82944     float    none      -1    55.02   12.06    6.03       0    51.30   12.93    6.47    N/A
+      664576         83072     float    none      -1    55.59   11.95    5.98       0    51.52   12.90    6.45    N/A
+      665600         83200     float    none      -1    55.10   12.08    6.04       0    51.75   12.86    6.43    N/A
+      666624         83328     float    none      -1    57.19   11.66    5.83       0    54.44   12.25    6.12    N/A
+      667648         83456     float    none      -1    55.75   11.97    5.99       0    51.64   12.93    6.46    N/A
+      668672         83584     float    none      -1    56.06   11.93    5.96       0    52.82   12.66    6.33    N/A
+      669696         83712     float    none      -1    57.29   11.69    5.84       0    56.46   11.86    5.93    N/A
+      670720         83840     float    none      -1    55.74   12.03    6.02       0    51.94   12.91    6.46    N/A
+      671744         83968     float    none      -1    57.03   11.78    5.89       0    52.75   12.73    6.37    N/A
+      672768         84096     float    none      -1    56.20   11.97    5.98       0    52.00   12.94    6.47    N/A
+      673792         84224     float    none      -1    57.62   11.69    5.85       0    55.09   12.23    6.12    N/A
+      674816         84352     float    none      -1    56.06   12.04    6.02       0    51.69   13.06    6.53    N/A
+      675840         84480     float    none      -1    56.49   11.96    5.98       0    54.85   12.32    6.16    N/A
+      676864         84608     float    none      -1    56.29   12.03    6.01       0    53.00   12.77    6.39    N/A
+      677888         84736     float    none      -1    56.88   11.92    5.96       0    51.96   13.05    6.52    N/A
+      678912         84864     float    none      -1    58.19   11.67    5.83       0    52.86   12.84    6.42    N/A
+      679936         84992     float    none      -1    58.86   11.55    5.78       0    51.82   13.12    6.56    N/A
+      680960         85120     float    none      -1    57.44   11.86    5.93       0    53.89   12.64    6.32    N/A
+      681984         85248     float    none      -1    56.44   12.08    6.04       0    52.14   13.08    6.54    N/A
+      683008         85376     float    none      -1    56.86   12.01    6.01       0    52.00   13.14    6.57    N/A
+      684032         85504     float    none      -1    57.86   11.82    5.91       0    52.74   12.97    6.48    N/A
+      685056         85632     float    none      -1    56.38   12.15    6.08       0    54.41   12.59    6.30    N/A
+      686080         85760     float    none      -1    56.87   12.06    6.03       0    53.59   12.80    6.40    N/A
+      687104         85888     float    none      -1    55.81   12.31    6.16       0    53.00   12.96    6.48    N/A
+      688128         86016     float    none      -1    57.14   12.04    6.02       0    55.06   12.50    6.25    N/A
+      689152         86144     float    none      -1    58.10   11.86    5.93       0    55.71   12.37    6.18    N/A
+      690176         86272     float    none      -1    55.84   12.36    6.18       0    53.31   12.95    6.47    N/A
+      691200         86400     float    none      -1    55.34   12.49    6.24       0    53.35   12.96    6.48    N/A
+      692224         86528     float    none      -1    56.07   12.35    6.17       0    52.59   13.16    6.58    N/A
+      693248         86656     float    none      -1    57.38   12.08    6.04       0    53.06   13.07    6.53    N/A
+      694272         86784     float    none      -1    57.09   12.16    6.08       0    52.79   13.15    6.58    N/A
+      695296         86912     float    none      -1    57.60   12.07    6.04       0    55.31   12.57    6.28    N/A
+      696320         87040     float    none      -1    56.74   12.27    6.14       0    53.04   13.13    6.56    N/A
+      697344         87168     float    none      -1    55.31   12.61    6.30       0    52.48   13.29    6.64    N/A
+      698368         87296     float    none      -1    56.66   12.33    6.16       0    57.11   12.23    6.11    N/A
+      699392         87424     float    none      -1    60.90   11.48    5.74       0    52.90   13.22    6.61    N/A
+      700416         87552     float    none      -1    57.24   12.24    6.12       0    52.62   13.31    6.66    N/A
+      701440         87680     float    none      -1    55.72   12.59    6.29       0    53.05   13.22    6.61    N/A
+      702464         87808     float    none      -1    59.97   11.71    5.86       0    54.82   12.81    6.41    N/A
+      703488         87936     float    none      -1    56.87   12.37    6.18       0    52.39   13.43    6.71    N/A
+      704512         88064     float    none      -1    55.42   12.71    6.36       0    54.49   12.93    6.46    N/A
+      705536         88192     float    none      -1    57.34   12.30    6.15       0    54.70   12.90    6.45    N/A
+      706560         88320     float    none      -1    55.88   12.64    6.32       0    53.07   13.31    6.66    N/A
+      707584         88448     float    none      -1    56.66   12.49    6.24       0    52.99   13.35    6.68    N/A
+      708608         88576     float    none      -1    61.03   11.61    5.81       0    56.82   12.47    6.24    N/A
+      709632         88704     float    none      -1    59.48   11.93    5.96       0    55.43   12.80    6.40    N/A
+      710656         88832     float    none      -1    58.00   12.25    6.13       0    53.20   13.36    6.68    N/A
+      711680         88960     float    none      -1    56.83   12.52    6.26       0    53.30   13.35    6.68    N/A
+      712704         89088     float    none      -1    56.19   12.68    6.34       0    52.31   13.62    6.81    N/A
+      713728         89216     float    none      -1    56.12   12.72    6.36       0    53.38   13.37    6.69    N/A
+      714752         89344     float    none      -1    58.67   12.18    6.09       0    53.59   13.34    6.67    N/A
+      715776         89472     float    none      -1    56.97   12.56    6.28       0    53.27   13.44    6.72    N/A
+      716800         89600     float    none      -1    59.46   12.05    6.03       0    56.20   12.75    6.38    N/A
+      717824         89728     float    none      -1    58.25   12.32    6.16       0    57.66   12.45    6.22    N/A
+      718848         89856     float    none      -1    59.74   12.03    6.02       0    53.49   13.44    6.72    N/A
+      719872         89984     float    none      -1    56.53   12.73    6.37       0    53.44   13.47    6.74    N/A
+      720896         90112     float    none      -1    56.20   12.83    6.41       0    54.79   13.16    6.58    N/A
+      721920         90240     float    none      -1    57.62   12.53    6.26       0    53.46   13.50    6.75    N/A
+      722944         90368     float    none      -1    57.71   12.53    6.26       0    52.69   13.72    6.86    N/A
+      723968         90496     float    none      -1    59.78   12.11    6.06       0    56.18   12.89    6.44    N/A
+      724992         90624     float    none      -1    57.46   12.62    6.31       0    54.15   13.39    6.69    N/A
+      726016         90752     float    none      -1    56.83   12.77    6.39       0    55.43   13.10    6.55    N/A
+      727040         90880     float    none      -1    58.83   12.36    6.18       0    53.45   13.60    6.80    N/A
+      728064         91008     float    none      -1    58.49   12.45    6.22       0    55.93   13.02    6.51    N/A
+      729088         91136     float    none      -1    57.50   12.68    6.34       0    52.97   13.76    6.88    N/A
+      730112         91264     float    none      -1    56.57   12.91    6.45       0    52.64   13.87    6.94    N/A
+      731136         91392     float    none      -1    60.69   12.05    6.02       0    57.50   12.71    6.36    N/A
+      732160         91520     float    none      -1    56.99   12.85    6.42       0    54.06   13.54    6.77    N/A
+      733184         91648     float    none      -1    58.16   12.61    6.30       0    55.10   13.31    6.65    N/A
+      734208         91776     float    none      -1    58.31   12.59    6.30       0    53.16   13.81    6.91    N/A
+      735232         91904     float    none      -1    58.90   12.48    6.24       0    53.06   13.86    6.93    N/A
+      736256         92032     float    none      -1    57.90   12.72    6.36       0    53.12   13.86    6.93    N/A
+      737280         92160     float    none      -1    57.57   12.81    6.40       0    54.98   13.41    6.70    N/A
+      738304         92288     float    none      -1    58.12   12.70    6.35       0    56.09   13.16    6.58    N/A
+      739328         92416     float    none      -1    58.11   12.72    6.36       0    53.79   13.74    6.87    N/A
+      740352         92544     float    none      -1    58.56   12.64    6.32       0    57.38   12.90    6.45    N/A
+      741376         92672     float    none      -1    61.03   12.15    6.07       0    53.70   13.81    6.90    N/A
+      742400         92800     float    none      -1    57.75   12.86    6.43       0    53.61   13.85    6.92    N/A
+      743424         92928     float    none      -1    57.02   13.04    6.52       0    53.59   13.87    6.94    N/A
+      744448         93056     float    none      -1    58.05   12.82    6.41       0    53.95   13.80    6.90    N/A
+      745472         93184     float    none      -1    57.40   12.99    6.49       0    55.04   13.54    6.77    N/A
+      746496         93312     float    none      -1    57.45   12.99    6.50       0    53.31   14.00    7.00    N/A
+      747520         93440     float    none      -1    58.31   12.82    6.41       0    55.17   13.55    6.78    N/A
+      748544         93568     float    none      -1    58.76   12.74    6.37       0    53.50   13.99    7.00    N/A
+      749568         93696     float    none      -1    58.48   12.82    6.41       0    53.71   13.96    6.98    N/A
+      750592         93824     float    none      -1    60.58   12.39    6.20       0    58.15   12.91    6.45    N/A
+      751616         93952     float    none      -1    59.52   12.63    6.31       0    53.79   13.97    6.99    N/A
+      752640         94080     float    none      -1    58.83   12.79    6.40       0    53.68   14.02    7.01    N/A
+      753664         94208     float    none      -1    56.71   13.29    6.64       0    54.46   13.84    6.92    N/A
+      754688         94336     float    none      -1    60.00   12.58    6.29       0    57.33   13.16    6.58    N/A
+      755712         94464     float    none      -1    61.39   12.31    6.16       0    53.85   14.03    7.02    N/A
+      756736         94592     float    none      -1    58.05   13.03    6.52       0    54.41   13.91    6.95    N/A
+      757760         94720     float    none      -1    58.98   12.85    6.42       0    53.98   14.04    7.02    N/A
+      758784         94848     float    none      -1    59.37   12.78    6.39       0    54.20   14.00    7.00    N/A
+      759808         94976     float    none      -1    58.80   12.92    6.46       0    55.98   13.57    6.79    N/A
+      760832         95104     float    none      -1    61.96   12.28    6.14       0    54.47   13.97    6.98    N/A
+      761856         95232     float    none      -1    58.10   13.11    6.56       0    55.47   13.73    6.87    N/A
+      762880         95360     float    none      -1    58.71   12.99    6.50       0    54.20   14.07    7.04    N/A
+      763904         95488     float    none      -1    57.76   13.23    6.61       0    54.27   14.08    7.04    N/A
+      764928         95616     float    none      -1    67.12   11.40    5.70       0    56.00   13.66    6.83    N/A
+      765952         95744     float    none      -1    57.35   13.36    6.68       0    54.83   13.97    6.98    N/A
+      766976         95872     float    none      -1    60.43   12.69    6.35       0    55.00   13.95    6.97    N/A
+      768000         96000     float    none      -1    60.31   12.73    6.37       0    54.43   14.11    7.06    N/A
+      769024         96128     float    none      -1    57.39   13.40    6.70       0    54.80   14.03    7.02    N/A
+      770048         96256     float    none      -1    62.08   12.41    6.20       0    56.04   13.74    6.87    N/A
+      771072         96384     float    none      -1    58.35   13.21    6.61       0    54.43   14.17    7.08    N/A
+      772096         96512     float    none      -1    59.75   12.92    6.46       0    57.51   13.43    6.71    N/A
+      773120         96640     float    none      -1    57.78   13.38    6.69       0    58.09   13.31    6.65    N/A
+      774144         96768     float    none      -1    57.51   13.46    6.73       0    55.02   14.07    7.04    N/A
+      775168         96896     float    none      -1    58.06   13.35    6.68       0    54.39   14.25    7.13    N/A
+      776192         97024     float    none      -1    59.63   13.02    6.51       0    55.69   13.94    6.97    N/A
+      777216         97152     float    none      -1    57.51   13.51    6.76       0    54.67   14.22    7.11    N/A
+      778240         97280     float    none      -1    58.23   13.37    6.68       0    54.40   14.31    7.15    N/A
+      779264         97408     float    none      -1    60.84   12.81    6.40       0    57.30   13.60    6.80    N/A
+      780288         97536     float    none      -1    62.80   12.43    6.21       0    54.71   14.26    7.13    N/A
+      781312         97664     float    none      -1    59.07   13.23    6.61       0    58.06   13.46    6.73    N/A
+      782336         97792     float    none      -1    60.71   12.89    6.44       0    55.71   14.04    7.02    N/A
+      783360         97920     float    none      -1    63.47   12.34    6.17       0    54.40   14.40    7.20    N/A
+      784384         98048     float    none      -1    59.38   13.21    6.60       0    55.11   14.23    7.12    N/A
+      785408         98176     float    none      -1    58.58   13.41    6.70       0    54.83   14.32    7.16    N/A
+      786432         98304     float    none      -1    62.27   12.63    6.31       0    55.47   14.18    7.09    N/A
+      787456         98432     float    none      -1    60.44   13.03    6.51       0    56.41   13.96    6.98    N/A
+      788480         98560     float    none      -1    61.54   12.81    6.41       0    57.48   13.72    6.86    N/A
+      789504         98688     float    none      -1    63.53   12.43    6.21       0    56.42   13.99    7.00    N/A
+      790528         98816     float    none      -1    60.85   12.99    6.50       0    56.67   13.95    6.98    N/A
+      791552         98944     float    none      -1    63.57   12.45    6.23       0    57.79   13.70    6.85    N/A
+      792576         99072     float    none      -1    64.82   12.23    6.11       0    60.36   13.13    6.56    N/A
+      793600         99200     float    none      -1    61.70   12.86    6.43       0    56.40   14.07    7.04    N/A
+      794624         99328     float    none      -1    61.39   12.94    6.47       0    56.49   14.07    7.03    N/A
+      795648         99456     float    none      -1    61.41   12.96    6.48       0    60.62   13.13    6.56    N/A
+      796672         99584     float    none      -1    61.83   12.88    6.44       0    57.95   13.75    6.87    N/A
+      797696         99712     float    none      -1    62.10   12.84    6.42       0    56.27   14.18    7.09    N/A
+      798720         99840     float    none      -1    62.85   12.71    6.35       0    62.14   12.85    6.43    N/A
+      799744         99968     float    none      -1    60.66   13.18    6.59       0    57.41   13.93    6.97    N/A
+      800768        100096     float    none      -1    60.37   13.27    6.63       0    59.36   13.49    6.75    N/A
+      801792        100224     float    none      -1    63.92   12.54    6.27       0    56.46   14.20    7.10    N/A
+      802816        100352     float    none      -1    61.03   13.16    6.58       0    56.90   14.11    7.05    N/A
+      803840        100480     float    none      -1    63.78   12.60    6.30       0    56.96   14.11    7.06    N/A
+      804864        100608     float    none      -1    60.83   13.23    6.62       0    61.64   13.06    6.53    N/A
+      805888        100736     float    none      -1    66.12   12.19    6.09       0    56.77   14.20    7.10    N/A
+      806912        100864     float    none      -1    61.56   13.11    6.55       0    56.79   14.21    7.10    N/A
+      807936        100992     float    none      -1    60.69   13.31    6.66       0    56.62   14.27    7.13    N/A
+      808960        101120     float    none      -1    65.28   12.39    6.20       0    56.31   14.37    7.18    N/A
+      809984        101248     float    none      -1    61.27   13.22    6.61       0    56.66   14.29    7.15    N/A
+      811008        101376     float    none      -1    60.96   13.30    6.65       0    60.57   13.39    6.69    N/A
+      812032        101504     float    none      -1    60.33   13.46    6.73       0    57.29   14.17    7.09    N/A
+      813056        101632     float    none      -1    60.30   13.48    6.74       0    60.26   13.49    6.75    N/A
+      814080        101760     float    none      -1    61.87   13.16    6.58       0    56.78   14.34    7.17    N/A
+      815104        101888     float    none      -1    62.69   13.00    6.50       0    58.85   13.85    6.93    N/A
+      816128        102016     float    none      -1    64.80   12.59    6.30       0    56.70   14.39    7.20    N/A
+      817152        102144     float    none      -1    61.59   13.27    6.63       0    56.85   14.37    7.19    N/A
+      818176        102272     float    none      -1    61.77   13.24    6.62       0    62.56   13.08    6.54    N/A
+      819200        102400     float    none      -1    61.93   13.23    6.61       0    57.59   14.22    7.11    N/A
+      820224        102528     float    none      -1    63.04   13.01    6.51       0    58.21   14.09    7.05    N/A
+      821248        102656     float    none      -1    64.33   12.77    6.38       0    58.13   14.13    7.06    N/A
+      822272        102784     float    none      -1    62.46   13.16    6.58       0    58.01   14.17    7.09    N/A
+      823296        102912     float    none      -1    62.73   13.12    6.56       0    60.27   13.66    6.83    N/A
+      824320        103040     float    none      -1    62.72   13.14    6.57       0    58.46   14.10    7.05    N/A
+      825344        103168     float    none      -1    63.12   13.08    6.54       0    60.39   13.67    6.83    N/A
+      826368        103296     float    none      -1    62.26   13.27    6.64       0    57.82   14.29    7.15    N/A
+      827392        103424     float    none      -1    63.36   13.06    6.53       0    63.76   12.98    6.49    N/A
+      828416        103552     float    none      -1    68.65   12.07    6.03       0    58.37   14.19    7.10    N/A
+      829440        103680     float    none      -1    62.38   13.30    6.65       0    57.76   14.36    7.18    N/A
+      830464        103808     float    none      -1    63.08   13.16    6.58       0    58.89   14.10    7.05    N/A
+      831488        103936     float    none      -1    62.70   13.26    6.63       0    58.69   14.17    7.08    N/A
+      832512        104064     float    none      -1    62.99   13.22    6.61       0    58.24   14.29    7.15    N/A
+      833536        104192     float    none      -1    65.79   12.67    6.33       0    58.70   14.20    7.10    N/A
+      834560        104320     float    none      -1    64.13   13.01    6.51       0    61.37   13.60    6.80    N/A
+      835584        104448     float    none      -1    63.83   13.09    6.55       0    60.49   13.81    6.91    N/A
+      836608        104576     float    none      -1    62.23   13.44    6.72       0    58.82   14.22    7.11    N/A
+      837632        104704     float    none      -1    64.35   13.02    6.51       0    63.35   13.22    6.61    N/A
+      838656        104832     float    none      -1    63.83   13.14    6.57       0    58.98   14.22    7.11    N/A
+      839680        104960     float    none      -1    63.41   13.24    6.62       0    58.85   14.27    7.13    N/A
+      840704        105088     float    none      -1    68.81   12.22    6.11       0    63.84   13.17    6.58    N/A
+      841728        105216     float    none      -1    63.80   13.19    6.60       0    58.84   14.30    7.15    N/A
+      842752        105344     float    none      -1    63.38   13.30    6.65       0    62.09   13.57    6.79    N/A
+      843776        105472     float    none      -1    62.11   13.58    6.79       0    58.66   14.38    7.19    N/A
+      844800        105600     float    none      -1    63.91   13.22    6.61       0    58.23   14.51    7.25    N/A
+      845824        105728     float    none      -1    63.79   13.26    6.63       0    59.12   14.31    7.15    N/A
+      846848        105856     float    none      -1    62.41   13.57    6.78       0    58.97   14.36    7.18    N/A
+      847872        105984     float    none      -1    63.96   13.26    6.63       0    62.39   13.59    6.79    N/A
+      848896        106112     float    none      -1    62.01   13.69    6.84       0    58.11   14.61    7.30    N/A
+      849920        106240     float    none      -1    62.45   13.61    6.81       0    60.70   14.00    7.00    N/A
+      850944        106368     float    none      -1    67.83   12.54    6.27       0    58.49   14.55    7.27    N/A
+      851968        106496     float    none      -1    62.11   13.72    6.86       0    58.69   14.52    7.26    N/A
+      852992        106624     float    none      -1    62.00   13.76    6.88       0    62.38   13.67    6.84    N/A
+      854016        106752     float    none      -1    66.63   12.82    6.41       0    58.79   14.53    7.26    N/A
+      855040        106880     float    none      -1    61.90   13.81    6.91       0    61.45   13.91    6.96    N/A
+      856064        107008     float    none      -1    62.01   13.81    6.90       0    58.55   14.62    7.31    N/A
+      857088        107136     float    none      -1    62.10   13.80    6.90       0    59.26   14.46    7.23    N/A
+      858112        107264     float    none      -1    64.47   13.31    6.66       0    58.90   14.57    7.28    N/A
+      859136        107392     float    none      -1    63.21   13.59    6.80       0    58.96   14.57    7.29    N/A
+      860160        107520     float    none      -1    62.88   13.68    6.84       0    63.71   13.50    6.75    N/A
+      861184        107648     float    none      -1    62.14   13.86    6.93       0    59.20   14.55    7.27    N/A
+      862208        107776     float    none      -1    61.71   13.97    6.99       0    58.88   14.64    7.32    N/A
+      863232        107904     float    none      -1    63.65   13.56    6.78       0    60.82   14.19    7.10    N/A
+      864256        108032     float    none      -1    62.96   13.73    6.86       0    58.52   14.77    7.38    N/A
+      865280        108160     float    none      -1    61.98   13.96    6.98       0    62.82   13.77    6.89    N/A
+      866304        108288     float    none      -1    62.63   13.83    6.92       0    64.02   13.53    6.77    N/A
+      867328        108416     float    none      -1    63.14   13.74    6.87       0    59.95   14.47    7.23    N/A
+      868352        108544     float    none      -1    62.66   13.86    6.93       0    58.61   14.82    7.41    N/A
+      869376        108672     float    none      -1    62.04   14.01    7.01       0    59.60   14.59    7.29    N/A
+      870400        108800     float    none      -1    66.99   12.99    6.50       0    59.89   14.53    7.27    N/A
+      871424        108928     float    none      -1    62.63   13.91    6.96       0    59.28   14.70    7.35    N/A
+      872448        109056     float    none      -1    62.83   13.89    6.94       0    61.98   14.08    7.04    N/A
+      873472        109184     float    none      -1    62.71   13.93    6.96       0    59.57   14.66    7.33    N/A
+      874496        109312     float    none      -1    63.44   13.79    6.89       0    59.29   14.75    7.37    N/A
+      875520        109440     float    none      -1    63.98   13.68    6.84       0    64.37   13.60    6.80    N/A
+      876544        109568     float    none      -1    67.25   13.03    6.52       0    58.43   15.00    7.50    N/A
+      877568        109696     float    none      -1    62.95   13.94    6.97       0    59.99   14.63    7.31    N/A
+      878592        109824     float    none      -1    62.72   14.01    7.00       0    59.02   14.89    7.44    N/A
+      879616        109952     float    none      -1    65.20   13.49    6.75       0    59.68   14.74    7.37    N/A
+      880640        110080     float    none      -1    64.93   13.56    6.78       0    59.45   14.81    7.41    N/A
+      881664        110208     float    none      -1    62.69   14.06    7.03       0    58.93   14.96    7.48    N/A
+      882688        110336     float    none      -1    64.19   13.75    6.88       0    63.19   13.97    6.98    N/A
+      883712        110464     float    none      -1    63.34   13.95    6.98       0    58.93   15.00    7.50    N/A
+      884736        110592     float    none      -1    62.39   14.18    7.09       0    63.96   13.83    6.92    N/A
+      885760        110720     float    none      -1    63.22   14.01    7.01       0    59.42   14.91    7.45    N/A
+      886784        110848     float    none      -1    62.85   14.11    7.06       0    59.93   14.80    7.40    N/A
+      887808        110976     float    none      -1    65.33   13.59    6.79       0    59.16   15.01    7.50    N/A
+      888832        111104     float    none      -1    68.44   12.99    6.49       0    63.14   14.08    7.04    N/A
+      889856        111232     float    none      -1    63.31   14.05    7.03       0    60.00   14.83    7.42    N/A
+      890880        111360     float    none      -1    63.28   14.08    7.04       0    60.52   14.72    7.36    N/A
+      891904        111488     float    none      -1    63.42   14.06    7.03       0    59.67   14.95    7.47    N/A
+      892928        111616     float    none      -1    64.69   13.80    6.90       0    60.88   14.67    7.33    N/A
+      893952        111744     float    none      -1    63.63   14.05    7.02       0    60.04   14.89    7.44    N/A
+      894976        111872     float    none      -1    64.05   13.97    6.99       0    63.82   14.02    7.01    N/A
+      896000        112000     float    none      -1    64.67   13.85    6.93       0    60.15   14.90    7.45    N/A
+      897024        112128     float    none      -1    63.44   14.14    7.07       0    62.67   14.31    7.16    N/A
+      898048        112256     float    none      -1    67.16   13.37    6.69       0    60.05   14.96    7.48    N/A
+      899072        112384     float    none      -1    64.11   14.02    7.01       0    60.31   14.91    7.45    N/A
+      900096        112512     float    none      -1    67.37   13.36    6.68       0    62.55   14.39    7.20    N/A
+      901120        112640     float    none      -1    63.05   14.29    7.15       0    67.03   13.44    6.72    N/A
+      902144        112768     float    none      -1    68.25   13.22    6.61       0    65.03   13.87    6.94    N/A
+      903168        112896     float    none      -1    64.94   13.91    6.95       0    59.86   15.09    7.54    N/A
+      904192        113024     float    none      -1    64.03   14.12    7.06       0    60.26   15.00    7.50    N/A
+      905216        113152     float    none      -1    64.84   13.96    6.98       0    60.01   15.08    7.54    N/A
+      906240        113280     float    none      -1    63.91   14.18    7.09       0    60.10   15.08    7.54    N/A
+      907264        113408     float    none      -1    64.11   14.15    7.08       0    60.45   15.01    7.50    N/A
+      908288        113536     float    none      -1    63.66   14.27    7.13       0    60.85   14.93    7.46    N/A
+      909312        113664     float    none      -1    63.52   14.31    7.16       0    59.75   15.22    7.61    N/A
+      910336        113792     float    none      -1    64.22   14.17    7.09       0    60.35   15.08    7.54    N/A
+      911360        113920     float    none      -1    63.95   14.25    7.13       0    60.40   15.09    7.54    N/A
+      912384        114048     float    none      -1    64.65   14.11    7.06       0    63.80   14.30    7.15    N/A
+      913408        114176     float    none      -1    64.50   14.16    7.08       0    60.66   15.06    7.53    N/A
+      914432        114304     float    none      -1    69.29   13.20    6.60       0    63.09   14.49    7.25    N/A
+      915456        114432     float    none      -1    68.16   13.43    6.72       0    61.31   14.93    7.47    N/A
+      916480        114560     float    none      -1    64.26   14.26    7.13       0    59.57   15.39    7.69    N/A
+      917504        114688     float    none      -1    66.89   13.72    6.86       0    61.46   14.93    7.46    N/A
+      918528        114816     float    none      -1    64.73   14.19    7.10       0    61.13   15.02    7.51    N/A
+      919552        114944     float    none      -1    65.19   14.11    7.05       0    63.03   14.59    7.29    N/A
+      920576        115072     float    none      -1    64.46   14.28    7.14       0    60.11   15.32    7.66    N/A
+      921600        115200     float    none      -1    64.77   14.23    7.11       0    61.06   15.09    7.55    N/A
+      922624        115328     float    none      -1    64.98   14.20    7.10       0    60.34   15.29    7.65    N/A
+      923648        115456     float    none      -1    65.12   14.18    7.09       0    61.08   15.12    7.56    N/A
+      924672        115584     float    none      -1    67.70   13.66    6.83       0    63.10   14.65    7.33    N/A
+      925696        115712     float    none      -1    66.13   14.00    7.00       0    60.39   15.33    7.66    N/A
+      926720        115840     float    none      -1    65.14   14.23    7.11       0    64.61   14.34    7.17    N/A
+      927744        115968     float    none      -1    70.11   13.23    6.62       0    60.87   15.24    7.62    N/A
+      928768        116096     float    none      -1    64.90   14.31    7.16       0    61.21   15.17    7.59    N/A
+      929792        116224     float    none      -1    67.24   13.83    6.91       0    66.11   14.06    7.03    N/A
+      930816        116352     float    none      -1    66.00   14.10    7.05       0    61.38   15.16    7.58    N/A
+      931840        116480     float    none      -1    65.71   14.18    7.09       0    64.74   14.39    7.20    N/A
+      932864        116608     float    none      -1    67.56   13.81    6.90       0    60.93   15.31    7.66    N/A
+      933888        116736     float    none      -1    64.60   14.46    7.23       0    61.88   15.09    7.55    N/A
+      934912        116864     float    none      -1    71.19   13.13    6.57       0    62.00   15.08    7.54    N/A
+      935936        116992     float    none      -1    64.39   14.54    7.27       0    60.82   15.39    7.69    N/A
+      936960        117120     float    none      -1    65.66   14.27    7.13       0    64.07   14.62    7.31    N/A
+      937984        117248     float    none      -1    67.13   13.97    6.99       0    60.71   15.45    7.73    N/A
+      939008        117376     float    none      -1    65.36   14.37    7.18       0    61.16   15.35    7.68    N/A
+      940032        117504     float    none      -1    69.06   13.61    6.81       0    68.30   13.76    6.88    N/A
+      941056        117632     float    none      -1    65.79   14.30    7.15       0    61.13   15.39    7.70    N/A
+      942080        117760     float    none      -1    65.50   14.38    7.19       0    61.16   15.40    7.70    N/A
+      943104        117888     float    none      -1    65.60   14.38    7.19       0    61.26   15.40    7.70    N/A
+      944128        118016     float    none      -1    65.47   14.42    7.21       0    61.47   15.36    7.68    N/A
+      945152        118144     float    none      -1    66.15   14.29    7.14       0    61.28   15.42    7.71    N/A
+      946176        118272     float    none      -1    65.24   14.50    7.25       0    61.70   15.34    7.67    N/A
+      947200        118400     float    none      -1    66.72   14.20    7.10       0    63.84   14.84    7.42    N/A
+      948224        118528     float    none      -1    65.67   14.44    7.22       0    61.65   15.38    7.69    N/A
+      949248        118656     float    none      -1    65.12   14.58    7.29       0    62.01   15.31    7.65    N/A
+      950272        118784     float    none      -1    67.87   14.00    7.00       0    61.76   15.39    7.69    N/A
+      951296        118912     float    none      -1    65.18   14.59    7.30       0    61.40   15.49    7.75    N/A
+      952320        119040     float    none      -1    66.80   14.26    7.13       0    68.08   13.99    6.99    N/A
+      953344        119168     float    none      -1    69.72   13.67    6.84       0    61.41   15.53    7.76    N/A
+      954368        119296     float    none      -1    65.80   14.50    7.25       0    64.68   14.76    7.38    N/A
+      955392        119424     float    none      -1    69.26   13.79    6.90       0    61.50   15.53    7.77    N/A
+      956416        119552     float    none      -1    67.20   14.23    7.12       0    62.99   15.18    7.59    N/A
+      957440        119680     float    none      -1    71.37   13.42    6.71       0    65.19   14.69    7.34    N/A
+      958464        119808     float    none      -1    65.54   14.62    7.31       0    61.41   15.61    7.80    N/A
+      959488        119936     float    none      -1    65.97   14.54    7.27       0    62.40   15.38    7.69    N/A
+      960512        120064     float    none      -1    69.15   13.89    6.94       0    62.24   15.43    7.72    N/A
+      961536        120192     float    none      -1    66.29   14.51    7.25       0    60.93   15.78    7.89    N/A
+      962560        120320     float    none      -1    72.40   13.29    6.65       0    64.37   14.95    7.48    N/A
+      963584        120448     float    none      -1    66.31   14.53    7.27       0    62.09   15.52    7.76    N/A
+      964608        120576     float    none      -1    65.58   14.71    7.35       0    63.78   15.12    7.56    N/A
+      965632        120704     float    none      -1    70.99   13.60    6.80       0    65.63   14.71    7.36    N/A
+      966656        120832     float    none      -1    66.26   14.59    7.29       0    62.90   15.37    7.68    N/A
+      967680        120960     float    none      -1    65.12   14.86    7.43       0    62.80   15.41    7.70    N/A
+      968704        121088     float    none      -1    66.59   14.55    7.27       0    67.69   14.31    7.16    N/A
+      969728        121216     float    none      -1    66.65   14.55    7.27       0    63.54   15.26    7.63    N/A
+      970752        121344     float    none      -1    66.47   14.60    7.30       0    62.14   15.62    7.81    N/A
+      971776        121472     float    none      -1    66.25   14.67    7.33       0    61.74   15.74    7.87    N/A
+      972800        121600     float    none      -1    66.10   14.72    7.36       0    62.06   15.68    7.84    N/A
+      973824        121728     float    none      -1    67.24   14.48    7.24       0    61.57   15.82    7.91    N/A
+      974848        121856     float    none      -1    65.83   14.81    7.40       0    63.92   15.25    7.63    N/A
+      975872        121984     float    none      -1    66.84   14.60    7.30       0    63.13   15.46    7.73    N/A
+      976896        122112     float    none      -1    66.53   14.68    7.34       0    62.21   15.70    7.85    N/A
+      977920        122240     float    none      -1    66.70   14.66    7.33       0    62.24   15.71    7.86    N/A
+      978944        122368     float    none      -1    68.80   14.23    7.11       0    62.97   15.55    7.77    N/A
+      979968        122496     float    none      -1    67.69   14.48    7.24       0    64.27   15.25    7.62    N/A
+      980992        122624     float    none      -1    66.29   14.80    7.40       0    67.45   14.54    7.27    N/A
+      982016        122752     float    none      -1    71.54   13.73    6.86       0    63.51   15.46    7.73    N/A
+      983040        122880     float    none      -1    70.18   14.01    7.00       0    62.08   15.84    7.92    N/A
+      984064        123008     float    none      -1    66.73   14.75    7.37       0    62.79   15.67    7.84    N/A
+      985088        123136     float    none      -1    67.93   14.50    7.25       0    66.73   14.76    7.38    N/A
+      986112        123264     float    none      -1    66.44   14.84    7.42       0    63.02   15.65    7.82    N/A
+      987136        123392     float    none      -1    66.31   14.89    7.44       0    64.82   15.23    7.61    N/A
+      988160        123520     float    none      -1    69.10   14.30    7.15       0    62.99   15.69    7.84    N/A
+      989184        123648     float    none      -1    67.03   14.76    7.38       0    62.51   15.83    7.91    N/A
+      990208        123776     float    none      -1    69.89   14.17    7.08       0    65.77   15.05    7.53    N/A
+      991232        123904     float    none      -1    67.54   14.68    7.34       0    62.77   15.79    7.90    N/A
+      992256        124032     float    none      -1    67.23   14.76    7.38       0    69.82   14.21    7.11    N/A
+      993280        124160     float    none      -1    68.26   14.55    7.28       0    63.15   15.73    7.86    N/A
+      994304        124288     float    none      -1    72.36   13.74    6.87       0    68.11   14.60    7.30    N/A
+      995328        124416     float    none      -1    70.79   14.06    7.03       0    65.32   15.24    7.62    N/A
+      996352        124544     float    none      -1    67.27   14.81    7.41       0    63.59   15.67    7.83    N/A
+      997376        124672     float    none      -1    67.12   14.86    7.43       0    67.79   14.71    7.36    N/A
+      998400        124800     float    none      -1    68.58   14.56    7.28       0    63.26   15.78    7.89    N/A
+      999424        124928     float    none      -1    67.10   14.89    7.45       0    62.23   16.06    8.03    N/A
+     1000448        125056     float    none      -1    70.29   14.23    7.12       0    63.07   15.86    7.93    N/A
+     1001472        125184     float    none      -1    67.41   14.86    7.43       0    63.20   15.85    7.92    N/A
+     1002496        125312     float    none      -1    67.81   14.78    7.39       0    66.80   15.01    7.50    N/A
+     1003520        125440     float    none      -1    67.47   14.87    7.44       0    63.63   15.77    7.89    N/A
+     1004544        125568     float    none      -1    67.48   14.89    7.44       0    63.10   15.92    7.96    N/A
+     1005568        125696     float    none      -1    72.81   13.81    6.91       0    64.14   15.68    7.84    N/A
+     1006592        125824     float    none      -1    67.51   14.91    7.46       0    66.00   15.25    7.63    N/A
+     1007616        125952     float    none      -1    70.48   14.30    7.15       0    66.11   15.24    7.62    N/A
+     1008640        126080     float    none      -1    70.35   14.34    7.17       0    64.24   15.70    7.85    N/A
+     1009664        126208     float    none      -1    67.84   14.88    7.44       0    65.80   15.34    7.67    N/A
+     1010688        126336     float    none      -1    72.62   13.92    6.96       0    63.23   15.99    7.99    N/A
+     1011712        126464     float    none      -1    68.02   14.87    7.44       0    63.38   15.96    7.98    N/A
+     1012736        126592     float    none      -1    67.74   14.95    7.48       0    64.68   15.66    7.83    N/A
+     1013760        126720     float    none      -1    67.49   15.02    7.51       0    63.87   15.87    7.94    N/A
+     1014784        126848     float    none      -1    68.33   14.85    7.43       0    63.79   15.91    7.95    N/A
+     1015808        126976     float    none      -1    69.17   14.69    7.34       0    63.99   15.87    7.94    N/A
+     1016832        127104     float    none      -1    79.96   12.72    6.36       0    64.10   15.86    7.93    N/A
+     1017856        127232     float    none      -1    67.46   15.09    7.54       0    64.26   15.84    7.92    N/A
+     1018880        127360     float    none      -1    67.50   15.10    7.55       0    63.62   16.02    8.01    N/A
+     1019904        127488     float    none      -1    67.90   15.02    7.51       0    66.17   15.41    7.71    N/A
+     1020928        127616     float    none      -1    69.04   14.79    7.39       0    65.88   15.50    7.75    N/A
+     1021952        127744     float    none      -1    68.24   14.97    7.49       0    63.41   16.12    8.06    N/A
+     1022976        127872     float    none      -1    74.55   13.72    6.86       0    68.38   14.96    7.48    N/A
+     1024000        128000     float    none      -1    68.39   14.97    7.49       0    63.52   16.12    8.06    N/A
+     1025024        128128     float    none      -1    67.50   15.19    7.59       0    63.51   16.14    8.07    N/A
+     1026048        128256     float    none      -1    70.33   14.59    7.29       0    69.46   14.77    7.39    N/A
+     1027072        128384     float    none      -1    68.10   15.08    7.54       0    63.53   16.17    8.08    N/A
+     1028096        128512     float    none      -1    67.61   15.21    7.60       0    67.74   15.18    7.59    N/A
+     1029120        128640     float    none      -1    67.96   15.14    7.57       0    63.49   16.21    8.10    N/A
+     1030144        128768     float    none      -1    68.47   15.04    7.52       0    64.50   15.97    7.99    N/A
+     1031168        128896     float    none      -1    72.07   14.31    7.15       0    73.10   14.11    7.05    N/A
+     1032192        129024     float    none      -1    67.14   15.37    7.69       0    62.19   16.60    8.30    N/A
+     1033216        129152     float    none      -1    67.16   15.38    7.69       0    69.08   14.96    7.48    N/A
+     1034240        129280     float    none      -1    68.39   15.12    7.56       0    62.50   16.55    8.27    N/A
+     1035264        129408     float    none      -1    68.42   15.13    7.56       0    67.39   15.36    7.68    N/A
+     1036288        129536     float    none      -1    72.61   14.27    7.14       0    64.29   16.12    8.06    N/A
+     1037312        129664     float    none      -1    68.59   15.12    7.56       0    64.26   16.14    8.07    N/A
+     1038336        129792     float    none      -1    68.39   15.18    7.59       0    70.41   14.75    7.37    N/A
+     1039360        129920     float    none      -1    73.43   14.15    7.08       0    64.14   16.20    8.10    N/A
+     1040384        130048     float    none      -1    68.44   15.20    7.60       0    65.23   15.95    7.98    N/A
+     1041408        130176     float    none      -1    72.64   14.34    7.17       0    63.70   16.35    8.17    N/A
+     1042432        130304     float    none      -1    68.90   15.13    7.56       0    64.42   16.18    8.09    N/A
+     1043456        130432     float    none      -1    68.34   15.27    7.63       0    67.84   15.38    7.69    N/A
+     1044480        130560     float    none      -1    68.79   15.18    7.59       0    65.61   15.92    7.96    N/A
+     1045504        130688     float    none      -1    68.98   15.16    7.58       0    64.13   16.30    8.15    N/A
+     1046528        130816     float    none      -1    72.12   14.51    7.26       0    65.99   15.86    7.93    N/A
+     1047552        130944     float    none      -1    68.59   15.27    7.64       0    64.57   16.22    8.11    N/A
+n014:242839:242839 [0] NCCL INFO comm 0x5a1fd20 rank 1 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+n013:793134:793134 [0] NCCL INFO comm 0x5a367c0 rank 0 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 4.79386 
+#
+# Collective test concluded: alltoall_perf
+
