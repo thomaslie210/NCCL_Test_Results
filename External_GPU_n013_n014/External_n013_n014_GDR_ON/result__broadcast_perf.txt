@@ -1,0 +1,188 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: broadcast_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 12884901888 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 164451 on       n013 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 164452 on       n013 device  1 [0000:a1:09] NVIDIA A100-PCIE-40GB
+#
+# Reducing maxBytes to 12703629312 due to memory limitation
+n013:164451:164451 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:164451:164451 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:164451:164451 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:164451:164451 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.16.5+cuda11.8
+n013:164452:164452 [1] NCCL INFO cudaDriverVersion 13010
+n013:164451:164470 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:164451:164470 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:164451:164470 [0] NCCL INFO Using network IB
+n013:164451:164470 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n013:164452:164452 [1] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:164452:164452 [1] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:164452:164452 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:164452:164472 [1] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:164452:164472 [1] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:164452:164472 [1] NCCL INFO Using network IB
+n013:164452:164472 [1] NCCL INFO DMA-BUF is available on GPU device 1
+n013:164452:164472 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:164451:164470 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:164452:164472 [1] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:164452:164472 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:164452:164472 [1] NCCL INFO GPU Direct RDMA Enabled for GPU a1090 / HCA 0 (distance 6 <= 7), read 0
+n013:164452:164472 [1] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:164452:164472 [1] NCCL INFO CPU/1 (1/2/-1)
+n013:164452:164472 [1] NCCL INFO + PCI[24.0] - GPU/81000 (0)
+n013:164452:164472 [1] NCCL INFO + PCI[24.0] - GPU/A1090 (1)
+n013:164452:164472 [1] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:164452:164472 [1] NCCL INFO ==========================================
+n013:164452:164472 [1] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) GPU/A1090 (2/24.000000/PHB) CPU/1 (1/24.000000/PHB) 
+n013:164452:164472 [1] NCCL INFO GPU/A1090 :GPU/81000 (2/24.000000/PHB) GPU/A1090 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) 
+n013:164452:164472 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+n013:164452:164472 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:164452:164472 [1] NCCL INFO  1 : GPU/0 GPU/1
+n013:164452:164472 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n013:164452:164472 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:164452:164472 [1] NCCL INFO  1 : GPU/1 GPU/0
+n013:164452:164472 [1] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n013:164452:164472 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:164452:164472 [1] NCCL INFO  1 : GPU/1 GPU/0
+n013:164451:164470 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:164451:164470 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:164451:164470 [0] NCCL INFO GPU Direct RDMA Enabled for GPU a1090 / HCA 0 (distance 6 <= 7), read 0
+n013:164451:164470 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:164451:164470 [0] NCCL INFO CPU/1 (1/2/-1)
+n013:164451:164470 [0] NCCL INFO + PCI[24.0] - GPU/81000 (0)
+n013:164451:164470 [0] NCCL INFO + PCI[24.0] - GPU/A1090 (1)
+n013:164451:164470 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:164451:164470 [0] NCCL INFO ==========================================
+n013:164451:164470 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) GPU/A1090 (2/24.000000/PHB) CPU/1 (1/24.000000/PHB) 
+n013:164451:164470 [0] NCCL INFO GPU/A1090 :GPU/81000 (2/24.000000/PHB) GPU/A1090 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) 
+n013:164451:164470 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+n013:164451:164470 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:164451:164470 [0] NCCL INFO  1 : GPU/0 GPU/1
+n013:164451:164470 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n013:164451:164470 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:164451:164470 [0] NCCL INFO  1 : GPU/1 GPU/0
+n013:164451:164470 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n013:164451:164470 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:164451:164470 [0] NCCL INFO  1 : GPU/1 GPU/0
+n013:164452:164472 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n013:164452:164472 [1] NCCL INFO Tree 2 : 0 -> 1 -> -1/-1/-1
+n013:164452:164472 [1] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n013:164452:164472 [1] NCCL INFO Tree 3 : -1 -> 1 -> 0/-1/-1
+n013:164452:164472 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n013:164452:164472 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n013:164451:164470 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n013:164451:164470 [0] NCCL INFO Tree 2 : -1 -> 0 -> 1/-1/-1
+n013:164451:164470 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n013:164451:164470 [0] NCCL INFO Tree 3 : 1 -> 0 -> -1/-1/-1
+n013:164452:164472 [1] NCCL INFO Ring 02 : 0 -> 1 -> 0
+n013:164452:164472 [1] NCCL INFO Ring 03 : 0 -> 1 -> 0
+n013:164452:164472 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1 [2] -1/-1/-1->1->0 [3] 0/-1/-1->1->-1
+n013:164451:164470 [0] NCCL INFO Channel 00/04 :    0   1
+n013:164451:164470 [0] NCCL INFO Channel 01/04 :    0   1
+n013:164451:164470 [0] NCCL INFO Channel 02/04 :    0   1
+n013:164451:164470 [0] NCCL INFO Channel 03/04 :    0   1
+n013:164451:164470 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n013:164451:164470 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n013:164451:164470 [0] NCCL INFO Ring 02 : 1 -> 0 -> 1
+n013:164452:164472 [1] NCCL INFO P2P Chunksize set to 131072
+n013:164451:164470 [0] NCCL INFO Ring 03 : 1 -> 0 -> 1
+n013:164451:164470 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1 [2] 1/-1/-1->0->-1 [3] -1/-1/-1->0->1
+n013:164451:164470 [0] NCCL INFO P2P Chunksize set to 131072
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d50
+n013:164451:164475 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000ca0
+n013:164452:164474 [1] NCCL INFO New proxy recv connection 0 from local rank 1, transport 0
+n013:164451:164475 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 0
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d90
+n013:164452:164474 [1] NCCL INFO New proxy recv connection 1 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000ce0
+n013:164452:164474 [1] NCCL INFO New proxy recv connection 2 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000d20
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000dd0
+n013:164451:164475 [0] NCCL INFO New proxy recv connection 2 from local rank 0, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000d60
+n013:164452:164474 [1] NCCL INFO New proxy recv connection 3 from local rank 1, transport 0
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e10
+n013:164451:164475 [0] NCCL INFO New proxy recv connection 3 from local rank 0, transport 0
+n013:164452:164472 [1] NCCL INFO Channel 00/0 : 1[a1090] -> 0[81000] via P2P/IPC
+n013:164452:164474 [1] NCCL INFO New proxy send connection 4 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000da0
+n013:164451:164470 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[a1090] via P2P/IPC
+n013:164451:164475 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 0
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e50
+n013:164452:164472 [1] NCCL INFO Channel 01/0 : 1[a1090] -> 0[81000] via P2P/IPC
+n013:164451:164470 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[a1090] via P2P/IPC
+n013:164452:164474 [1] NCCL INFO New proxy send connection 5 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000de0
+n013:164451:164475 [0] NCCL INFO New proxy send connection 5 from local rank 0, transport 0
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e90
+n013:164452:164472 [1] NCCL INFO Channel 02/0 : 1[a1090] -> 0[81000] via P2P/IPC
+n013:164451:164470 [0] NCCL INFO Channel 02/0 : 0[81000] -> 1[a1090] via P2P/IPC
+n013:164452:164474 [1] NCCL INFO New proxy send connection 6 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000e20
+n013:164451:164475 [0] NCCL INFO New proxy send connection 6 from local rank 0, transport 0
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ed0
+n013:164451:164470 [0] NCCL INFO Channel 03/0 : 0[81000] -> 1[a1090] via P2P/IPC
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f10
+n013:164452:164472 [1] NCCL INFO Channel 03/0 : 1[a1090] -> 0[81000] via P2P/IPC
+n013:164451:164475 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 0
+n013:164452:164474 [1] NCCL INFO New proxy send connection 7 from local rank 1, transport 0
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000e60
+n013:164452:164472 [1] NCCL INFO Connected all rings
+n013:164452:164472 [1] NCCL INFO Connected all trees
+n013:164452:164472 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:164451:164470 [0] NCCL INFO Connected all rings
+n013:164451:164470 [0] NCCL INFO Connected all trees
+n013:164452:164472 [1] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n013:164451:164470 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:164451:164470 [0] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n013:164452:164474 [1] NCCL INFO New proxy send connection 8 from local rank 1, transport 2
+n013:164451:164475 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n013:164451:164470 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f50
+n013:164452:164472 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x154c04000ea0
+n013:164451:164470 [0] NCCL INFO comm 0x5a502c0 rank 0 nranks 2 cudaDev 0 busId 81000 commId 0x2f36047853ff651d - Init COMPLETE
+n013:164452:164472 [1] NCCL INFO comm 0x5a39250 rank 1 nranks 2 cudaDev 1 busId a1090 commId 0x2f36047853ff651d - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+           8             2     float    none       0    10.45    0.00    0.00       0    10.31    0.00    0.00       0
+          16             4     float    none       0    10.19    0.00    0.00       0    10.44    0.00    0.00       0
+          32             8     float    none       0    10.12    0.00    0.00       0     9.99    0.00    0.00       0
+          64            16     float    none       0    10.01    0.01    0.01       0    10.10    0.01    0.01       0
+         128            32     float    none       0     9.99    0.01    0.01       0     9.87    0.01    0.01       0
+         256            64     float    none       0     9.96    0.03    0.03       0     9.95    0.03    0.03       0
+         512           128     float    none       0     9.98    0.05    0.05       0     9.93    0.05    0.05       0
+        1024           256     float    none       0    10.35    0.10    0.10       0    10.32    0.10    0.10       0
+        2048           512     float    none       0    10.41    0.20    0.20       0    11.72    0.17    0.17       0
+        4096          1024     float    none       0    10.66    0.38    0.38       0    10.53    0.39    0.39       0
+        8192          2048     float    none       0    11.48    0.71    0.71       0    10.82    0.76    0.76       0
+       16384          4096     float    none       0    12.71    1.29    1.29       0    12.16    1.35    1.35       0
+       32768          8192     float    none       0    13.48    2.43    2.43       0    12.83    2.55    2.55       0
+       65536         16384     float    none       0    15.54    4.22    4.22       0    15.54    4.22    4.22       0
+      131072         32768     float    none       0    32.10    4.08    4.08       0    31.18    4.20    4.20       0
+      262144         65536     float    none       0    38.24    6.86    6.86       0    37.82    6.93    6.93       0
+      524288        131072     float    none       0    51.25   10.23   10.23       0    51.04   10.27   10.27       0
+     1048576        262144     float    none       0    78.15   13.42   13.42       0    78.09   13.43   13.43       0
+     2097152        524288     float    none       0   130.81   16.03   16.03       0   131.40   15.96   15.96       0
+     4194304       1048576     float    none       0   236.28   17.75   17.75       0   236.40   17.74   17.74       0
+     8388608       2097152     float    none       0   445.49   18.83   18.83       0   446.50   18.79   18.79       0
+    16777216       4194304     float    none       0   869.52   19.29   19.29       0   868.53   19.32   19.32       0
+    33554432       8388608     float    none       0  1709.06   19.63   19.63       0  1708.77   19.64   19.64       0
+    67108864      16777216     float    none       0  3384.78   19.83   19.83       0  3387.84   19.81   19.81       0
+   134217728      33554432     float    none       0  6725.15   19.96   19.96       0  6746.00   19.90   19.90       0
+   268435456      67108864     float    none       0  13420.1   20.00   20.00       0  13465.5   19.94   19.94       0
+   536870912     134217728     float    none       0  26810.5   20.02   20.02       0  26890.8   19.96   19.96       0
+  1073741824     268435456     float    none       0  53572.8   20.04   20.04       0  53766.9   19.97   19.97       0
+  2147483648     536870912     float    none       0   107148   20.04   20.04       0   107499   19.98   19.98       0
+  4294967296    1073741824     float    none       0   214264   20.05   20.05       0   215035   19.97   19.97       0
+  8589934592    2147483648     float    none       0   428507   20.05   20.05       0   429849   19.98   19.98       0
+n013:164452:164452 [1] NCCL INFO comm 0x5a39250 rank 1 nranks 2 cudaDev 1 busId a1090 - Destroy COMPLETE
+n013:164451:164451 [0] NCCL INFO comm 0x5a502c0 rank 0 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 9.5319 
+#
+# Collective test concluded: broadcast_perf
+
