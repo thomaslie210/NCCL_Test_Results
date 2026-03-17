@@ -1,0 +1,1186 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: reduce_scatter_perf
+# nThread 1 nGpus 1 minBytes 1 maxBytes 1048576 step: 1024(bytes) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 2041072 on       n013 device  0 [0000:01:00] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 2041073 on       n013 device  1 [0000:81:00] NVIDIA A100-PCIE-40GB
+n013:2041072:2041072 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:2041072:2041072 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:2041072:2041072 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:2041072:2041072 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.16.5+cuda11.8
+n013:2041073:2041073 [1] NCCL INFO cudaDriverVersion 13010
+n013:2041072:2041091 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:2041072:2041091 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:2041072:2041091 [0] NCCL INFO Using network IB
+n013:2041072:2041091 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n013:2041073:2041073 [1] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:2041073:2041073 [1] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:2041073:2041073 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:2041073:2041093 [1] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:2041073:2041093 [1] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:2041073:2041093 [1] NCCL INFO Using network IB
+n013:2041073:2041093 [1] NCCL INFO DMA-BUF is available on GPU device 1
+n013:2041073:2041093 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:2041072:2041091 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:2041073:2041093 [1] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:2041073:2041093 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 1000 / HCA 0 (distance 7 <= 7), read 0
+n013:2041073:2041093 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:2041073:2041093 [1] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:2041073:2041093 [1] NCCL INFO CPU/0 (1/2/-1)
+n013:2041073:2041093 [1] NCCL INFO + SYS[5000.0] - CPU/1
+n013:2041073:2041093 [1] NCCL INFO + PCI[24.0] - GPU/1000 (0)
+n013:2041073:2041093 [1] NCCL INFO CPU/1 (1/2/-1)
+n013:2041073:2041093 [1] NCCL INFO + SYS[5000.0] - CPU/0
+n013:2041073:2041093 [1] NCCL INFO + PCI[24.0] - GPU/81000 (1)
+n013:2041073:2041093 [1] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:2041073:2041093 [1] NCCL INFO ==========================================
+n013:2041073:2041093 [1] NCCL INFO GPU/1000 :GPU/1000 (0/5000.000000/LOC) GPU/81000 (3/24.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/1 (2/24.000000/SYS) 
+n013:2041073:2041093 [1] NCCL INFO GPU/81000 :GPU/1000 (3/24.000000/SYS) GPU/81000 (0/5000.000000/LOC) CPU/0 (2/24.000000/SYS) CPU/1 (1/24.000000/PHB) 
+n013:2041073:2041093 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type SYS/PIX, sameChannels 1
+n013:2041073:2041093 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041073:2041093 [1] NCCL INFO  1 : GPU/0 GPU/1
+n013:2041073:2041093 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type SYS/PIX, sameChannels 0
+n013:2041073:2041093 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041073:2041093 [1] NCCL INFO  1 : GPU/1 GPU/0
+n013:2041073:2041093 [1] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type SYS/PIX, sameChannels 0
+n013:2041073:2041093 [1] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041073:2041093 [1] NCCL INFO  1 : GPU/1 GPU/0
+n013:2041072:2041091 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:2041072:2041091 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 1000 / HCA 0 (distance 7 <= 7), read 0
+n013:2041072:2041091 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:2041072:2041091 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:2041072:2041091 [0] NCCL INFO CPU/0 (1/2/-1)
+n013:2041072:2041091 [0] NCCL INFO + SYS[5000.0] - CPU/1
+n013:2041072:2041091 [0] NCCL INFO + PCI[24.0] - GPU/1000 (0)
+n013:2041072:2041091 [0] NCCL INFO CPU/1 (1/2/-1)
+n013:2041072:2041091 [0] NCCL INFO + SYS[5000.0] - CPU/0
+n013:2041072:2041091 [0] NCCL INFO + PCI[24.0] - GPU/81000 (1)
+n013:2041072:2041091 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:2041072:2041091 [0] NCCL INFO ==========================================
+n013:2041072:2041091 [0] NCCL INFO GPU/1000 :GPU/1000 (0/5000.000000/LOC) GPU/81000 (3/24.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/1 (2/24.000000/SYS) 
+n013:2041072:2041091 [0] NCCL INFO GPU/81000 :GPU/1000 (3/24.000000/SYS) GPU/81000 (0/5000.000000/LOC) CPU/0 (2/24.000000/SYS) CPU/1 (1/24.000000/PHB) 
+n013:2041072:2041091 [0] NCCL INFO Setting affinity for GPU 0 to 01,00000000,00000000,00000000,00000001
+n013:2041072:2041091 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type SYS/PIX, sameChannels 1
+n013:2041072:2041091 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041072:2041091 [0] NCCL INFO  1 : GPU/0 GPU/1
+n013:2041072:2041091 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type SYS/PIX, sameChannels 0
+n013:2041072:2041091 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041072:2041091 [0] NCCL INFO  1 : GPU/1 GPU/0
+n013:2041072:2041091 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type SYS/PIX, sameChannels 0
+n013:2041072:2041091 [0] NCCL INFO  0 : GPU/0 GPU/1
+n013:2041072:2041091 [0] NCCL INFO  1 : GPU/1 GPU/0
+n013:2041072:2041091 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n013:2041072:2041091 [0] NCCL INFO Tree 2 : -1 -> 0 -> 1/-1/-1
+n013:2041072:2041091 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n013:2041072:2041091 [0] NCCL INFO Tree 3 : 1 -> 0 -> -1/-1/-1
+n013:2041072:2041091 [0] NCCL INFO Channel 00/04 :    0   1
+n013:2041073:2041093 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n013:2041073:2041093 [1] NCCL INFO Tree 2 : 0 -> 1 -> -1/-1/-1
+n013:2041073:2041093 [1] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n013:2041073:2041093 [1] NCCL INFO Tree 3 : -1 -> 1 -> 0/-1/-1
+n013:2041073:2041093 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n013:2041073:2041093 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n013:2041073:2041093 [1] NCCL INFO Ring 02 : 0 -> 1 -> 0
+n013:2041073:2041093 [1] NCCL INFO Ring 03 : 0 -> 1 -> 0
+n013:2041072:2041091 [0] NCCL INFO Channel 01/04 :    0   1
+n013:2041072:2041091 [0] NCCL INFO Channel 02/04 :    0   1
+n013:2041072:2041091 [0] NCCL INFO Channel 03/04 :    0   1
+n013:2041072:2041091 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n013:2041072:2041091 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n013:2041072:2041091 [0] NCCL INFO Ring 02 : 1 -> 0 -> 1
+n013:2041073:2041093 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1 [2] -1/-1/-1->1->0 [3] 0/-1/-1->1->-1
+n013:2041073:2041093 [1] NCCL INFO P2P Chunksize set to 131072
+n013:2041072:2041091 [0] NCCL INFO Ring 03 : 1 -> 0 -> 1
+n013:2041072:2041091 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1 [2] 1/-1/-1->0->-1 [3] -1/-1/-1->0->1
+n013:2041072:2041091 [0] NCCL INFO P2P Chunksize set to 131072
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d50
+n013:2041072:2041096 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 0
+n013:2041073:2041095 [1] NCCL INFO New proxy recv connection 0 from local rank 1, transport 0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000ca0
+n013:2041073:2041095 [1] NCCL INFO New proxy recv connection 1 from local rank 1, transport 0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000ce0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000d20
+n013:2041073:2041095 [1] NCCL INFO New proxy recv connection 2 from local rank 1, transport 0
+n013:2041072:2041096 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d90
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000d60
+n013:2041073:2041095 [1] NCCL INFO New proxy recv connection 3 from local rank 1, transport 0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000dd0
+n013:2041073:2041093 [1] NCCL INFO Channel 00/0 : 1[81000] -> 0[1000] via P2P/IPC
+n013:2041072:2041096 [0] NCCL INFO New proxy recv connection 2 from local rank 0, transport 0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000da0
+n013:2041073:2041095 [1] NCCL INFO New proxy send connection 4 from local rank 1, transport 0
+n013:2041073:2041093 [1] NCCL INFO Channel 01/0 : 1[81000] -> 0[1000] via P2P/IPC
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e10
+n013:2041073:2041095 [1] NCCL INFO New proxy send connection 5 from local rank 1, transport 0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000de0
+n013:2041072:2041096 [0] NCCL INFO New proxy recv connection 3 from local rank 0, transport 0
+n013:2041073:2041093 [1] NCCL INFO Channel 02/0 : 1[81000] -> 0[1000] via P2P/IPC
+n013:2041072:2041091 [0] NCCL INFO Channel 00/0 : 0[1000] -> 1[81000] via P2P/IPC
+n013:2041073:2041095 [1] NCCL INFO New proxy send connection 6 from local rank 1, transport 0
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000e20
+n013:2041072:2041096 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e50
+n013:2041073:2041093 [1] NCCL INFO Channel 03/0 : 1[81000] -> 0[1000] via P2P/IPC
+n013:2041072:2041091 [0] NCCL INFO Channel 01/0 : 0[1000] -> 1[81000] via P2P/IPC
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000e60
+n013:2041073:2041095 [1] NCCL INFO New proxy send connection 7 from local rank 1, transport 0
+n013:2041072:2041096 [0] NCCL INFO New proxy send connection 5 from local rank 0, transport 0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e90
+n013:2041072:2041091 [0] NCCL INFO Channel 02/0 : 0[1000] -> 1[81000] via P2P/IPC
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ed0
+n013:2041072:2041096 [0] NCCL INFO New proxy send connection 6 from local rank 0, transport 0
+n013:2041072:2041091 [0] NCCL INFO Channel 03/0 : 0[1000] -> 1[81000] via P2P/IPC
+n013:2041072:2041096 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f10
+n013:2041073:2041093 [1] NCCL INFO Connected all rings
+n013:2041073:2041093 [1] NCCL INFO Connected all trees
+n013:2041073:2041093 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:2041073:2041093 [1] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n013:2041072:2041091 [0] NCCL INFO Connected all rings
+n013:2041072:2041091 [0] NCCL INFO Connected all trees
+n013:2041072:2041091 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:2041072:2041091 [0] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n013:2041073:2041095 [1] NCCL INFO New proxy send connection 8 from local rank 1, transport 2
+n013:2041072:2041096 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n013:2041073:2041093 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554ec000ea0
+n013:2041072:2041091 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f50
+n013:2041073:2041093 [1] NCCL INFO comm 0x5a30000 rank 1 nranks 2 cudaDev 1 busId 81000 commId 0x781e2b0f128f9783 - Init COMPLETE
+n013:2041072:2041091 [0] NCCL INFO comm 0x5a466c0 rank 0 nranks 2 cudaDev 0 busId 1000 commId 0x781e2b0f128f9783 - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+           0             0     float     sum      -1     6.39    0.00    0.00       0     6.32    0.00    0.00       0
+        1024           128     float     sum      -1     9.73    0.11    0.05       0     9.62    0.11    0.05       0
+        2048           256     float     sum      -1    10.18    0.20    0.10       0    10.01    0.20    0.10       0
+        3072           384     float     sum      -1    10.83    0.28    0.14       0    10.64    0.29    0.14       0
+        4096           512     float     sum      -1    10.86    0.38    0.19       0    10.95    0.37    0.19       0
+        5120           640     float     sum      -1    11.61    0.44    0.22       0    11.38    0.45    0.23       0
+        6144           768     float     sum      -1    11.68    0.53    0.26       0    11.67    0.53    0.26       0
+        7168           896     float     sum      -1    12.19    0.59    0.29       0    12.63    0.57    0.28       0
+        8192          1024     float     sum      -1    12.99    0.63    0.32       0    12.86    0.64    0.32       0
+        9216          1152     float     sum      -1    13.31    0.69    0.35       0    13.31    0.69    0.35       0
+       10240          1280     float     sum      -1    13.80    0.74    0.37       0    13.67    0.75    0.37       0
+       11264          1408     float     sum      -1    14.20    0.79    0.40       0    14.16    0.80    0.40       0
+       12288          1536     float     sum      -1    14.54    0.85    0.42       0    14.62    0.84    0.42       0
+       13312          1664     float     sum      -1    15.12    0.88    0.44       0    15.94    0.83    0.42       0
+       14336          1792     float     sum      -1    15.72    0.91    0.46       0    15.58    0.92    0.46       0
+       15360          1920     float     sum      -1    16.13    0.95    0.48       0    15.98    0.96    0.48       0
+       16384          2048     float     sum      -1    17.80    0.92    0.46       0    17.48    0.94    0.47       0
+       17408          2176     float     sum      -1    18.07    0.96    0.48       0    17.95    0.97    0.48       0
+       18432          2304     float     sum      -1    18.46    1.00    0.50       0    18.48    1.00    0.50       0
+       19456          2432     float     sum      -1    19.15    1.02    0.51       0    19.16    1.02    0.51       0
+       20480          2560     float     sum      -1    19.60    1.05    0.52       0    19.79    1.03    0.52       0
+       21504          2688     float     sum      -1    20.29    1.06    0.53       0    20.14    1.07    0.53       0
+       22528          2816     float     sum      -1    21.33    1.06    0.53       0    20.86    1.08    0.54       0
+       23552          2944     float     sum      -1    21.46    1.10    0.55       0    21.42    1.10    0.55       0
+       24576          3072     float     sum      -1    22.02    1.12    0.56       0    21.90    1.12    0.56       0
+       25600          3200     float     sum      -1    22.60    1.13    0.57       0    22.50    1.14    0.57       0
+       26624          3328     float     sum      -1    22.99    1.16    0.58       0    22.67    1.17    0.59       0
+       27648          3456     float     sum      -1    23.60    1.17    0.59       0    23.33    1.19    0.59       0
+       28672          3584     float     sum      -1    23.52    1.22    0.61       0    23.69    1.21    0.61       0
+       29696          3712     float     sum      -1    24.21    1.23    0.61       0    24.11    1.23    0.62       0
+       30720          3840     float     sum      -1    24.62    1.25    0.62       0    24.54    1.25    0.63       0
+       31744          3968     float     sum      -1    25.29    1.26    0.63       0    25.00    1.27    0.63       0
+       32768          4096     float     sum      -1    26.98    1.21    0.61       0    26.69    1.23    0.61       0
+       33792          4224     float     sum      -1    26.52    1.27    0.64       0    26.38    1.28    0.64       0
+       34816          4352     float     sum      -1    27.23    1.28    0.64       0    27.13    1.28    0.64       0
+       35840          4480     float     sum      -1    28.04    1.28    0.64       0    27.79    1.29    0.64       0
+       36864          4608     float     sum      -1    28.65    1.29    0.64       0    28.63    1.29    0.64       0
+       37888          4736     float     sum      -1    29.22    1.30    0.65       0    28.86    1.31    0.66       0
+       38912          4864     float     sum      -1    30.52    1.27    0.64       0    29.81    1.31    0.65       0
+       39936          4992     float     sum      -1    30.63    1.30    0.65       0    30.29    1.32    0.66       0
+       40960          5120     float     sum      -1    31.10    1.32    0.66       0    30.89    1.33    0.66       0
+       41984          5248     float     sum      -1    31.86    1.32    0.66       0    31.77    1.32    0.66       0
+       43008          5376     float     sum      -1    32.26    1.33    0.67       0    32.13    1.34    0.67       0
+       44032          5504     float     sum      -1    33.04    1.33    0.67       0    32.76    1.34    0.67       0
+       45056          5632     float     sum      -1    33.57    1.34    0.67       0    33.49    1.35    0.67       0
+       46080          5760     float     sum      -1    34.13    1.35    0.68       0    34.05    1.35    0.68       0
+       47104          5888     float     sum      -1    35.00    1.35    0.67       0    34.78    1.35    0.68       0
+       48128          6016     float     sum      -1    35.16    1.37    0.68       0    35.89    1.34    0.67       0
+       49152          6144     float     sum      -1    35.80    1.37    0.69       0    36.01    1.37    0.68       0
+       50176          6272     float     sum      -1    36.37    1.38    0.69       0    36.34    1.38    0.69       0
+       51200          6400     float     sum      -1    36.58    1.40    0.70       0    36.70    1.40    0.70       0
+       52224          6528     float     sum      -1    37.61    1.39    0.69       0    37.68    1.39    0.69       0
+       53248          6656     float     sum      -1    38.23    1.39    0.70       0    37.81    1.41    0.70       0
+       54272          6784     float     sum      -1    38.82    1.40    0.70       0    38.38    1.41    0.71       0
+       55296          6912     float     sum      -1    39.07    1.42    0.71       0    39.37    1.40    0.70       0
+       56320          7040     float     sum      -1    39.87    1.41    0.71       0    39.85    1.41    0.71       0
+       57344          7168     float     sum      -1    40.54    1.41    0.71       0    40.72    1.41    0.70       0
+       58368          7296     float     sum      -1    41.20    1.42    0.71       0    40.97    1.42    0.71       0
+       59392          7424     float     sum      -1    41.88    1.42    0.71       0    41.73    1.42    0.71       0
+       60416          7552     float     sum      -1    42.88    1.41    0.70       0    42.45    1.42    0.71       0
+       61440          7680     float     sum      -1    43.43    1.41    0.71       0    46.40    1.32    0.66       0
+       62464          7808     float     sum      -1    47.51    1.31    0.66       0    44.61    1.40    0.70       0
+       63488          7936     float     sum      -1    45.00    1.41    0.71       0    44.96    1.41    0.71       0
+       64512          8064     float     sum      -1    45.78    1.41    0.70       0    47.17    1.37    0.68       0
+       65536          8192     float     sum      -1    45.99    1.42    0.71       0    46.32    1.41    0.71       0
+       66560          8320     float     sum      -1    46.52    1.43    0.72       0    45.88    1.45    0.73       0
+       67584          8448     float     sum      -1    47.78    1.41    0.71       0    47.52    1.42    0.71       0
+       68608          8576     float     sum      -1    48.91    1.40    0.70       0    48.13    1.43    0.71       0
+       69632          8704     float     sum      -1    49.24    1.41    0.71       0    49.50    1.41    0.70       0
+       70656          8832     float     sum      -1    49.97    1.41    0.71       0    49.38    1.43    0.72       0
+       71680          8960     float     sum      -1    50.56    1.42    0.71       0    50.35    1.42    0.71       0
+       72704          9088     float     sum      -1    50.70    1.43    0.72       0    51.26    1.42    0.71       0
+       73728          9216     float     sum      -1    51.66    1.43    0.71       0    52.36    1.41    0.70       0
+       74752          9344     float     sum      -1    52.26    1.43    0.72       0    50.67    1.48    0.74       0
+       75776          9472     float     sum      -1    52.56    1.44    0.72       0    52.82    1.43    0.72       0
+       76800          9600     float     sum      -1    53.29    1.44    0.72       0    54.45    1.41    0.71       0
+       77824          9728     float     sum      -1    54.81    1.42    0.71       0    53.87    1.44    0.72       0
+       78848          9856     float     sum      -1    61.52    1.28    0.64       0    21.65    3.64    1.82       0
+       79872          9984     float     sum      -1    21.99    3.63    1.82       0    21.79    3.67    1.83       0
+       80896         10112     float     sum      -1    22.11    3.66    1.83       0    21.96    3.68    1.84       0
+       81920         10240     float     sum      -1    22.04    3.72    1.86       0    21.98    3.73    1.86       0
+       82944         10368     float     sum      -1    22.35    3.71    1.86       0    22.15    3.74    1.87       0
+       83968         10496     float     sum      -1    22.47    3.74    1.87       0    21.76    3.86    1.93       0
+       84992         10624     float     sum      -1    22.15    3.84    1.92       0    21.88    3.88    1.94       0
+       86016         10752     float     sum      -1    21.90    3.93    1.96       0    22.04    3.90    1.95       0
+       87040         10880     float     sum      -1    22.35    3.89    1.95       0    22.22    3.92    1.96       0
+       88064         11008     float     sum      -1    22.33    3.94    1.97       0    22.52    3.91    1.96       0
+       89088         11136     float     sum      -1    22.50    3.96    1.98       0    22.66    3.93    1.97       0
+       90112         11264     float     sum      -1    22.58    3.99    2.00       0    22.76    3.96    1.98       0
+       91136         11392     float     sum      -1    23.07    3.95    1.97       0    22.84    3.99    1.99       0
+       92160         11520     float     sum      -1    23.12    3.99    1.99       0    23.15    3.98    1.99       0
+       93184         11648     float     sum      -1    23.30    4.00    2.00       0    23.44    3.98    1.99       0
+       94208         11776     float     sum      -1    23.69    3.98    1.99       0    23.48    4.01    2.01       0
+       95232         11904     float     sum      -1    23.94    3.98    1.99       0    23.74    4.01    2.01       0
+       96256         12032     float     sum      -1    24.01    4.01    2.00       0    23.78    4.05    2.02       0
+       97280         12160     float     sum      -1    23.93    4.06    2.03       0    24.06    4.04    2.02       0
+       98304         12288     float     sum      -1    24.09    4.08    2.04       0    24.39    4.03    2.02       0
+       99328         12416     float     sum      -1    24.23    4.10    2.05       0    24.17    4.11    2.05       0
+      100352         12544     float     sum      -1    24.00    4.18    2.09       0    24.94    4.02    2.01       0
+      101376         12672     float     sum      -1    25.22    4.02    2.01       0    25.19    4.02    2.01       0
+      102400         12800     float     sum      -1    25.51    4.01    2.01       0    25.42    4.03    2.01       0
+      103424         12928     float     sum      -1    25.63    4.04    2.02       0    25.40    4.07    2.04       0
+      104448         13056     float     sum      -1    25.89    4.04    2.02       0    24.73    4.22    2.11       0
+      105472         13184     float     sum      -1    24.94    4.23    2.11       0    25.14    4.19    2.10       0
+      106496         13312     float     sum      -1    25.19    4.23    2.11       0    25.20    4.23    2.11       0
+      107520         13440     float     sum      -1    25.54    4.21    2.10       0    25.34    4.24    2.12       0
+      108544         13568     float     sum      -1    25.52    4.25    2.13       0    25.58    4.24    2.12       0
+      109568         13696     float     sum      -1    25.81    4.25    2.12       0    25.84    4.24    2.12       0
+      110592         13824     float     sum      -1    26.05    4.25    2.12       0    26.22    4.22    2.11       0
+      111616         13952     float     sum      -1    26.47    4.22    2.11       0    26.33    4.24    2.12       0
+      112640         14080     float     sum      -1    26.74    4.21    2.11       0    26.53    4.25    2.12       0
+      113664         14208     float     sum      -1    26.91    4.22    2.11       0    26.85    4.23    2.12       0
+      114688         14336     float     sum      -1    26.86    4.27    2.14       0    26.92    4.26    2.13       0
+      115712         14464     float     sum      -1    27.31    4.24    2.12       0    27.08    4.27    2.14       0
+      116736         14592     float     sum      -1    27.36    4.27    2.13       0    27.32    4.27    2.14       0
+      117760         14720     float     sum      -1    27.50    4.28    2.14       0    27.67    4.26    2.13       0
+      118784         14848     float     sum      -1    27.34    4.35    2.17       0    28.69    4.14    2.07       0
+      119808         14976     float     sum      -1    29.06    4.12    2.06       0    28.73    4.17    2.08       0
+      120832         15104     float     sum      -1    28.53    4.24    2.12       0    28.97    4.17    2.09       0
+      121856         15232     float     sum      -1    29.03    4.20    2.10       0    29.11    4.19    2.09       0
+      122880         15360     float     sum      -1    28.09    4.38    2.19       0    28.01    4.39    2.19       0
+      123904         15488     float     sum      -1    28.41    4.36    2.18       0    28.25    4.39    2.19       0
+      124928         15616     float     sum      -1    28.37    4.40    2.20       0    28.15    4.44    2.22       0
+      125952         15744     float     sum      -1    28.33    4.45    2.22       0    28.26    4.46    2.23       0
+      126976         15872     float     sum      -1    28.76    4.42    2.21       0    28.52    4.45    2.23       0
+      128000         16000     float     sum      -1    28.88    4.43    2.22       0    28.89    4.43    2.22       0
+      129024         16128     float     sum      -1    28.95    4.46    2.23       0    28.87    4.47    2.23       0
+      130048         16256     float     sum      -1    29.18    4.46    2.23       0    29.38    4.43    2.21       0
+      131072         16384     float     sum      -1    29.24    4.48    2.24       0    29.12    4.50    2.25       0
+      132096         16512     float     sum      -1    29.41    4.49    2.25       0    29.35    4.50    2.25       0
+      133120         16640     float     sum      -1    29.33    4.54    2.27       0    29.89    4.45    2.23       0
+      134144         16768     float     sum      -1    30.12    4.45    2.23       0    29.92    4.48    2.24       0
+      135168         16896     float     sum      -1    30.02    4.50    2.25       0    31.19    4.33    2.17       0
+      136192         17024     float     sum      -1    31.32    4.35    2.17       0    31.17    4.37    2.18       0
+      137216         17152     float     sum      -1    31.32    4.38    2.19       0    31.36    4.38    2.19       0
+      138240         17280     float     sum      -1    31.29    4.42    2.21       0    30.39    4.55    2.27       0
+      139264         17408     float     sum      -1    30.52    4.56    2.28       0    89.62    1.55    0.78       0
+      140288         17536     float     sum      -1    88.40    1.59    0.79       0    89.13    1.57    0.79       0
+      141312         17664     float     sum      -1    89.44    1.58    0.79       0    89.83    1.57    0.79       0
+      142336         17792     float     sum      -1    90.66    1.57    0.78       0    93.07    1.53    0.76       0
+      143360         17920     float     sum      -1    93.66    1.53    0.77       0    95.17    1.51    0.75       0
+      144384         18048     float     sum      -1    97.31    1.48    0.74       0    97.41    1.48    0.74       0
+      145408         18176     float     sum      -1    97.30    1.49    0.75       0    98.08    1.48    0.74       0
+      146432         18304     float     sum      -1    96.74    1.51    0.76       0    98.43    1.49    0.74       0
+      147456         18432     float     sum      -1    97.42    1.51    0.76       0    98.21    1.50    0.75       0
+      148480         18560     float     sum      -1    99.58    1.49    0.75       0    99.42    1.49    0.75       0
+      149504         18688     float     sum      -1   111.37    1.34    0.67       0    33.43    4.47    2.24       0
+      150528         18816     float     sum      -1    33.65    4.47    2.24       0    33.50    4.49    2.25       0
+      151552         18944     float     sum      -1    34.15    4.44    2.22       0    33.71    4.50    2.25       0
+      152576         19072     float     sum      -1    32.87    4.64    2.32       0    32.54    4.69    2.34       0
+      153600         19200     float     sum      -1    32.60    4.71    2.36       0    32.71    4.70    2.35       0
+      154624         19328     float     sum      -1    32.64    4.74    2.37       0    32.70    4.73    2.36       0
+      155648         19456     float     sum      -1    32.84    4.74    2.37       0    32.71    4.76    2.38       0
+      156672         19584     float     sum      -1    33.00    4.75    2.37       0    33.01    4.75    2.37       0
+      157696         19712     float     sum      -1    33.42    4.72    2.36       0    33.04    4.77    2.39       0
+      158720         19840     float     sum      -1    33.28    4.77    2.38       0    33.20    4.78    2.39       0
+      159744         19968     float     sum      -1    33.57    4.76    2.38       0   101.58    1.57    0.79       0
+      160768         20096     float     sum      -1   101.41    1.59    0.79       0   100.67    1.60    0.80       0
+      161792         20224     float     sum      -1   101.66    1.59    0.80       0   102.09    1.58    0.79       0
+      162816         20352     float     sum      -1   102.53    1.59    0.79       0   102.80    1.58    0.79       0
+      163840         20480     float     sum      -1   103.27    1.59    0.79       0   114.64    1.43    0.71       0
+      164864         20608     float     sum      -1   101.82    1.62    0.81       0   101.79    1.62    0.81       0
+      165888         20736     float     sum      -1   102.22    1.62    0.81       0   101.88    1.63    0.81       0
+      166912         20864     float     sum      -1   105.13    1.59    0.79       0   104.64    1.60    0.80       0
+      167936         20992     float     sum      -1   104.64    1.60    0.80       0   104.81    1.60    0.80       0
+      168960         21120     float     sum      -1   104.46    1.62    0.81       0   103.72    1.63    0.81       0
+      169984         21248     float     sum      -1   105.83    1.61    0.80       0   105.27    1.61    0.81       0
+      171008         21376     float     sum      -1   105.68    1.62    0.81       0   105.90    1.61    0.81       0
+      172032         21504     float     sum      -1   106.86    1.61    0.80       0   106.44    1.62    0.81       0
+      173056         21632     float     sum      -1   106.89    1.62    0.81       0   106.76    1.62    0.81       0
+      174080         21760     float     sum      -1   107.79    1.61    0.81       0   107.93    1.61    0.81       0
+      175104         21888     float     sum      -1   109.92    1.59    0.80       0   110.76    1.58    0.79       0
+      176128         22016     float     sum      -1   111.02    1.59    0.79       0   110.79    1.59    0.79       0
+      177152         22144     float     sum      -1   110.16    1.61    0.80       0   109.68    1.62    0.81       0
+      178176         22272     float     sum      -1   111.44    1.60    0.80       0   110.73    1.61    0.80       0
+      179200         22400     float     sum      -1   110.78    1.62    0.81       0   111.56    1.61    0.80       0
+      180224         22528     float     sum      -1   111.16    1.62    0.81       0   112.17    1.61    0.80       0
+      181248         22656     float     sum      -1   112.23    1.61    0.81       0   112.54    1.61    0.81       0
+      182272         22784     float     sum      -1   113.12    1.61    0.81       0   112.49    1.62    0.81       0
+      183296         22912     float     sum      -1   114.31    1.60    0.80       0   113.95    1.61    0.80       0
+      184320         23040     float     sum      -1   115.07    1.60    0.80       0   115.89    1.59    0.80       0
+      185344         23168     float     sum      -1   115.99    1.60    0.80       0   116.65    1.59    0.79       0
+      186368         23296     float     sum      -1   125.47    1.49    0.74       0   124.30    1.50    0.75       0
+      187392         23424     float     sum      -1   116.71    1.61    0.80       0   116.66    1.61    0.80       0
+      188416         23552     float     sum      -1   116.86    1.61    0.81       0   117.06    1.61    0.80       0
+      189440         23680     float     sum      -1   117.76    1.61    0.80       0   119.46    1.59    0.79       0
+      190464         23808     float     sum      -1   127.11    1.50    0.75       0   120.02    1.59    0.79       0
+      191488         23936     float     sum      -1   124.54    1.54    0.77       0   123.70    1.55    0.77       0
+      192512         24064     float     sum      -1   124.19    1.55    0.78       0   126.34    1.52    0.76       0
+      193536         24192     float     sum      -1   127.53    1.52    0.76       0   126.28    1.53    0.77       0
+      194560         24320     float     sum      -1   129.77    1.50    0.75       0   127.90    1.52    0.76       0
+      195584         24448     float     sum      -1   127.74    1.53    0.77       0   129.94    1.51    0.75       0
+      196608         24576     float     sum      -1   131.25    1.50    0.75       0   130.31    1.51    0.75       0
+      197632         24704     float     sum      -1    81.25    2.43    1.22       0    40.67    4.86    2.43       0
+      198656         24832     float     sum      -1    40.87    4.86    2.43       0    40.77    4.87    2.44       0
+      199680         24960     float     sum      -1    40.83    4.89    2.45       0    39.61    5.04    2.52       0
+      200704         25088     float     sum      -1    39.39    5.10    2.55       0    39.45    5.09    2.54       0
+      201728         25216     float     sum      -1    39.52    5.10    2.55       0    39.87    5.06    2.53       0
+      202752         25344     float     sum      -1    39.65    5.11    2.56       0    39.80    5.09    2.55       0
+      203776         25472     float     sum      -1    39.87    5.11    2.56       0    39.98    5.10    2.55       0
+      204800         25600     float     sum      -1    39.97    5.12    2.56       0    40.35    5.08    2.54       0
+      205824         25728     float     sum      -1    40.66    5.06    2.53       0    40.58    5.07    2.54       0
+      206848         25856     float     sum      -1    40.87    5.06    2.53       0    40.88    5.06    2.53       0
+      207872         25984     float     sum      -1    41.11    5.06    2.53       0    42.76    4.86    2.43       0
+      208896         26112     float     sum      -1    42.60    4.90    2.45       0    42.71    4.89    2.45       0
+      209920         26240     float     sum      -1    43.32    4.85    2.42       0    43.04    4.88    2.44       0
+      210944         26368     float     sum      -1    41.13    5.13    2.56       0    41.24    5.12    2.56       0
+      211968         26496     float     sum      -1   131.38    1.61    0.81       0   131.50    1.61    0.81       0
+      212992         26624     float     sum      -1   131.63    1.62    0.81       0   135.53    1.57    0.79       0
+      214016         26752     float     sum      -1   136.78    1.56    0.78       0   139.21    1.54    0.77       0
+      215040         26880     float     sum      -1    42.25    5.09    2.54       0    41.84    5.14    2.57       0
+      216064         27008     float     sum      -1    42.74    5.06    2.53       0    42.20    5.12    2.56       0
+      217088         27136     float     sum      -1    42.13    5.15    2.58       0    42.81    5.07    2.54       0
+      218112         27264     float     sum      -1    42.57    5.12    2.56       0    44.12    4.94    2.47       0
+      219136         27392     float     sum      -1    44.48    4.93    2.46       0    44.50    4.92    2.46       0
+      220160         27520     float     sum      -1    44.54    4.94    2.47       0    42.54    5.18    2.59       0
+      221184         27648     float     sum      -1    42.39    5.22    2.61       0    42.42    5.21    2.61       0
+      222208         27776     float     sum      -1   101.04    2.20    1.10       0   141.38    1.57    0.79       0
+      223232         27904     float     sum      -1   143.61    1.55    0.78       0   144.53    1.54    0.77       0
+      224256         28032     float     sum      -1   146.70    1.53    0.76       0    43.44    5.16    2.58       0
+      225280         28160     float     sum      -1    43.51    5.18    2.59       0    43.68    5.16    2.58       0
+      226304         28288     float     sum      -1    43.81    5.17    2.58       0    43.54    5.20    2.60       0
+      227328         28416     float     sum      -1    43.78    5.19    2.60       0    44.17    5.15    2.57       0
+      228352         28544     float     sum      -1    42.54    5.37    2.68       0    41.84    5.46    2.73       0
+      229376         28672     float     sum      -1    41.88    5.48    2.74       0    41.56    5.52    2.76       0
+      230400         28800     float     sum      -1    40.51    5.69    2.84       0    40.34    5.71    2.86       0
+      231424         28928     float     sum      -1    40.22    5.75    2.88       0    88.10    2.63    1.31       0
+      232448         29056     float     sum      -1    93.42    2.49    1.24       0    88.60    2.62    1.31       0
+      233472         29184     float     sum      -1    89.83    2.60    1.30       0    90.62    2.58    1.29       0
+      234496         29312     float     sum      -1    89.81    2.61    1.31       0    89.36    2.62    1.31       0
+      235520         29440     float     sum      -1    90.58    2.60    1.30       0    89.92    2.62    1.31       0
+      236544         29568     float     sum      -1    91.11    2.60    1.30       0    89.75    2.64    1.32       0
+      237568         29696     float     sum      -1    90.93    2.61    1.31       0    90.41    2.63    1.31       0
+      238592         29824     float     sum      -1    90.53    2.64    1.32       0    91.13    2.62    1.31       0
+      239616         29952     float     sum      -1    92.73    2.58    1.29       0    92.33    2.60    1.30       0
+      240640         30080     float     sum      -1    91.47    2.63    1.32       0    91.78    2.62    1.31       0
+      241664         30208     float     sum      -1    91.61    2.64    1.32       0    92.37    2.62    1.31       0
+      242688         30336     float     sum      -1    92.35    2.63    1.31       0    92.28    2.63    1.31       0
+      243712         30464     float     sum      -1    93.64    2.60    1.30       0    92.35    2.64    1.32       0
+      244736         30592     float     sum      -1    93.10    2.63    1.31       0    92.77    2.64    1.32       0
+      245760         30720     float     sum      -1    92.99    2.64    1.32       0    93.41    2.63    1.32       0
+      246784         30848     float     sum      -1    93.53    2.64    1.32       0    94.51    2.61    1.31       0
+      247808         30976     float     sum      -1    96.27    2.57    1.29       0    93.82    2.64    1.32       0
+      248832         31104     float     sum      -1    94.33    2.64    1.32       0   100.43    2.48    1.24       0
+      249856         31232     float     sum      -1    96.70    2.58    1.29       0    95.92    2.60    1.30       0
+      250880         31360     float     sum      -1    95.35    2.63    1.32       0    95.00    2.64    1.32       0
+      251904         31488     float     sum      -1    95.23    2.65    1.32       0    95.22    2.65    1.32       0
+      252928         31616     float     sum      -1    95.51    2.65    1.32       0    95.65    2.64    1.32       0
+      253952         31744     float     sum      -1    95.59    2.66    1.33       0    95.34    2.66    1.33       0
+      254976         31872     float     sum      -1    95.68    2.66    1.33       0    97.20    2.62    1.31       0
+      256000         32000     float     sum      -1    96.35    2.66    1.33       0    96.14    2.66    1.33       0
+      257024         32128     float     sum      -1    97.34    2.64    1.32       0    96.03    2.68    1.34       0
+      258048         32256     float     sum      -1    97.20    2.65    1.33       0    96.68    2.67    1.33       0
+      259072         32384     float     sum      -1    97.13    2.67    1.33       0    97.14    2.67    1.33       0
+      260096         32512     float     sum      -1    99.62    2.61    1.31       0   102.20    2.54    1.27       0
+      261120         32640     float     sum      -1   105.09    2.48    1.24       0   104.85    2.49    1.25       0
+      262144         32768     float     sum      -1   108.58    2.41    1.21       0   106.08    2.47    1.24       0
+      263168         32896     float     sum      -1   109.21    2.41    1.20       0   106.17    2.48    1.24       0
+      264192         33024     float     sum      -1   106.82    2.47    1.24       0   107.35    2.46    1.23       0
+      265216         33152     float     sum      -1   108.00    2.46    1.23       0   120.92    2.19    1.10       0
+      266240         33280     float     sum      -1    47.58    5.60    2.80       0    47.09    5.65    2.83       0
+      267264         33408     float     sum      -1    47.04    5.68    2.84       0    45.43    5.88    2.94       0
+      268288         33536     float     sum      -1    45.52    5.89    2.95       0    45.30    5.92    2.96       0
+      269312         33664     float     sum      -1    45.78    5.88    2.94       0    45.66    5.90    2.95       0
+      270336         33792     float     sum      -1    45.91    5.89    2.94       0    46.15    5.86    2.93       0
+      271360         33920     float     sum      -1    45.95    5.91    2.95       0    46.21    5.87    2.94       0
+      272384         34048     float     sum      -1   110.12    2.47    1.24       0   109.76    2.48    1.24       0
+      273408         34176     float     sum      -1   110.59    2.47    1.24       0   111.64    2.45    1.22       0
+      274432         34304     float     sum      -1   100.15    2.74    1.37       0    47.87    5.73    2.87       0
+      275456         34432     float     sum      -1    47.77    5.77    2.88       0    48.18    5.72    2.86       0
+      276480         34560     float     sum      -1    45.95    6.02    3.01       0    46.05    6.00    3.00       0
+      277504         34688     float     sum      -1    45.92    6.04    3.02       0    45.98    6.03    3.02       0
+      278528         34816     float     sum      -1    46.45    6.00    3.00       0    46.22    6.03    3.01       0
+      279552         34944     float     sum      -1    46.77    5.98    2.99       0    46.46    6.02    3.01       0
+      280576         35072     float     sum      -1    46.34    6.05    3.03       0   115.95    2.42    1.21       0
+      281600         35200     float     sum      -1   114.85    2.45    1.23       0   115.79    2.43    1.22       0
+      282624         35328     float     sum      -1   119.41    2.37    1.18       0    48.67    5.81    2.90       0
+      283648         35456     float     sum      -1    48.94    5.80    2.90       0    48.57    5.84    2.92       0
+      284672         35584     float     sum      -1    46.49    6.12    3.06       0    46.41    6.13    3.07       0
+      285696         35712     float     sum      -1    46.73    6.11    3.06       0    46.49    6.15    3.07       0
+      286720         35840     float     sum      -1    46.60    6.15    3.08       0    46.52    6.16    3.08       0
+      287744         35968     float     sum      -1    46.86    6.14    3.07       0    46.58    6.18    3.09       0
+      288768         36096     float     sum      -1   109.36    2.64    1.32       0   109.20    2.64    1.32       0
+      289792         36224     float     sum      -1   110.76    2.62    1.31       0   110.64    2.62    1.31       0
+      290816         36352     float     sum      -1   110.80    2.62    1.31       0   109.30    2.66    1.33       0
+      291840         36480     float     sum      -1   112.58    2.59    1.30       0   109.22    2.67    1.34       0
+      292864         36608     float     sum      -1   109.68    2.67    1.34       0   110.09    2.66    1.33       0
+      293888         36736     float     sum      -1   110.41    2.66    1.33       0   110.22    2.67    1.33       0
+      294912         36864     float     sum      -1   111.24    2.65    1.33       0   112.96    2.61    1.31       0
+      295936         36992     float     sum      -1   111.02    2.67    1.33       0   109.87    2.69    1.35       0
+      296960         37120     float     sum      -1   110.51    2.69    1.34       0   110.21    2.69    1.35       0
+      297984         37248     float     sum      -1   111.13    2.68    1.34       0   111.38    2.68    1.34       0
+      299008         37376     float     sum      -1   111.17    2.69    1.34       0   110.94    2.70    1.35       0
+      300032         37504     float     sum      -1   111.70    2.69    1.34       0   111.50    2.69    1.35       0
+      301056         37632     float     sum      -1   111.32    2.70    1.35       0   111.51    2.70    1.35       0
+      302080         37760     float     sum      -1   112.30    2.69    1.34       0   112.28    2.69    1.35       0
+      303104         37888     float     sum      -1   114.33    2.65    1.33       0   122.94    2.47    1.23       0
+      304128         38016     float     sum      -1   115.53    2.63    1.32       0   113.89    2.67    1.34       0
+      305152         38144     float     sum      -1   112.99    2.70    1.35       0   112.72    2.71    1.35       0
+      306176         38272     float     sum      -1   114.08    2.68    1.34       0   113.21    2.70    1.35       0
+      307200         38400     float     sum      -1   113.22    2.71    1.36       0   114.08    2.69    1.35       0
+      308224         38528     float     sum      -1   116.61    2.64    1.32       0   114.14    2.70    1.35       0
+      309248         38656     float     sum      -1   118.59    2.61    1.30       0   117.16    2.64    1.32       0
+      310272         38784     float     sum      -1   117.31    2.64    1.32       0   119.47    2.60    1.30       0
+      311296         38912     float     sum      -1   123.45    2.52    1.26       0   120.01    2.59    1.30       0
+      312320         39040     float     sum      -1   119.99    2.60    1.30       0   120.04    2.60    1.30       0
+      313344         39168     float     sum      -1   122.11    2.57    1.28       0   121.58    2.58    1.29       0
+      314368         39296     float     sum      -1   129.11    2.43    1.22       0    51.35    6.12    3.06       0
+      315392         39424     float     sum      -1    51.22    6.16    3.08       0    50.73    6.22    3.11       0
+      316416         39552     float     sum      -1    48.98    6.46    3.23       0    48.75    6.49    3.25       0
+      317440         39680     float     sum      -1    49.78    6.38    3.19       0    49.32    6.44    3.22       0
+      318464         39808     float     sum      -1    49.11    6.48    3.24       0    49.26    6.46    3.23       0
+      319488         39936     float     sum      -1    49.33    6.48    3.24       0   124.39    2.57    1.28       0
+      320512         40064     float     sum      -1   124.49    2.57    1.29       0   125.07    2.56    1.28       0
+      321536         40192     float     sum      -1   126.42    2.54    1.27       0    82.64    3.89    1.95       0
+      322560         40320     float     sum      -1    52.32    6.17    3.08       0    51.86    6.22    3.11       0
+      323584         40448     float     sum      -1    49.62    6.52    3.26       0    49.56    6.53    3.26       0
+      324608         40576     float     sum      -1    49.50    6.56    3.28       0    49.42    6.57    3.28       0
+      325632         40704     float     sum      -1    50.19    6.49    3.24       0    50.19    6.49    3.24       0
+      326656         40832     float     sum      -1    50.21    6.51    3.25       0    50.21    6.51    3.25       0
+      327680         40960     float     sum      -1   127.93    2.56    1.28       0   127.75    2.56    1.28       0
+      328704         41088     float     sum      -1   126.17    2.61    1.30       0   103.57    3.17    1.59       0
+      329728         41216     float     sum      -1    52.23    6.31    3.16       0    52.75    6.25    3.13       0
+      330752         41344     float     sum      -1    50.14    6.60    3.30       0    50.19    6.59    3.30       0
+      331776         41472     float     sum      -1    50.50    6.57    3.29       0    49.85    6.66    3.33       0
+      332800         41600     float     sum      -1    50.58    6.58    3.29       0    50.81    6.55    3.27       0
+      333824         41728     float     sum      -1    50.91    6.56    3.28       0    50.50    6.61    3.31       0
+      334848         41856     float     sum      -1   129.39    2.59    1.29       0   129.57    2.58    1.29       0
+      335872         41984     float     sum      -1   133.27    2.52    1.26       0    53.43    6.29    3.14       0
+      336896         42112     float     sum      -1    53.05    6.35    3.18       0    52.87    6.37    3.19       0
+      337920         42240     float     sum      -1    50.49    6.69    3.35       0    50.30    6.72    3.36       0
+      338944         42368     float     sum      -1    50.46    6.72    3.36       0    50.69    6.69    3.34       0
+      339968         42496     float     sum      -1    50.81    6.69    3.35       0    51.00    6.67    3.33       0
+      340992         42624     float     sum      -1    51.28    6.65    3.32       0    51.04    6.68    3.34       0
+      342016         42752     float     sum      -1   132.15    2.59    1.29       0   132.44    2.58    1.29       0
+      343040         42880     float     sum      -1   133.85    2.56    1.28       0    53.91    6.36    3.18       0
+      344064         43008     float     sum      -1    53.58    6.42    3.21       0    53.82    6.39    3.20       0
+      345088         43136     float     sum      -1    51.18    6.74    3.37       0    51.07    6.76    3.38       0
+      346112         43264     float     sum      -1    50.94    6.79    3.40       0    51.01    6.79    3.39       0
+      347136         43392     float     sum      -1    51.32    6.76    3.38       0    51.14    6.79    3.39       0
+      348160         43520     float     sum      -1    51.21    6.80    3.40       0   125.95    2.76    1.38       0
+      349184         43648     float     sum      -1   127.20    2.75    1.37       0   126.51    2.76    1.38       0
+      350208         43776     float     sum      -1   127.16    2.75    1.38       0   126.63    2.77    1.38       0
+      351232         43904     float     sum      -1   127.69    2.75    1.38       0   126.92    2.77    1.38       0
+      352256         44032     float     sum      -1   127.82    2.76    1.38       0   128.16    2.75    1.37       0
+      353280         44160     float     sum      -1   128.68    2.75    1.37       0   128.40    2.75    1.38       0
+      354304         44288     float     sum      -1   128.55    2.76    1.38       0   127.86    2.77    1.39       0
+      355328         44416     float     sum      -1   161.40    2.20    1.10       0    51.67    6.88    3.44       0
+      356352         44544     float     sum      -1    51.95    6.86    3.43       0    52.00    6.85    3.43       0
+      357376         44672     float     sum      -1    52.04    6.87    3.43       0    52.07    6.86    3.43       0
+      358400         44800     float     sum      -1    51.99    6.89    3.45       0    51.95    6.90    3.45       0
+      359424         44928     float     sum      -1    52.29    6.87    3.44       0    52.09    6.90    3.45       0
+      360448         45056     float     sum      -1   133.97    2.69    1.35       0   130.52    2.76    1.38       0
+      361472         45184     float     sum      -1   129.14    2.80    1.40       0   131.21    2.75    1.38       0
+      362496         45312     float     sum      -1   129.22    2.81    1.40       0   129.97    2.79    1.39       0
+      363520         45440     float     sum      -1   130.27    2.79    1.40       0   130.35    2.79    1.39       0
+      364544         45568     float     sum      -1   129.99    2.80    1.40       0   132.38    2.75    1.38       0
+      365568         45696     float     sum      -1   130.71    2.80    1.40       0   131.75    2.77    1.39       0
+      366592         45824     float     sum      -1   132.23    2.77    1.39       0   137.95    2.66    1.33       0
+      367616         45952     float     sum      -1   134.79    2.73    1.36       0   138.76    2.65    1.32       0
+      368640         46080     float     sum      -1   140.83    2.62    1.31       0   137.77    2.68    1.34       0
+      369664         46208     float     sum      -1   139.91    2.64    1.32       0   137.80    2.68    1.34       0
+      370688         46336     float     sum      -1   140.53    2.64    1.32       0   153.28    2.42    1.21       0
+      371712         46464     float     sum      -1    56.03    6.63    3.32       0    55.72    6.67    3.34       0
+      372736         46592     float     sum      -1    53.23    7.00    3.50       0    53.12    7.02    3.51       0
+      373760         46720     float     sum      -1    53.21    7.02    3.51       0    53.74    6.96    3.48       0
+      374784         46848     float     sum      -1    53.42    7.02    3.51       0    53.80    6.97    3.48       0
+      375808         46976     float     sum      -1    53.72    7.00    3.50       0   142.55    2.64    1.32       0
+      376832         47104     float     sum      -1   142.45    2.65    1.32       0   142.41    2.65    1.32       0
+      377856         47232     float     sum      -1   106.11    3.56    1.78       0    56.81    6.65    3.33       0
+      378880         47360     float     sum      -1    56.99    6.65    3.32       0    53.73    7.05    3.53       0
+      379904         47488     float     sum      -1    53.60    7.09    3.54       0    53.43    7.11    3.56       0
+      380928         47616     float     sum      -1    53.70    7.09    3.55       0    54.00    7.05    3.53       0
+      381952         47744     float     sum      -1    54.49    7.01    3.50       0    54.03    7.07    3.53       0
+      382976         47872     float     sum      -1   145.74    2.63    1.31       0   145.62    2.63    1.31       0
+      384000         48000     float     sum      -1   157.94    2.43    1.22       0    56.53    6.79    3.40       0
+      385024         48128     float     sum      -1    56.95    6.76    3.38       0    53.71    7.17    3.58       0
+      386048         48256     float     sum      -1    53.97    7.15    3.58       0    53.83    7.17    3.59       0
+      387072         48384     float     sum      -1    54.06    7.16    3.58       0    59.22    6.54    3.27       0
+      388096         48512     float     sum      -1    54.58    7.11    3.56       0    54.39    7.14    3.57       0
+      389120         48640     float     sum      -1   143.36    2.71    1.36       0   142.01    2.74    1.37       0
+      390144         48768     float     sum      -1   142.01    2.75    1.37       0   141.86    2.75    1.38       0
+      391168         48896     float     sum      -1   143.01    2.74    1.37       0   142.48    2.75    1.37       0
+      392192         49024     float     sum      -1   141.72    2.77    1.38       0   141.71    2.77    1.38       0
+      393216         49152     float     sum      -1   142.49    2.76    1.38       0    57.09    6.89    3.44       0
+      394240         49280     float     sum      -1    55.37    7.12    3.56       0    55.51    7.10    3.55       0
+      395264         49408     float     sum      -1    55.74    7.09    3.55       0    55.46    7.13    3.56       0
+      396288         49536     float     sum      -1    55.07    7.20    3.60       0    55.07    7.20    3.60       0
+      397312         49664     float     sum      -1    54.78    7.25    3.63       0    55.03    7.22    3.61       0
+      398336         49792     float     sum      -1   143.16    2.78    1.39       0   141.85    2.81    1.40       0
+      399360         49920     float     sum      -1   157.25    2.54    1.27       0   154.76    2.58    1.29       0
+      400384         50048     float     sum      -1    54.97    7.28    3.64       0    54.85    7.30    3.65       0
+      401408         50176     float     sum      -1    55.37    7.25    3.62       0    55.03    7.29    3.65       0
+      402432         50304     float     sum      -1    55.10    7.30    3.65       0    54.85    7.34    3.67       0
+      403456         50432     float     sum      -1    55.40    7.28    3.64       0    55.19    7.31    3.66       0
+      404480         50560     float     sum      -1   145.07    2.79    1.39       0   143.27    2.82    1.41       0
+      405504         50688     float     sum      -1   147.77    2.74    1.37       0    55.22    7.34    3.67       0
+      406528         50816     float     sum      -1    55.65    7.31    3.65       0    55.40    7.34    3.67       0
+      407552         50944     float     sum      -1    56.14    7.26    3.63       0    55.78    7.31    3.65       0
+      408576         51072     float     sum      -1    56.43    7.24    3.62       0    56.10    7.28    3.64       0
+      409600         51200     float     sum      -1    55.91    7.33    3.66       0    56.37    7.27    3.63       0
+      410624         51328     float     sum      -1   150.60    2.73    1.36       0    58.88    6.97    3.49       0
+      411648         51456     float     sum      -1    62.48    6.59    3.29       0    59.02    6.97    3.49       0
+      412672         51584     float     sum      -1    56.06    7.36    3.68       0    55.81    7.39    3.70       0
+      413696         51712     float     sum      -1    56.03    7.38    3.69       0    56.27    7.35    3.68       0
+      414720         51840     float     sum      -1    57.02    7.27    3.64       0    56.64    7.32    3.66       0
+      415744         51968     float     sum      -1   155.79    2.67    1.33       0   156.04    2.66    1.33       0
+      416768         52096     float     sum      -1   176.56    2.36    1.18       0    59.26    7.03    3.52       0
+      417792         52224     float     sum      -1    59.95    6.97    3.48       0    56.65    7.38    3.69       0
+      418816         52352     float     sum      -1    56.59    7.40    3.70       0    56.29    7.44    3.72       0
+      419840         52480     float     sum      -1    57.02    7.36    3.68       0    57.23    7.34    3.67       0
+      420864         52608     float     sum      -1    57.49    7.32    3.66       0   163.63    2.57    1.29       0
+      421888         52736     float     sum      -1    57.39    7.35    3.68       0    57.21    7.37    3.69       0
+      422912         52864     float     sum      -1    59.46    7.11    3.56       0    59.44    7.11    3.56       0
+      423936         52992     float     sum      -1    57.22    7.41    3.70       0    58.90    7.20    3.60       0
+      424960         53120     float     sum      -1    57.24    7.42    3.71       0    57.54    7.39    3.69       0
+      425984         53248     float     sum      -1    57.36    7.43    3.71       0    57.31    7.43    3.72       0
+      427008         53376     float     sum      -1    57.80    7.39    3.69       0    57.68    7.40    3.70       0
+      428032         53504     float     sum      -1    57.77    7.41    3.70       0    60.73    7.05    3.52       0
+      429056         53632     float     sum      -1    60.53    7.09    3.54       0    57.28    7.49    3.75       0
+      430080         53760     float     sum      -1   150.35    2.86    1.43       0   151.32    2.84    1.42       0
+      431104         53888     float     sum      -1   150.08    2.87    1.44       0    57.19    7.54    3.77       0
+      432128         54016     float     sum      -1    57.13    7.56    3.78       0    57.38    7.53    3.77       0
+      433152         54144     float     sum      -1    57.95    7.47    3.74       0    57.18    7.58    3.79       0
+      434176         54272     float     sum      -1    57.68    7.53    3.76       0    58.75    7.39    3.70       0
+      435200         54400     float     sum      -1    57.54    7.56    3.78       0   151.59    2.87    1.44       0
+      436224         54528     float     sum      -1   169.07    2.58    1.29       0    40.35   10.81    5.41       0
+      437248         54656     float     sum      -1    40.59   10.77    5.39       0    40.46   10.81    5.40       0
+      438272         54784     float     sum      -1    40.59   10.80    5.40       0    40.58   10.80    5.40       0
+      439296         54912     float     sum      -1    40.61   10.82    5.41       0    40.52   10.84    5.42       0
+      440320         55040     float     sum      -1    40.52   10.87    5.43       0    93.18    4.73    2.36       0
+      441344         55168     float     sum      -1    62.74    7.03    3.52       0    59.62    7.40    3.70       0
+      442368         55296     float     sum      -1    59.76    7.40    3.70       0    58.71    7.54    3.77       0
+      443392         55424     float     sum      -1    58.30    7.60    3.80       0    57.83    7.67    3.83       0
+      444416         55552     float     sum      -1    58.35    7.62    3.81       0   121.75    3.65    1.83       0
+      445440         55680     float     sum      -1   158.98    2.80    1.40       0    58.49    7.62    3.81       0
+      446464         55808     float     sum      -1    58.25    7.66    3.83       0    58.15    7.68    3.84       0
+      447488         55936     float     sum      -1    58.48    7.65    3.83       0    58.42    7.66    3.83       0
+      448512         56064     float     sum      -1    58.37    7.68    3.84       0    61.08    7.34    3.67       0
+      449536         56192     float     sum      -1    59.20    7.59    3.80       0   165.30    2.72    1.36       0
+      450560         56320     float     sum      -1    59.29    7.60    3.80       0    59.37    7.59    3.79       0
+      451584         56448     float     sum      -1    62.99    7.17    3.58       0    59.60    7.58    3.79       0
+      452608         56576     float     sum      -1    60.36    7.50    3.75       0    59.89    7.56    3.78       0
+      453632         56704     float     sum      -1    62.82    7.22    3.61       0    62.38    7.27    3.64       0
+      454656         56832     float     sum      -1    60.00    7.58    3.79       0    60.94    7.46    3.73       0
+      455680         56960     float     sum      -1    59.71    7.63    3.82       0    59.83    7.62    3.81       0
+      456704         57088     float     sum      -1    60.19    7.59    3.79       0    59.96    7.62    3.81       0
+      457728         57216     float     sum      -1    61.86    7.40    3.70       0    41.60   11.00    5.50       0
+      458752         57344     float     sum      -1    46.00    9.97    4.99       0    41.96   10.93    5.47       0
+      459776         57472     float     sum      -1    41.99   10.95    5.47       0    42.25   10.88    5.44       0
+      460800         57600     float     sum      -1    41.38   11.14    5.57       0    41.40   11.13    5.57       0
+      461824         57728     float     sum      -1    41.59   11.10    5.55       0   174.57    2.65    1.32       0
+      462848         57856     float     sum      -1    60.85    7.61    3.80       0    60.78    7.61    3.81       0
+      463872         57984     float     sum      -1    61.22    7.58    3.79       0    63.12    7.35    3.67       0
+      464896         58112     float     sum      -1    63.49    7.32    3.66       0    59.88    7.76    3.88       0
+      465920         58240     float     sum      -1    60.92    7.65    3.82       0    62.12    7.50    3.75       0
+      466944         58368     float     sum      -1    62.37    7.49    3.74       0    61.67    7.57    3.79       0
+      467968         58496     float     sum      -1    68.01    6.88    3.44       0    41.97   11.15    5.57       0
+      468992         58624     float     sum      -1    41.82   11.21    5.61       0    42.26   11.10    5.55       0
+      470016         58752     float     sum      -1    42.81   10.98    5.49       0    41.57   11.31    5.65       0
+      471040         58880     float     sum      -1    41.59   11.33    5.66       0    41.93   11.23    5.62       0
+      472064         59008     float     sum      -1    41.87   11.28    5.64       0    66.86    7.06    3.53       0
+      473088         59136     float     sum      -1    64.18    7.37    3.69       0    61.37    7.71    3.85       0
+      474112         59264     float     sum      -1    61.53    7.71    3.85       0    64.22    7.38    3.69       0
+      475136         59392     float     sum      -1    64.61    7.35    3.68       0    60.76    7.82    3.91       0
+      476160         59520     float     sum      -1    60.82    7.83    3.91       0   167.27    2.85    1.42       0
+      477184         59648     float     sum      -1    61.07    7.81    3.91       0    61.27    7.79    3.89       0
+      478208         59776     float     sum      -1    63.11    7.58    3.79       0    62.99    7.59    3.80       0
+      479232         59904     float     sum      -1    61.91    7.74    3.87       0    64.68    7.41    3.70       0
+      480256         60032     float     sum      -1    64.66    7.43    3.71       0    61.11    7.86    3.93       0
+      481280         60160     float     sum      -1   194.93    2.47    1.23       0    61.72    7.80    3.90       0
+      482304         60288     float     sum      -1    61.58    7.83    3.92       0    41.96   11.49    5.75       0
+      483328         60416     float     sum      -1    42.04   11.50    5.75       0    42.09   11.48    5.74       0
+      484352         60544     float     sum      -1    42.82   11.31    5.66       0    42.68   11.35    5.67       0
+      485376         60672     float     sum      -1    42.68   11.37    5.69       0    41.99   11.56    5.78       0
+      486400         60800     float     sum      -1    42.13   11.55    5.77       0   174.77    2.78    1.39       0
+      487424         60928     float     sum      -1   178.57    2.73    1.36       0    62.29    7.82    3.91       0
+      488448         61056     float     sum      -1    62.68    7.79    3.90       0    63.34    7.71    3.86       0
+      489472         61184     float     sum      -1    65.77    7.44    3.72       0    64.72    7.56    3.78       0
+      490496         61312     float     sum      -1    61.88    7.93    3.96       0    61.98    7.91    3.96       0
+      491520         61440     float     sum      -1   173.03    2.84    1.42       0   178.67    2.75    1.38       0
+      492544         61568     float     sum      -1    62.93    7.83    3.91       0    65.63    7.50    3.75       0
+      493568         61696     float     sum      -1    62.92    7.84    3.92       0    68.67    7.19    3.59       0
+      494592         61824     float     sum      -1    66.29    7.46    3.73       0    65.86    7.51    3.76       0
+      495616         61952     float     sum      -1    64.43    7.69    3.85       0    65.11    7.61    3.81       0
+      496640         62080     float     sum      -1    63.16    7.86    3.93       0    63.34    7.84    3.92       0
+      497664         62208     float     sum      -1    64.03    7.77    3.89       0    63.51    7.84    3.92       0
+      498688         62336     float     sum      -1    63.28    7.88    3.94       0    65.97    7.56    3.78       0
+      499712         62464     float     sum      -1    67.44    7.41    3.70       0    63.03    7.93    3.96       0
+      500736         62592     float     sum      -1    63.08    7.94    3.97       0    62.78    7.98    3.99       0
+      501760         62720     float     sum      -1    64.78    7.75    3.87       0    66.37    7.56    3.78       0
+      502784         62848     float     sum      -1    63.90    7.87    3.93       0    63.80    7.88    3.94       0
+      503808         62976     float     sum      -1    43.46   11.59    5.80       0    43.30   11.63    5.82       0
+      504832         63104     float     sum      -1    42.99   11.74    5.87       0    43.14   11.70    5.85       0
+      505856         63232     float     sum      -1    42.85   11.81    5.90       0    42.76   11.83    5.92       0
+      506880         63360     float     sum      -1    42.95   11.80    5.90       0    42.79   11.85    5.92       0
+      507904         63488     float     sum      -1   181.92    2.79    1.40       0    63.55    7.99    4.00       0
+      508928         63616     float     sum      -1    64.05    7.95    3.97       0    63.04    8.07    4.04       0
+      509952         63744     float     sum      -1    63.42    8.04    4.02       0    63.60    8.02    4.01       0
+      510976         63872     float     sum      -1    64.78    7.89    3.94       0    64.05    7.98    3.99       0
+      512000         64000     float     sum      -1    63.10    8.11    4.06       0    43.03   11.90    5.95       0
+      513024         64128     float     sum      -1    42.96   11.94    5.97       0    43.10   11.90    5.95       0
+      514048         64256     float     sum      -1    43.10   11.93    5.96       0    42.88   11.99    5.99       0
+      515072         64384     float     sum      -1    43.08   11.96    5.98       0    43.39   11.87    5.94       0
+      516096         64512     float     sum      -1    63.29    8.16    4.08       0    64.25    8.03    4.02       0
+      517120         64640     float     sum      -1    63.68    8.12    4.06       0    63.65    8.13    4.06       0
+      518144         64768     float     sum      -1    64.26    8.06    4.03       0    64.95    7.98    3.99       0
+      519168         64896     float     sum      -1    63.65    8.16    4.08       0   178.19    2.91    1.46       0
+      520192         65024     float     sum      -1    63.61    8.18    4.09       0    64.63    8.05    4.02       0
+      521216         65152     float     sum      -1    64.07    8.14    4.07       0    68.17    7.65    3.82       0
+      522240         65280     float     sum      -1    63.96    8.17    4.08       0    63.88    8.17    4.09       0
+      523264         65408     float     sum      -1   201.55    2.60    1.30       0   186.22    2.81    1.40       0
+      524288         65536     float     sum      -1    64.57    8.12    4.06       0    64.62    8.11    4.06       0
+      525312         65664     float     sum      -1    65.55    8.01    4.01       0    65.52    8.02    4.01       0
+      526336         65792     float     sum      -1    66.48    7.92    3.96       0    68.42    7.69    3.85       0
+      527360         65920     float     sum      -1    69.22    7.62    3.81       0    64.76    8.14    4.07       0
+      528384         66048     float     sum      -1    65.12    8.11    4.06       0    65.46    8.07    4.04       0
+      529408         66176     float     sum      -1    68.29    7.75    3.88       0    65.65    8.06    4.03       0
+      530432         66304     float     sum      -1    66.36    7.99    4.00       0    65.80    8.06    4.03       0
+      531456         66432     float     sum      -1    69.02    7.70    3.85       0    69.10    7.69    3.85       0
+      532480         66560     float     sum      -1    65.51    8.13    4.06       0   183.64    2.90    1.45       0
+      533504         66688     float     sum      -1   189.21    2.82    1.41       0   156.54    3.41    1.70       0
+      534528         66816     float     sum      -1    44.35   12.05    6.03       0    44.29   12.07    6.03       0
+      535552         66944     float     sum      -1    44.50   12.03    6.02       0    46.12   11.61    5.81       0
+      536576         67072     float     sum      -1    45.08   11.90    5.95       0    44.20   12.14    6.07       0
+      537600         67200     float     sum      -1    44.69   12.03    6.01       0   185.03    2.91    1.45       0
+      538624         67328     float     sum      -1   185.13    2.91    1.45       0   184.18    2.92    1.46       0
+      539648         67456     float     sum      -1   184.62    2.92    1.46       0    66.65    8.10    4.05       0
+      540672         67584     float     sum      -1    65.77    8.22    4.11       0    65.60    8.24    4.12       0
+      541696         67712     float     sum      -1    65.95    8.21    4.11       0    65.34    8.29    4.15       0
+      542720         67840     float     sum      -1    65.83    8.24    4.12       0   202.81    2.68    1.34       0
+      543744         67968     float     sum      -1   210.95    2.58    1.29       0    44.28   12.28    6.14       0
+      544768         68096     float     sum      -1    44.67   12.20    6.10       0    44.31   12.30    6.15       0
+      545792         68224     float     sum      -1    44.76   12.19    6.10       0    44.41   12.29    6.14       0
+      546816         68352     float     sum      -1    44.48   12.29    6.15       0    44.36   12.33    6.16       0
+      547840         68480     float     sum      -1   207.74    2.64    1.32       0    44.34   12.35    6.18       0
+      548864         68608     float     sum      -1    44.75   12.27    6.13       0    44.35   12.37    6.19       0
+      549888         68736     float     sum      -1    44.55   12.34    6.17       0    44.45   12.37    6.18       0
+      550912         68864     float     sum      -1    44.58   12.36    6.18       0    44.48   12.39    6.19       0
+      551936         68992     float     sum      -1   188.69    2.93    1.46       0   192.12    2.87    1.44       0
+      552960         69120     float     sum      -1   188.61    2.93    1.47       0   187.75    2.95    1.47       0
+      553984         69248     float     sum      -1   204.52    2.71    1.35       0    45.02   12.30    6.15       0
+      555008         69376     float     sum      -1    45.08   12.31    6.16       0    44.61   12.44    6.22       0
+      556032         69504     float     sum      -1    45.13   12.32    6.16       0    44.66   12.45    6.23       0
+      557056         69632     float     sum      -1    45.51   12.24    6.12       0    45.52   12.24    6.12       0
+      558080         69760     float     sum      -1    68.38    8.16    4.08       0    67.71    8.24    4.12       0
+      559104         69888     float     sum      -1    67.28    8.31    4.15       0    67.20    8.32    4.16       0
+      560128         70016     float     sum      -1    73.78    7.59    3.80       0    67.88    8.25    4.13       0
+      561152         70144     float     sum      -1    67.64    8.30    4.15       0   206.52    2.72    1.36       0
+      562176         70272     float     sum      -1    71.52    7.86    3.93       0    71.15    7.90    3.95       0
+      563200         70400     float     sum      -1    67.39    8.36    4.18       0    67.30    8.37    4.18       0
+      564224         70528     float     sum      -1    67.92    8.31    4.15       0    68.09    8.29    4.14       0
+      565248         70656     float     sum      -1   204.75    2.76    1.38       0    68.57    8.24    4.12       0
+      566272         70784     float     sum      -1    69.52    8.15    4.07       0    71.14    7.96    3.98       0
+      567296         70912     float     sum      -1    71.96    7.88    3.94       0    67.50    8.40    4.20       0
+      568320         71040     float     sum      -1    67.68    8.40    4.20       0    68.10    8.34    4.17       0
+      569344         71168     float     sum      -1    68.57    8.30    4.15       0    69.89    8.15    4.07       0
+      570368         71296     float     sum      -1    70.58    8.08    4.04       0    45.72   12.48    6.24       0
+      571392         71424     float     sum      -1    46.06   12.41    6.20       0    45.94   12.44    6.22       0
+      572416         71552     float     sum      -1    45.27   12.65    6.32       0    45.24   12.65    6.33       0
+      573440         71680     float     sum      -1    45.20   12.69    6.34       0    45.12   12.71    6.35       0
+      574464         71808     float     sum      -1   193.16    2.97    1.49       0   193.91    2.96    1.48       0
+      575488         71936     float     sum      -1   229.75    2.50    1.25       0    68.12    8.45    4.22       0
+      576512         72064     float     sum      -1    68.55    8.41    4.21       0    68.21    8.45    4.23       0
+      577536         72192     float     sum      -1    69.75    8.28    4.14       0    68.36    8.45    4.22       0
+      578560         72320     float     sum      -1    68.53    8.44    4.22       0   206.52    2.80    1.40       0
+      579584         72448     float     sum      -1   195.54    2.96    1.48       0   195.17    2.97    1.48       0
+      580608         72576     float     sum      -1   195.61    2.97    1.48       0   212.80    2.73    1.36       0
+      581632         72704     float     sum      -1    70.91    8.20    4.10       0    68.48    8.49    4.25       0
+      582656         72832     float     sum      -1    68.55    8.50    4.25       0    68.50    8.51    4.25       0
+      583680         72960     float     sum      -1    68.69    8.50    4.25       0    68.58    8.51    4.26       0
+      584704         73088     float     sum      -1   199.49    2.93    1.47       0    69.65    8.40    4.20       0
+      585728         73216     float     sum      -1    45.87   12.77    6.39       0    46.06   12.72    6.36       0
+      586752         73344     float     sum      -1    45.98   12.76    6.38       0    45.97   12.76    6.38       0
+      587776         73472     float     sum      -1    46.20   12.72    6.36       0    46.03   12.77    6.38       0
+      588800         73600     float     sum      -1    46.10   12.77    6.39       0   211.39    2.79    1.39       0
+      589824         73728     float     sum      -1    45.94   12.84    6.42       0    45.77   12.89    6.44       0
+      590848         73856     float     sum      -1    46.78   12.63    6.32       0    46.39   12.74    6.37       0
+      591872         73984     float     sum      -1    46.72   12.67    6.33       0    47.22   12.53    6.27       0
+      592896         74112     float     sum      -1    47.38   12.51    6.26       0    70.58    8.40    4.20       0
+      593920         74240     float     sum      -1    70.40    8.44    4.22       0    69.94    8.49    4.25       0
+      594944         74368     float     sum      -1    70.68    8.42    4.21       0    70.94    8.39    4.19       0
+      595968         74496     float     sum      -1    71.32    8.36    4.18       0    71.20    8.37    4.18       0
+      596992         74624     float     sum      -1   183.82    3.25    1.62       0    74.70    7.99    4.00       0
+      598016         74752     float     sum      -1    73.70    8.11    4.06       0    70.25    8.51    4.26       0
+      599040         74880     float     sum      -1    70.70    8.47    4.24       0    72.31    8.28    4.14       0
+      600064         75008     float     sum      -1    71.92    8.34    4.17       0   191.10    3.14    1.57       0
+      601088         75136     float     sum      -1    71.89    8.36    4.18       0    72.17    8.33    4.16       0
+      602112         75264     float     sum      -1    76.46    7.87    3.94       0    76.54    7.87    3.93       0
+      603136         75392     float     sum      -1    47.63   12.66    6.33       0    46.72   12.91    6.46       0
+      604160         75520     float     sum      -1    46.90   12.88    6.44       0    46.86   12.89    6.45       0
+      605184         75648     float     sum      -1    46.75   12.94    6.47       0    46.77   12.94    6.47       0
+      606208         75776     float     sum      -1    46.89   12.93    6.46       0   204.44    2.97    1.48       0
+      607232         75904     float     sum      -1   207.97    2.92    1.46       0   206.07    2.95    1.47       0
+      608256         76032     float     sum      -1   194.07    3.13    1.57       0    71.12    8.55    4.28       0
+      609280         76160     float     sum      -1    70.94    8.59    4.29       0    73.63    8.28    4.14       0
+      610304         76288     float     sum      -1    72.79    8.38    4.19       0    71.29    8.56    4.28       0
+      611328         76416     float     sum      -1    71.43    8.56    4.28       0   249.59    2.45    1.22       0
+      612352         76544     float     sum      -1    73.36    8.35    4.17       0    76.60    7.99    4.00       0
+      613376         76672     float     sum      -1    71.68    8.56    4.28       0    71.54    8.57    4.29       0
+      614400         76800     float     sum      -1    71.76    8.56    4.28       0    71.77    8.56    4.28       0
+      615424         76928     float     sum      -1   210.79    2.92    1.46       0   214.49    2.87    1.43       0
+      616448         77056     float     sum      -1    73.75    8.36    4.18       0    72.07    8.55    4.28       0
+      617472         77184     float     sum      -1    71.97    8.58    4.29       0    71.75    8.61    4.30       0
+      618496         77312     float     sum      -1    72.20    8.57    4.28       0    71.81    8.61    4.31       0
+      619520         77440     float     sum      -1   211.73    2.93    1.46       0   211.55    2.93    1.46       0
+      620544         77568     float     sum      -1   212.01    2.93    1.46       0    71.80    8.64    4.32       0
+      621568         77696     float     sum      -1    72.38    8.59    4.29       0    75.58    8.22    4.11       0
+      622592         77824     float     sum      -1    72.54    8.58    4.29       0    79.46    7.84    3.92       0
+      623616         77952     float     sum      -1    74.58    8.36    4.18       0   215.22    2.90    1.45       0
+      624640         78080     float     sum      -1   199.85    3.13    1.56       0    81.45    7.67    3.83       0
+      625664         78208     float     sum      -1    72.35    8.65    4.32       0    71.91    8.70    4.35       0
+      626688         78336     float     sum      -1    72.50    8.64    4.32       0    72.12    8.69    4.34       0
+      627712         78464     float     sum      -1    72.23    8.69    4.35       0   214.37    2.93    1.46       0
+      628736         78592     float     sum      -1   189.93    3.31    1.66       0    72.32    8.69    4.35       0
+      629760         78720     float     sum      -1    74.66    8.43    4.22       0    72.38    8.70    4.35       0
+      630784         78848     float     sum      -1    72.55    8.69    4.35       0    79.16    7.97    3.98       0
+      631808         78976     float     sum      -1    72.74    8.69    4.34       0   212.91    2.97    1.48       0
+      632832         79104     float     sum      -1   189.26    3.34    1.67       0    72.68    8.71    4.35       0
+      633856         79232     float     sum      -1    79.08    8.02    4.01       0    72.59    8.73    4.37       0
+      634880         79360     float     sum      -1    73.16    8.68    4.34       0    72.73    8.73    4.36       0
+      635904         79488     float     sum      -1    72.87    8.73    4.36       0   190.41    3.34    1.67       0
+      636928         79616     float     sum      -1    73.86    8.62    4.31       0    74.53    8.55    4.27       0
+      637952         79744     float     sum      -1    74.21    8.60    4.30       0    73.93    8.63    4.31       0
+      638976         79872     float     sum      -1    73.96    8.64    4.32       0    74.28    8.60    4.30       0
+      640000         80000     float     sum      -1    78.41    8.16    4.08       0    82.86    7.72    3.86       0
+      641024         80128     float     sum      -1    47.81   13.41    6.70       0    47.96   13.37    6.68       0
+      642048         80256     float     sum      -1    48.18   13.33    6.66       0    48.04   13.37    6.68       0
+      643072         80384     float     sum      -1    48.08   13.38    6.69       0    47.99   13.40    6.70       0
+      644096         80512     float     sum      -1    48.37   13.32    6.66       0    80.97    7.96    3.98       0
+      645120         80640     float     sum      -1    48.81   13.22    6.61       0    48.16   13.40    6.70       0
+      646144         80768     float     sum      -1    48.12   13.43    6.71       0    47.97   13.47    6.73       0
+      647168         80896     float     sum      -1    48.22   13.42    6.71       0    48.21   13.42    6.71       0
+      648192         81024     float     sum      -1    48.35   13.41    6.70       0   198.17    3.27    1.64       0
+      649216         81152     float     sum      -1    78.78    8.24    4.12       0    78.48    8.27    4.14       0
+      650240         81280     float     sum      -1    74.51    8.73    4.36       0    84.74    7.67    3.84       0
+      651264         81408     float     sum      -1    79.19    8.22    4.11       0    75.03    8.68    4.34       0
+      652288         81536     float     sum      -1   202.15    3.23    1.61       0    75.49    8.64    4.32       0
+      653312         81664     float     sum      -1    75.45    8.66    4.33       0    79.07    8.26    4.13       0
+      654336         81792     float     sum      -1    79.63    8.22    4.11       0    75.36    8.68    4.34       0
+      655360         81920     float     sum      -1    74.45    8.80    4.40       0   224.14    2.92    1.46       0
+      656384         82048     float     sum      -1    76.46    8.58    4.29       0    75.70    8.67    4.34       0
+      657408         82176     float     sum      -1    75.98    8.65    4.33       0    76.21    8.63    4.31       0
+      658432         82304     float     sum      -1    79.89    8.24    4.12       0    50.52   13.03    6.52       0
+      659456         82432     float     sum      -1    49.53   13.31    6.66       0    49.22   13.40    6.70       0
+      660480         82560     float     sum      -1    49.04   13.47    6.73       0    48.98   13.48    6.74       0
+      661504         82688     float     sum      -1    49.08   13.48    6.74       0    49.47   13.37    6.69       0
+      662528         82816     float     sum      -1   231.34    2.86    1.43       0    78.19    8.47    4.24       0
+      663552         82944     float     sum      -1    80.16    8.28    4.14       0    77.71    8.54    4.27       0
+      664576         83072     float     sum      -1    85.18    7.80    3.90       0    76.56    8.68    4.34       0
+      665600         83200     float     sum      -1    76.07    8.75    4.38       0   240.76    2.76    1.38       0
+      666624         83328     float     sum      -1    75.84    8.79    4.40       0    76.02    8.77    4.38       0
+      667648         83456     float     sum      -1    76.01    8.78    4.39       0    75.53    8.84    4.42       0
+      668672         83584     float     sum      -1    76.93    8.69    4.35       0    75.69    8.83    4.42       0
+      669696         83712     float     sum      -1   234.45    2.86    1.43       0    76.37    8.77    4.38       0
+      670720         83840     float     sum      -1    76.24    8.80    4.40       0    75.92    8.83    4.42       0
+      671744         83968     float     sum      -1    76.49    8.78    4.39       0    77.81    8.63    4.32       0
+      672768         84096     float     sum      -1    76.73    8.77    4.38       0   227.09    2.96    1.48       0
+      673792         84224     float     sum      -1   250.91    2.69    1.34       0    49.48   13.62    6.81       0
+      674816         84352     float     sum      -1    50.10   13.47    6.73       0    49.46   13.64    6.82       0
+      675840         84480     float     sum      -1    49.73   13.59    6.79       0    50.77   13.31    6.66       0
+      676864         84608     float     sum      -1    51.54   13.13    6.57       0    49.73   13.61    6.81       0
+      677888         84736     float     sum      -1   228.00    2.97    1.49       0    76.55    8.86    4.43       0
+      678912         84864     float     sum      -1    77.20    8.79    4.40       0    76.95    8.82    4.41       0
+      679936         84992     float     sum      -1    77.94    8.72    4.36       0    77.16    8.81    4.41       0
+      680960         85120     float     sum      -1    77.90    8.74    4.37       0   234.93    2.90    1.45       0
+      681984         85248     float     sum      -1    77.32    8.82    4.41       0    77.00    8.86    4.43       0
+      683008         85376     float     sum      -1    77.44    8.82    4.41       0    82.76    8.25    4.13       0
+      684032         85504     float     sum      -1    77.32    8.85    4.42       0    77.15    8.87    4.43       0
+      685056         85632     float     sum      -1   237.03    2.89    1.45       0    77.22    8.87    4.44       0
+      686080         85760     float     sum      -1    79.13    8.67    4.34       0    79.66    8.61    4.31       0
+      687104         85888     float     sum      -1    82.47    8.33    4.17       0    78.15    8.79    4.40       0
+      688128         86016     float     sum      -1    77.83    8.84    4.42       0   197.89    3.48    1.74       0
+      689152         86144     float     sum      -1    80.01    8.61    4.31       0    77.48    8.89    4.45       0
+      690176         86272     float     sum      -1    77.55    8.90    4.45       0    77.97    8.85    4.43       0
+      691200         86400     float     sum      -1    77.98    8.86    4.43       0    77.47    8.92    4.46       0
+      692224         86528     float     sum      -1   233.63    2.96    1.48       0    80.03    8.65    4.32       0
+      693248         86656     float     sum      -1    87.00    7.97    3.98       0    78.50    8.83    4.42       0
+      694272         86784     float     sum      -1    78.19    8.88    4.44       0    78.39    8.86    4.43       0
+      695296         86912     float     sum      -1    78.91    8.81    4.41       0   206.24    3.37    1.69       0
+      696320         87040     float     sum      -1    78.79    8.84    4.42       0    90.94    7.66    3.83       0
+      697344         87168     float     sum      -1    51.21   13.62    6.81       0    50.86   13.71    6.86       0
+      698368         87296     float     sum      -1    50.24   13.90    6.95       0    49.94   13.98    6.99       0
+      699392         87424     float     sum      -1    50.53   13.84    6.92       0    52.63   13.29    6.64       0
+      700416         87552     float     sum      -1    50.33   13.92    6.96       0   190.83    3.67    1.84       0
+      701440         87680     float     sum      -1    50.50   13.89    6.94       0    51.02   13.75    6.87       0
+      702464         87808     float     sum      -1    51.24   13.71    6.85       0    50.49   13.91    6.96       0
+      703488         87936     float     sum      -1    50.75   13.86    6.93       0    50.96   13.81    6.90       0
+      704512         88064     float     sum      -1    50.65   13.91    6.95       0    50.74   13.88    6.94       0
+      705536         88192     float     sum      -1    83.65    8.43    4.22       0    79.53    8.87    4.44       0
+      706560         88320     float     sum      -1    84.23    8.39    4.19       0    83.35    8.48    4.24       0
+      707584         88448     float     sum      -1    79.37    8.92    4.46       0    87.66    8.07    4.04       0
+      708608         88576     float     sum      -1    79.56    8.91    4.45       0    78.96    8.97    4.49       0
+      709632         88704     float     sum      -1    79.42    8.93    4.47       0    82.98    8.55    4.28       0
+      710656         88832     float     sum      -1    85.59    8.30    4.15       0    79.47    8.94    4.47       0
+      711680         88960     float     sum      -1    81.72    8.71    4.35       0   210.03    3.39    1.69       0
+      712704         89088     float     sum      -1    79.34    8.98    4.49       0    80.53    8.85    4.43       0
+      713728         89216     float     sum      -1    79.16    9.02    4.51       0    79.35    8.99    4.50       0
+      714752         89344     float     sum      -1    79.37    9.01    4.50       0    79.08    9.04    4.52       0
+      715776         89472     float     sum      -1   250.38    2.86    1.43       0    79.39    9.02    4.51       0
+      716800         89600     float     sum      -1    79.60    9.00    4.50       0    84.61    8.47    4.24       0
+      717824         89728     float     sum      -1    79.67    9.01    4.50       0    79.71    9.01    4.50       0
+      718848         89856     float     sum      -1    79.76    9.01    4.51       0   154.67    4.65    2.32       0
+      719872         89984     float     sum      -1    52.12   13.81    6.91       0    51.12   14.08    7.04       0
+      720896         90112     float     sum      -1    50.92   14.16    7.08       0    50.95   14.15    7.07       0
+      721920         90240     float     sum      -1    51.28   14.08    7.04       0    51.54   14.01    7.00       0
+      722944         90368     float     sum      -1    51.41   14.06    7.03       0   230.63    3.13    1.57       0
+      723968         90496     float     sum      -1    83.12    8.71    4.35       0    82.91    8.73    4.37       0
+      724992         90624     float     sum      -1    83.74    8.66    4.33       0    83.18    8.72    4.36       0
+      726016         90752     float     sum      -1    83.69    8.68    4.34       0    83.11    8.74    4.37       0
+      727040         90880     float     sum      -1    82.78    8.78    4.39       0    83.58    8.70    4.35       0
+      728064         91008     float     sum      -1    90.81    8.02    4.01       0    57.65   12.63    6.31       0
+      729088         91136     float     sum      -1    52.59   13.86    6.93       0    52.24   13.96    6.98       0
+      730112         91264     float     sum      -1    52.18   13.99    7.00       0    51.82   14.09    7.05       0
+      731136         91392     float     sum      -1    52.44   13.94    6.97       0    52.56   13.91    6.96       0
+      732160         91520     float     sum      -1    52.28   14.00    7.00       0    55.18   13.27    6.63       0
+      733184         91648     float     sum      -1    53.87   13.61    6.80       0    52.00   14.10    7.05       0
+      734208         91776     float     sum      -1    51.91   14.14    7.07       0    51.93   14.14    7.07       0
+      735232         91904     float     sum      -1    52.52   14.00    7.00       0    85.84    8.56    4.28       0
+      736256         92032     float     sum      -1    90.87    8.10    4.05       0    82.59    8.91    4.46       0
+      737280         92160     float     sum      -1    52.74   13.98    6.99       0    52.22   14.12    7.06       0
+      738304         92288     float     sum      -1    53.17   13.89    6.94       0    52.00   14.20    7.10       0
+      739328         92416     float     sum      -1    52.09   14.19    7.10       0    55.78   13.25    6.63       0
+      740352         92544     float     sum      -1    52.35   14.14    7.07       0    84.65    8.75    4.37       0
+      741376         92672     float     sum      -1    84.88    8.73    4.37       0    82.49    8.99    4.49       0
+      742400         92800     float     sum      -1    83.50    8.89    4.45       0    83.05    8.94    4.47       0
+      743424         92928     float     sum      -1    83.90    8.86    4.43       0    84.01    8.85    4.42       0
+      744448         93056     float     sum      -1    53.36   13.95    6.98       0    54.41   13.68    6.84       0
+      745472         93184     float     sum      -1    55.82   13.35    6.68       0    53.45   13.95    6.97       0
+      746496         93312     float     sum      -1    53.05   14.07    7.04       0    52.56   14.20    7.10       0
+      747520         93440     float     sum      -1    52.60   14.21    7.11       0    84.03    8.90    4.45       0
+      748544         93568     float     sum      -1    89.36    8.38    4.19       0    84.52    8.86    4.43       0
+      749568         93696     float     sum      -1    84.46    8.88    4.44       0    53.74   13.95    6.97       0
+      750592         93824     float     sum      -1    53.54   14.02    7.01       0    53.31   14.08    7.04       0
+      751616         93952     float     sum      -1    52.78   14.24    7.12       0    53.18   14.13    7.07       0
+      752640         94080     float     sum      -1    53.21   14.14    7.07       0    52.48   14.34    7.17       0
+      753664         94208     float     sum      -1    85.22    8.84    4.42       0    90.07    8.37    4.18       0
+      754688         94336     float     sum      -1    83.69    9.02    4.51       0    88.12    8.56    4.28       0
+      755712         94464     float     sum      -1    87.89    8.60    4.30       0    85.76    8.81    4.41       0
+      756736         94592     float     sum      -1    85.37    8.86    4.43       0    52.31   14.47    7.23       0
+      757760         94720     float     sum      -1    52.54   14.42    7.21       0    52.52   14.43    7.21       0
+      758784         94848     float     sum      -1    52.42   14.48    7.24       0    52.97   14.33    7.16       0
+      759808         94976     float     sum      -1    53.20   14.28    7.14       0    53.29   14.26    7.13       0
+      760832         95104     float     sum      -1    84.03    9.05    4.53       0    82.99    9.17    4.58       0
+      761856         95232     float     sum      -1    83.15    9.16    4.58       0    83.81    9.09    4.54       0
+      762880         95360     float     sum      -1    85.60    8.91    4.46       0    85.34    8.94    4.47       0
+      763904         95488     float     sum      -1    84.80    9.01    4.50       0    83.40    9.16    4.58       0
+      764928         95616     float     sum      -1    88.41    8.65    4.33       0    84.22    9.08    4.54       0
+      765952         95744     float     sum      -1    84.67    9.05    4.52       0    83.87    9.13    4.57       0
+      766976         95872     float     sum      -1    84.91    9.03    4.52       0    84.33    9.09    4.55       0
+      768000         96000     float     sum      -1   186.15    4.13    2.06       0    83.54    9.19    4.60       0
+      769024         96128     float     sum      -1    96.53    7.97    3.98       0    87.03    8.84    4.42       0
+      770048         96256     float     sum      -1    84.94    9.07    4.53       0    84.01    9.17    4.58       0
+      771072         96384     float     sum      -1    90.95    8.48    4.24       0    89.95    8.57    4.29       0
+      772096         96512     float     sum      -1    53.09   14.54    7.27       0    53.33   14.48    7.24       0
+      773120         96640     float     sum      -1    53.00   14.59    7.29       0    52.70   14.67    7.34       0
+      774144         96768     float     sum      -1    52.85   14.65    7.32       0    53.61   14.44    7.22       0
+      775168         96896     float     sum      -1    53.27   14.55    7.28       0   242.93    3.19    1.60       0
+      776192         97024     float     sum      -1    84.12    9.23    4.61       0    83.64    9.28    4.64       0
+      777216         97152     float     sum      -1    84.63    9.18    4.59       0    85.68    9.07    4.54       0
+      778240         97280     float     sum      -1    84.24    9.24    4.62       0    86.78    8.97    4.48       0
+      779264         97408     float     sum      -1   168.14    4.63    2.32       0    85.06    9.16    4.58       0
+      780288         97536     float     sum      -1    86.27    9.04    4.52       0    85.02    9.18    4.59       0
+      781312         97664     float     sum      -1    86.70    9.01    4.51       0    91.37    8.55    4.28       0
+      782336         97792     float     sum      -1    90.87    8.61    4.30       0    84.74    9.23    4.62       0
+      783360         97920     float     sum      -1    84.84    9.23    4.62       0    85.48    9.16    4.58       0
+      784384         98048     float     sum      -1    85.93    9.13    4.56       0    94.41    8.31    4.15       0
+      785408         98176     float     sum      -1    86.58    9.07    4.54       0    86.04    9.13    4.56       0
+      786432         98304     float     sum      -1   137.65    5.71    2.86       0    90.66    8.67    4.34       0
+      787456         98432     float     sum      -1    85.65    9.19    4.60       0    85.10    9.25    4.63       0
+      788480         98560     float     sum      -1    95.33    8.27    4.14       0    86.11    9.16    4.58       0
+      789504         98688     float     sum      -1    54.50   14.49    7.24       0    56.89   13.88    6.94       0
+      790528         98816     float     sum      -1    54.45   14.52    7.26       0    55.00   14.37    7.19       0
+      791552         98944     float     sum      -1    55.24   14.33    7.16       0    55.51   14.26    7.13       0
+      792576         99072     float     sum      -1    54.60   14.52    7.26       0   234.38    3.38    1.69       0
+      793600         99200     float     sum      -1    87.06    9.12    4.56       0    86.26    9.20    4.60       0
+      794624         99328     float     sum      -1    89.14    8.91    4.46       0    93.04    8.54    4.27       0
+      795648         99456     float     sum      -1    92.02    8.65    4.32       0    94.48    8.42    4.21       0
+      796672         99584     float     sum      -1    86.39    9.22    4.61       0    88.72    8.98    4.49       0
+      797696         99712     float     sum      -1    87.85    9.08    4.54       0    87.56    9.11    4.56       0
+      798720         99840     float     sum      -1    87.57    9.12    4.56       0    54.42   14.68    7.34       0
+      799744         99968     float     sum      -1    55.77   14.34    7.17       0    54.75   14.61    7.30       0
+      800768        100096     float     sum      -1    54.70   14.64    7.32       0    54.04   14.82    7.41       0
+      801792        100224     float     sum      -1    54.57   14.69    7.35       0    54.36   14.75    7.37       0
+      802816        100352     float     sum      -1   215.43    3.73    1.86       0    87.11    9.22    4.61       0
+      803840        100480     float     sum      -1    54.47   14.76    7.38       0    55.23   14.55    7.28       0
+      804864        100608     float     sum      -1    55.59   14.48    7.24       0    54.69   14.72    7.36       0
+      805888        100736     float     sum      -1    54.91   14.68    7.34       0    54.90   14.68    7.34       0
+      806912        100864     float     sum      -1    54.85   14.71    7.36       0    90.50    8.92    4.46       0
+      807936        100992     float     sum      -1    89.38    9.04    4.52       0    87.97    9.18    4.59       0
+      808960        101120     float     sum      -1    92.72    8.72    4.36       0    92.53    8.74    4.37       0
+      809984        101248     float     sum      -1    94.97    8.53    4.26       0    90.96    8.90    4.45       0
+      811008        101376     float     sum      -1    90.12    9.00    4.50       0    94.71    8.56    4.28       0
+      812032        101504     float     sum      -1    55.48   14.64    7.32       0    54.67   14.85    7.43       0
+      813056        101632     float     sum      -1    55.14   14.75    7.37       0    57.45   14.15    7.08       0
+      814080        101760     float     sum      -1    56.06   14.52    7.26       0    55.77   14.60    7.30       0
+      815104        101888     float     sum      -1    55.04   14.81    7.40       0   108.33    7.52    3.76       0
+      816128        102016     float     sum      -1    55.15   14.80    7.40       0    58.38   13.98    6.99       0
+      817152        102144     float     sum      -1    55.30   14.78    7.39       0    55.54   14.71    7.36       0
+      818176        102272     float     sum      -1    55.75   14.68    7.34       0    55.91   14.63    7.32       0
+      819200        102400     float     sum      -1    55.32   14.81    7.40       0    88.72    9.23    4.62       0
+      820224        102528     float     sum      -1    88.54    9.26    4.63       0    89.70    9.14    4.57       0
+      821248        102656     float     sum      -1    55.19   14.88    7.44       0    55.20   14.88    7.44       0
+      822272        102784     float     sum      -1    55.08   14.93    7.46       0    55.71   14.76    7.38       0
+      823296        102912     float     sum      -1    55.81   14.75    7.38       0    55.08   14.95    7.47       0
+      824320        103040     float     sum      -1    55.28   14.91    7.46       0    99.67    8.27    4.14       0
+      825344        103168     float     sum      -1    91.37    9.03    4.52       0    90.62    9.11    4.55       0
+      826368        103296     float     sum      -1    57.09   14.48    7.24       0    55.62   14.86    7.43       0
+      827392        103424     float     sum      -1    56.25   14.71    7.36       0    55.76   14.84    7.42       0
+      828416        103552     float     sum      -1    55.08   15.04    7.52       0    54.72   15.14    7.57       0
+      829440        103680     float     sum      -1    54.90   15.11    7.55       0   215.90    3.84    1.92       0
+      830464        103808     float     sum      -1    89.44    9.28    4.64       0    95.65    8.68    4.34       0
+      831488        103936     float     sum      -1    90.07    9.23    4.62       0    94.05    8.84    4.42       0
+      832512        104064     float     sum      -1    56.92   14.63    7.31       0    54.83   15.18    7.59       0
+      833536        104192     float     sum      -1    55.15   15.11    7.56       0    54.96   15.17    7.58       0
+      834560        104320     float     sum      -1    55.65   15.00    7.50       0    55.39   15.07    7.53       0
+      835584        104448     float     sum      -1    55.49   15.06    7.53       0   186.78    4.47    2.24       0
+      836608        104576     float     sum      -1    96.16    8.70    4.35       0    95.10    8.80    4.40       0
+      837632        104704     float     sum      -1    89.67    9.34    4.67       0    88.88    9.42    4.71       0
+      838656        104832     float     sum      -1    89.36    9.39    4.69       0    90.77    9.24    4.62       0
+      839680        104960     float     sum      -1    90.78    9.25    4.62       0    90.49    9.28    4.64       0
+      840704        105088     float     sum      -1    90.19    9.32    4.66       0    99.29    8.47    4.23       0
+      841728        105216     float     sum      -1    58.98   14.27    7.14       0    55.23   15.24    7.62       0
+      842752        105344     float     sum      -1    55.53   15.18    7.59       0    55.48   15.19    7.60       0
+      843776        105472     float     sum      -1    55.74   15.14    7.57       0    55.34   15.25    7.62       0
+      844800        105600     float     sum      -1    55.96   15.10    7.55       0    55.64   15.18    7.59       0
+      845824        105728     float     sum      -1    56.75   14.90    7.45       0    56.40   15.00    7.50       0
+      846848        105856     float     sum      -1    55.66   15.21    7.61       0    55.63   15.22    7.61       0
+      847872        105984     float     sum      -1    57.63   14.71    7.36       0    55.90   15.17    7.58       0
+      848896        106112     float     sum      -1   202.44    4.19    2.10       0    91.97    9.23    4.62       0
+      849920        106240     float     sum      -1    91.34    9.30    4.65       0    96.03    8.85    4.43       0
+      850944        106368     float     sum      -1    96.80    8.79    4.40       0    92.95    9.15    4.58       0
+      851968        106496     float     sum      -1    92.94    9.17    4.58       0    91.08    9.35    4.68       0
+      852992        106624     float     sum      -1    92.49    9.22    4.61       0    92.33    9.24    4.62       0
+      854016        106752     float     sum      -1    92.64    9.22    4.61       0    94.52    9.04    4.52       0
+      855040        106880     float     sum      -1    92.03    9.29    4.65       0    57.61   14.84    7.42       0
+      856064        107008     float     sum      -1    56.75   15.08    7.54       0    56.43   15.17    7.58       0
+      857088        107136     float     sum      -1    56.91   15.06    7.53       0    56.60   15.14    7.57       0
+      858112        107264     float     sum      -1    56.92   15.07    7.54       0    72.23   11.88    5.94       0
+      859136        107392     float     sum      -1    93.33    9.21    4.60       0    97.49    8.81    4.41       0
+      860160        107520     float     sum      -1    97.79    8.80    4.40       0    92.73    9.28    4.64       0
+      861184        107648     float     sum      -1    92.73    9.29    4.64       0    93.37    9.22    4.61       0
+      862208        107776     float     sum      -1    93.18    9.25    4.63       0    95.86    8.99    4.50       0
+      863232        107904     float     sum      -1    93.54    9.23    4.61       0    92.16    9.37    4.68       0
+      864256        108032     float     sum      -1    97.59    8.86    4.43       0    98.42    8.78    4.39       0
+      865280        108160     float     sum      -1    96.08    9.01    4.50       0    92.69    9.34    4.67       0
+      866304        108288     float     sum      -1    94.04    9.21    4.61       0   108.49    7.98    3.99       0
+      867328        108416     float     sum      -1    94.06    9.22    4.61       0    94.84    9.14    4.57       0
+      868352        108544     float     sum      -1    98.31    8.83    4.42       0    98.89    8.78    4.39       0
+      869376        108672     float     sum      -1    57.57   15.10    7.55       0    56.60   15.36    7.68       0
+      870400        108800     float     sum      -1    56.90   15.30    7.65       0    56.57   15.39    7.69       0
+      871424        108928     float     sum      -1    57.74   15.09    7.55       0    56.84   15.33    7.66       0
+      872448        109056     float     sum      -1    56.90   15.33    7.67       0   207.96    4.20    2.10       0
+      873472        109184     float     sum      -1    98.57    8.86    4.43       0    99.38    8.79    4.39       0
+      874496        109312     float     sum      -1    97.27    8.99    4.50       0    93.03    9.40    4.70       0
+      875520        109440     float     sum      -1    91.93    9.52    4.76       0    95.08    9.21    4.60       0
+      876544        109568     float     sum      -1   278.70    3.15    1.57       0    92.40    9.49    4.74       0
+      877568        109696     float     sum      -1    92.23    9.51    4.76       0    92.49    9.49    4.74       0
+      878592        109824     float     sum      -1    92.53    9.50    4.75       0    92.01    9.55    4.77       0
+      879616        109952     float     sum      -1   104.91    8.38    4.19       0   242.31    3.63    1.82       0
+      880640        110080     float     sum      -1    92.10    9.56    4.78       0    93.80    9.39    4.69       0
+      881664        110208     float     sum      -1    99.94    8.82    4.41       0   103.86    8.49    4.24       0
+      882688        110336     float     sum      -1    92.26    9.57    4.78       0    95.19    9.27    4.64       0
+      883712        110464     float     sum      -1   286.94    3.08    1.54       0    99.10    8.92    4.46       0
+      884736        110592     float     sum      -1    95.66    9.25    4.62       0    94.33    9.38    4.69       0
+      885760        110720     float     sum      -1    91.96    9.63    4.82       0    92.07    9.62    4.81       0
+      886784        110848     float     sum      -1    92.31    9.61    4.80       0   281.19    3.15    1.58       0
+      887808        110976     float     sum      -1    92.58    9.59    4.79       0    92.73    9.57    4.79       0
+      888832        111104     float     sum      -1    92.65    9.59    4.80       0    92.53    9.61    4.80       0
+      889856        111232     float     sum      -1    93.64    9.50    4.75       0    93.39    9.53    4.76       0
+      890880        111360     float     sum      -1   251.98    3.54    1.77       0    95.67    9.31    4.66       0
+      891904        111488     float     sum      -1    94.00    9.49    4.74       0   100.16    8.91    4.45       0
+      892928        111616     float     sum      -1    95.84    9.32    4.66       0    95.05    9.39    4.70       0
+      893952        111744     float     sum      -1    95.72    9.34    4.67       0    95.46    9.36    4.68       0
+      894976        111872     float     sum      -1    57.42   15.59    7.79       0    57.36   15.60    7.80       0
+      896000        112000     float     sum      -1    57.61   15.55    7.78       0    57.32   15.63    7.82       0
+      897024        112128     float     sum      -1    57.52   15.60    7.80       0    57.82   15.51    7.76       0
+      898048        112256     float     sum      -1    57.81   15.53    7.77       0   234.45    3.83    1.92       0
+      899072        112384     float     sum      -1    95.29    9.44    4.72       0    95.36    9.43    4.71       0
+      900096        112512     float     sum      -1    95.02    9.47    4.74       0    95.12    9.46    4.73       0
+      901120        112640     float     sum      -1    94.65    9.52    4.76       0    94.22    9.56    4.78       0
+      902144        112768     float     sum      -1    95.81    9.42    4.71       0    94.69    9.53    4.76       0
+      903168        112896     float     sum      -1    95.50    9.46    4.73       0    94.90    9.52    4.76       0
+      904192        113024     float     sum      -1    95.20    9.50    4.75       0    96.94    9.33    4.66       0
+      905216        113152     float     sum      -1    99.41    9.11    4.55       0    96.06    9.42    4.71       0
+      906240        113280     float     sum      -1    95.97    9.44    4.72       0    95.42    9.50    4.75       0
+      907264        113408     float     sum      -1    99.46    9.12    4.56       0    95.94    9.46    4.73       0
+      908288        113536     float     sum      -1    95.50    9.51    4.76       0    95.07    9.55    4.78       0
+      909312        113664     float     sum      -1   111.76    8.14    4.07       0    97.14    9.36    4.68       0
+      910336        113792     float     sum      -1    96.97    9.39    4.69       0    96.34    9.45    4.72       0
+      911360        113920     float     sum      -1    97.87    9.31    4.66       0    95.71    9.52    4.76       0
+      912384        114048     float     sum      -1    95.71    9.53    4.77       0   276.02    3.31    1.65       0
+      913408        114176     float     sum      -1    94.21    9.70    4.85       0    94.30    9.69    4.84       0
+      914432        114304     float     sum      -1    95.22    9.60    4.80       0    95.15    9.61    4.81       0
+      915456        114432     float     sum      -1    94.81    9.66    4.83       0    94.90    9.65    4.82       0
+      916480        114560     float     sum      -1   142.71    6.42    3.21       0    94.19    9.73    4.86       0
+      917504        114688     float     sum      -1    97.17    9.44    4.72       0    94.23    9.74    4.87       0
+      918528        114816     float     sum      -1   102.70    8.94    4.47       0   106.27    8.64    4.32       0
+      919552        114944     float     sum      -1   107.24    8.57    4.29       0   251.21    3.66    1.83       0
+      920576        115072     float     sum      -1    96.60    9.53    4.77       0    95.60    9.63    4.81       0
+      921600        115200     float     sum      -1    96.18    9.58    4.79       0    95.80    9.62    4.81       0
+      922624        115328     float     sum      -1   118.25    7.80    3.90       0    95.34    9.68    4.84       0
+      923648        115456     float     sum      -1   241.49    3.82    1.91       0    95.03    9.72    4.86       0
+      924672        115584     float     sum      -1    98.57    9.38    4.69       0    97.65    9.47    4.73       0
+      925696        115712     float     sum      -1    96.54    9.59    4.79       0    98.58    9.39    4.70       0
+      926720        115840     float     sum      -1    96.77    9.58    4.79       0   109.23    8.48    4.24       0
+      927744        115968     float     sum      -1    59.33   15.64    7.82       0    58.91   15.75    7.87       0
+      928768        116096     float     sum      -1    60.68   15.31    7.65       0    61.03   15.22    7.61       0
+      929792        116224     float     sum      -1    59.16   15.72    7.86       0    58.97   15.77    7.88       0
+      930816        116352     float     sum      -1   110.95    8.39    4.19       0   101.77    9.15    4.57       0
+      931840        116480     float     sum      -1   103.94    8.97    4.48       0    98.91    9.42    4.71       0
+      932864        116608     float     sum      -1    99.02    9.42    4.71       0   103.52    9.01    4.51       0
+      933888        116736     float     sum      -1   103.78    9.00    4.50       0    59.50   15.70    7.85       0
+      934912        116864     float     sum      -1    59.23   15.78    7.89       0    59.55   15.70    7.85       0
+      935936        116992     float     sum      -1    59.58   15.71    7.85       0    59.40   15.76    7.88       0
+      936960        117120     float     sum      -1    59.71   15.69    7.85       0    59.98   15.62    7.81       0
+      937984        117248     float     sum      -1   206.74    4.54    2.27       0   105.15    8.92    4.46       0
+      939008        117376     float     sum      -1   102.55    9.16    4.58       0   103.78    9.05    4.52       0
+      940032        117504     float     sum      -1    99.35    9.46    4.73       0   100.75    9.33    4.67       0
+      941056        117632     float     sum      -1    60.22   15.63    7.81       0    59.74   15.75    7.88       0
+      942080        117760     float     sum      -1    59.89   15.73    7.86       0    60.94   15.46    7.73       0
+      943104        117888     float     sum      -1    60.95   15.47    7.74       0    60.18   15.67    7.84       0
+      944128        118016     float     sum      -1    59.62   15.84    7.92       0    98.61    9.57    4.79       0
+      945152        118144     float     sum      -1    99.97    9.45    4.73       0    99.66    9.48    4.74       0
+      946176        118272     float     sum      -1   100.74    9.39    4.70       0    99.77    9.48    4.74       0
+      947200        118400     float     sum      -1   105.95    8.94    4.47       0   104.93    9.03    4.51       0
+      948224        118528     float     sum      -1    99.83    9.50    4.75       0    98.67    9.61    4.81       0
+      949248        118656     float     sum      -1   100.77    9.42    4.71       0    98.24    9.66    4.83       0
+      950272        118784     float     sum      -1   102.44    9.28    4.64       0   115.01    8.26    4.13       0
+      951296        118912     float     sum      -1    59.92   15.88    7.94       0    60.96   15.61    7.80       0
+      952320        119040     float     sum      -1    61.01   15.61    7.80       0    60.43   15.76    7.88       0
+      953344        119168     float     sum      -1    60.31   15.81    7.90       0    59.66   15.98    7.99       0
+      954368        119296     float     sum      -1    60.35   15.81    7.91       0    60.08   15.88    7.94       0
+      955392        119424     float     sum      -1   100.81    9.48    4.74       0    99.63    9.59    4.79       0
+      956416        119552     float     sum      -1   105.73    9.05    4.52       0   105.12    9.10    4.55       0
+      957440        119680     float     sum      -1    99.67    9.61    4.80       0   101.08    9.47    4.74       0
+      958464        119808     float     sum      -1   100.21    9.56    4.78       0    99.89    9.60    4.80       0
+      959488        119936     float     sum      -1    60.43   15.88    7.94       0    59.88   16.02    8.01       0
+      960512        120064     float     sum      -1    60.35   15.91    7.96       0    61.38   15.65    7.82       0
+      961536        120192     float     sum      -1    61.08   15.74    7.87       0    61.25   15.70    7.85       0
+      962560        120320     float     sum      -1    59.98   16.05    8.02       0   204.95    4.70    2.35       0
+      963584        120448     float     sum      -1    99.16    9.72    4.86       0   101.89    9.46    4.73       0
+      964608        120576     float     sum      -1    99.35    9.71    4.85       0    99.18    9.73    4.86       0
+      965632        120704     float     sum      -1    98.79    9.77    4.89       0    98.23    9.83    4.91       0
+      966656        120832     float     sum      -1   292.24    3.31    1.65       0   100.60    9.61    4.80       0
+      967680        120960     float     sum      -1    98.37    9.84    4.92       0    98.33    9.84    4.92       0
+      968704        121088     float     sum      -1   101.03    9.59    4.79       0   114.29    8.48    4.24       0
+      969728        121216     float     sum      -1    98.56    9.84    4.92       0   247.55    3.92    1.96       0
+      970752        121344     float     sum      -1    98.64    9.84    4.92       0   101.47    9.57    4.78       0
+      971776        121472     float     sum      -1    98.49    9.87    4.93       0    98.84    9.83    4.92       0
+      972800        121600     float     sum      -1    99.57    9.77    4.89       0    99.77    9.75    4.88       0
+      973824        121728     float     sum      -1   202.88    4.80    2.40       0    99.64    9.77    4.89       0
+      974848        121856     float     sum      -1   101.98    9.56    4.78       0   100.34    9.72    4.86       0
+      975872        121984     float     sum      -1   101.19    9.64    4.82       0   104.95    9.30    4.65       0
+      976896        122112     float     sum      -1   104.25    9.37    4.69       0    96.81   10.09    5.05       0
+      977920        122240     float     sum      -1    60.89   16.06    8.03       0    60.75   16.10    8.05       0
+      978944        122368     float     sum      -1    60.99   16.05    8.03       0    61.03   16.04    8.02       0
+      979968        122496     float     sum      -1    61.70   15.88    7.94       0    61.34   15.98    7.99       0
+      980992        122624     float     sum      -1   254.57    3.85    1.93       0   102.72    9.55    4.77       0
+      982016        122752     float     sum      -1   104.61    9.39    4.69       0   106.82    9.19    4.60       0
+      983040        122880     float     sum      -1   107.09    9.18    4.59       0   102.67    9.57    4.79       0
+      984064        123008     float     sum      -1   102.92    9.56    4.78       0   104.47    9.42    4.71       0
+      985088        123136     float     sum      -1   104.69    9.41    4.70       0   103.40    9.53    4.76       0
+      986112        123264     float     sum      -1   105.15    9.38    4.69       0    62.11   15.88    7.94       0
+      987136        123392     float     sum      -1    62.96   15.68    7.84       0    62.78   15.72    7.86       0
+      988160        123520     float     sum      -1    61.60   16.04    8.02       0    61.53   16.06    8.03       0
+      989184        123648     float     sum      -1    61.72   16.03    8.01       0    62.02   15.95    7.98       0
+      990208        123776     float     sum      -1   107.01    9.25    4.63       0   103.54    9.56    4.78       0
+      991232        123904     float     sum      -1   103.81    9.55    4.77       0   111.31    8.91    4.45       0
+      992256        124032     float     sum      -1    62.95   15.76    7.88       0    64.47   15.39    7.70       0
+      993280        124160     float     sum      -1    62.11   15.99    8.00       0    61.71   16.10    8.05       0
+      994304        124288     float     sum      -1    65.85   15.10    7.55       0    62.57   15.89    7.95       0
+      995328        124416     float     sum      -1    97.92   10.16    5.08       0   106.68    9.33    4.66       0
+      996352        124544     float     sum      -1   109.68    9.08    4.54       0   110.27    9.04    4.52       0
+      997376        124672     float     sum      -1    62.18   16.04    8.02       0    62.97   15.84    7.92       0
+      998400        124800     float     sum      -1    61.76   16.16    8.08       0    61.49   16.24    8.12       0
+      999424        124928     float     sum      -1    61.41   16.27    8.14       0    61.71   16.20    8.10       0
+     1000448        125056     float     sum      -1    98.93   10.11    5.06       0   101.70    9.84    4.92       0
+     1001472        125184     float     sum      -1   104.93    9.54    4.77       0   112.81    8.88    4.44       0
+     1002496        125312     float     sum      -1   103.94    9.64    4.82       0   102.17    9.81    4.91       0
+     1003520        125440     float     sum      -1   101.72    9.87    4.93       0   246.30    4.07    2.04       0
+     1004544        125568     float     sum      -1   103.69    9.69    4.84       0   103.49    9.71    4.85       0
+     1005568        125696     float     sum      -1   103.33    9.73    4.87       0   103.42    9.72    4.86       0
+     1006592        125824     float     sum      -1   102.76    9.80    4.90       0   109.88    9.16    4.58       0
+     1007616        125952     float     sum      -1   252.38    3.99    2.00       0   103.86    9.70    4.85       0
+     1008640        126080     float     sum      -1   102.57    9.83    4.92       0   102.38    9.85    4.93       0
+     1009664        126208     float     sum      -1   102.92    9.81    4.91       0   119.38    8.46    4.23       0
+     1010688        126336     float     sum      -1   109.81    9.20    4.60       0   233.66    4.33    2.16       0
+     1011712        126464     float     sum      -1   105.97    9.55    4.77       0   107.72    9.39    4.70       0
+     1012736        126592     float     sum      -1   105.74    9.58    4.79       0   103.30    9.80    4.90       0
+     1013760        126720     float     sum      -1   103.81    9.77    4.88       0   107.97    9.39    4.69       0
+     1014784        126848     float     sum      -1   158.31    6.41    3.21       0   106.29    9.55    4.77       0
+     1015808        126976     float     sum      -1   106.70    9.52    4.76       0    62.54   16.24    8.12       0
+     1016832        127104     float     sum      -1    62.79   16.19    8.10       0    64.02   15.88    7.94       0
+     1017856        127232     float     sum      -1    63.71   15.98    7.99       0    62.52   16.28    8.14       0
+     1018880        127360     float     sum      -1    62.30   16.35    8.18       0    62.91   16.20    8.10       0
+     1019904        127488     float     sum      -1   105.75    9.64    4.82       0   106.99    9.53    4.77       0
+     1020928        127616     float     sum      -1   110.89    9.21    4.60       0   111.74    9.14    4.57       0
+     1021952        127744     float     sum      -1   118.68    8.61    4.31       0    64.65   15.81    7.90       0
+     1022976        127872     float     sum      -1    63.13   16.20    8.10       0    62.30   16.42    8.21       0
+     1024000        128000     float     sum      -1    62.47   16.39    8.20       0    62.89   16.28    8.14       0
+     1025024        128128     float     sum      -1    62.87   16.30    8.15       0   199.84    5.13    2.56       0
+     1026048        128256     float     sum      -1   107.04    9.59    4.79       0   112.01    9.16    4.58       0
+     1027072        128384     float     sum      -1   111.57    9.21    4.60       0    62.53   16.43    8.21       0
+     1028096        128512     float     sum      -1    62.32   16.50    8.25       0    62.92   16.34    8.17       0
+     1029120        128640     float     sum      -1    63.13   16.30    8.15       0    66.16   15.55    7.78       0
+     1030144        128768     float     sum      -1    62.90   16.38    8.19       0    94.81   10.87    5.43       0
+     1031168        128896     float     sum      -1    75.53   13.65    6.83       0    64.11   16.09    8.04       0
+     1032192        129024     float     sum      -1    62.89   16.41    8.21       0    62.44   16.53    8.27       0
+     1033216        129152     float     sum      -1    62.80   16.45    8.23       0    63.36   16.31    8.15       0
+     1034240        129280     float     sum      -1    62.43   16.57    8.28       0   310.56    3.33    1.67       0
+     1035264        129408     float     sum      -1   104.31    9.93    4.96       0   104.06    9.95    4.97       0
+     1036288        129536     float     sum      -1   104.12    9.95    4.98       0   104.46    9.92    4.96       0
+     1037312        129664     float     sum      -1   104.13    9.96    4.98       0   109.52    9.47    4.74       0
+     1038336        129792     float     sum      -1    67.62   15.35    7.68       0    62.92   16.50    8.25       0
+     1039360        129920     float     sum      -1    62.92   16.52    8.26       0    62.95   16.51    8.26       0
+     1040384        130048     float     sum      -1    62.78   16.57    8.29       0    63.08   16.49    8.25       0
+     1041408        130176     float     sum      -1    62.94   16.55    8.27       0   303.10    3.44    1.72       0
+     1042432        130304     float     sum      -1   111.12    9.38    4.69       0   104.69    9.96    4.98       0
+     1043456        130432     float     sum      -1   104.53    9.98    4.99       0   105.68    9.87    4.94       0
+     1044480        130560     float     sum      -1   107.47    9.72    4.86       0   105.41    9.91    4.95       0
+     1045504        130688     float     sum      -1   207.88    5.03    2.51       0   104.99    9.96    4.98       0
+     1046528        130816     float     sum      -1   106.82    9.80    4.90       0   106.77    9.80    4.90       0
+     1047552        130944     float     sum      -1   107.41    9.75    4.88       0   106.48    9.84    4.92       0
+n013:2041072:2041072 [0] NCCL INFO comm 0x5a466c0 rank 0 nranks 2 cudaDev 0 busId 1000 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 3.64959 
+#
+# Collective test concluded: reduce_scatter_perf
+n013:2041073:2041073 [1] NCCL INFO comm 0x5a30000 rank 1 nranks 2 cudaDev 1 busId 81000 - Destroy COMPLETE
+
