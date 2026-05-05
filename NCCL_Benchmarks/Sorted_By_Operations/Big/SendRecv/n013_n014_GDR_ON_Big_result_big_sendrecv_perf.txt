@@ -1,0 +1,194 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: sendrecv_perf
+# nThread 1 nGpus 1 minBytes 1073741824 maxBytes 12884901888 step: 524288000(bytes) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 781191 on       n013 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 230131 on       n014 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+#
+# Reducing maxBytes to 12703629312 due to memory limitation
+n013:781191:781191 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:781191:781191 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:781191:781191 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:781191:781191 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.16.5+cuda11.8
+n014:230131:230131 [0] NCCL INFO cudaDriverVersion 13010
+n013:781191:781201 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:781191:781201 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:781191:781201 [0] NCCL INFO Using network IB
+n013:781191:781201 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:230131:230131 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n014:230131:230131 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.14<0>
+n014:230131:230131 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n014:230131:230140 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n014:230131:230140 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.14<0>
+n014:230131:230140 [0] NCCL INFO Using network IB
+n014:230131:230140 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:230131:230140 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n014:230131:230140 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230140 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n014:230131:230140 [0] NCCL INFO CPU/1 (1/2/-1)
+n014:230131:230140 [0] NCCL INFO + PCI[24.0] - GPU/81000 (1)
+n014:230131:230140 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n014:230131:230140 [0] NCCL INFO               + NET[25.0] - NET/0 (5a862d0003f6ceb8/1/25.000000)
+n014:230131:230140 [0] NCCL INFO ==========================================
+n014:230131:230140 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n014:230131:230140 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n014:230131:230140 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:230131:230140 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:230131:230140 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:230131:230140 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:230131:230140 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:781191:781201 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:781191:781201 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:781191:781201 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:781191:781201 [0] NCCL INFO CPU/1 (1/2/-1)
+n013:781191:781201 [0] NCCL INFO + PCI[24.0] - GPU/81000 (0)
+n013:781191:781201 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:781191:781201 [0] NCCL INFO               + NET[25.0] - NET/0 (7a852d0003f6ceb8/1/25.000000)
+n013:781191:781201 [0] NCCL INFO ==========================================
+n013:781191:781201 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n013:781191:781201 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n013:781191:781201 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:781191:781201 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:781191:781201 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:781191:781201 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:781191:781201 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:781191:781201 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n013:781191:781201 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n013:781191:781201 [0] NCCL INFO Channel 00/02 :    0   1
+n013:781191:781201 [0] NCCL INFO Channel 01/02 :    0   1
+n013:781191:781201 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n013:781191:781201 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n013:781191:781201 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+n013:781191:781201 [0] NCCL INFO P2P Chunksize set to 131072
+n014:230131:230140 [0] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n014:230131:230140 [0] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n014:230131:230140 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n014:230131:230140 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n014:230131:230140 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+n014:230131:230140 [0] NCCL INFO P2P Chunksize set to 131072
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230140 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000ca0
+n014:230131:230142 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n014:230131:230140 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230142 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n013:781191:781203 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n013:781191:781201 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d50
+n013:781191:781201 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:781191:781203 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n014:230131:230140 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000ce0
+n014:230131:230140 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:230131:230142 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n013:781191:781201 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d90
+n013:781191:781201 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:781191:781203 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n014:230131:230140 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000d20
+n014:230131:230140 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA
+n014:230131:230140 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:230131:230142 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n013:781191:781201 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000dd0
+n013:781191:781201 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA
+n013:781191:781201 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:781191:781203 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n014:230131:230140 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000d60
+n014:230131:230140 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA
+n013:781191:781201 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e10
+n013:781191:781201 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA
+n013:781191:781203 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1675 mtu 5 LID 37
+n014:230131:230142 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 859 mtu 5 LID 43
+n014:230131:230142 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 860 mtu 5 LID 43
+n013:781191:781203 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1676 mtu 5 LID 37
+n014:230131:230140 [0] NCCL INFO Connected all rings
+n014:230131:230140 [0] NCCL INFO Connected all trees
+n014:230131:230140 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n014:230131:230140 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n014:230131:230142 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n013:781191:781201 [0] NCCL INFO Connected all rings
+n013:781191:781201 [0] NCCL INFO Connected all trees
+n013:781191:781201 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:781191:781201 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n013:781191:781203 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n014:230131:230140 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000da0
+n013:781191:781201 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e50
+n014:230131:230140 [0] NCCL INFO comm 0x5a206d0 rank 1 nranks 2 cudaDev 0 busId 81000 commId 0xc47c3659698476ec - Init COMPLETE
+n013:781191:781201 [0] NCCL INFO comm 0x5a37500 rank 0 nranks 2 cudaDev 0 busId 81000 commId 0xc47c3659698476ec - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+n013:781191:781205 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:781191:781203 [0] NCCL INFO New proxy recv connection 5 from local rank 0, transport 2
+n014:230131:230145 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230142 [0] NCCL INFO New proxy recv connection 5 from local rank 0, transport 2
+n014:230131:230145 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000de0
+n014:230131:230145 [0] NCCL INFO Channel 00/1 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n014:230131:230145 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n014:230131:230142 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 2
+n013:781191:781205 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e90
+n013:781191:781205 [0] NCCL INFO Channel 00/1 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n013:781191:781205 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 0
+n013:781191:781203 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 2
+n014:230131:230145 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000e20
+n014:230131:230145 [0] NCCL INFO Channel 01/1 : 0[81000] -> 1[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n014:230131:230145 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:230131:230142 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 2
+n013:781191:781205 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ed0
+n013:781191:781205 [0] NCCL INFO Channel 01/1 : 1[81000] -> 0[81000] [receive] via NET/IB/0/GDRDMA/Shared
+n013:781191:781205 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:781191:781203 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 2
+n014:230131:230145 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000e60
+n014:230131:230145 [0] NCCL INFO Channel 00/1 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA/Shared
+n014:230131:230145 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n014:230131:230142 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n013:781191:781205 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f10
+n013:781191:781205 [0] NCCL INFO Channel 00/1 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA/Shared
+n013:781191:781205 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 81000 / HCA 0 (distance 6 <= 7), read 1
+n013:781191:781203 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n014:230131:230145 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x154c04000ea0
+n014:230131:230145 [0] NCCL INFO Channel 01/1 : 1[81000] -> 0[81000] [send] via NET/IB/0/GDRDMA/Shared
+n013:781191:781205 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f50
+n013:781191:781205 [0] NCCL INFO Channel 01/1 : 0[81000] -> 1[81000] [send] via NET/IB/0/GDRDMA/Shared
+n013:781191:781203 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1680 mtu 5 LID 37
+n014:230131:230142 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 863 mtu 5 LID 43
+n013:781191:781203 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 1682 mtu 5 LID 37
+n014:230131:230142 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 864 mtu 5 LID 43
+  1073741824     268435456     float     sum      -1  73590.8   14.59   14.59       0  73551.4   14.60   14.60    N/A
+  1598029824     399507456     float     sum      -1   109539   14.59   14.59       0   109521   14.59   14.59    N/A
+  2122317824     530579456     float     sum      -1   145447   14.59   14.59       0   145360   14.60   14.60    N/A
+  2646605824     661651456     float     sum      -1   181333   14.60   14.60       0   181254   14.60   14.60    N/A
+  3170893824     792723456     float     sum      -1   217206   14.60   14.60       0   217147   14.60   14.60    N/A
+  3695181824     923795456     float     sum      -1   253062   14.60   14.60       0   252960   14.61   14.61    N/A
+  4219469824    1054867456     float     sum      -1   288894   14.61   14.61       0   288892   14.61   14.61    N/A
+  4743757824    1185939456     float     sum      -1   324876   14.60   14.60       0   324752   14.61   14.61    N/A
+  5268045824    1317011456     float     sum      -1   360875   14.60   14.60       0   360701   14.61   14.61    N/A
+  5792333824    1448083456     float     sum      -1   396767   14.60   14.60       0   396702   14.60   14.60    N/A
+  6316621824    1579155456     float     sum      -1   432604   14.60   14.60       0   432614   14.60   14.60    N/A
+  6840909824    1710227456     float     sum      -1   468598   14.60   14.60       0   468543   14.60   14.60    N/A
+  7365197824    1841299456     float     sum      -1   504254   14.61   14.61       0   504260   14.61   14.61    N/A
+  7889485824    1972371456     float     sum      -1   540170   14.61   14.61       0   540198   14.60   14.60    N/A
+  8413773824    2103443456     float     sum      -1   576139   14.60   14.60       0   576099   14.60   14.60    N/A
+  8938061824    2234515456     float     sum      -1   611733   14.61   14.61       0   612004   14.60   14.60    N/A
+  9462349824    2365587456     float     sum      -1   647756   14.61   14.61       0   648026   14.60   14.60    N/A
+  9986637824    2496659456     float     sum      -1   683653   14.61   14.61       0   683727   14.61   14.61    N/A
+ 10510925824    2627731456     float     sum      -1   719810   14.60   14.60       0   719644   14.61   14.61    N/A
+ 11035213824    2758803456     float     sum      -1   755960   14.60   14.60       0   755683   14.60   14.60    N/A
+ 11559501824    2889875456     float     sum      -1   791547   14.60   14.60       0   791348   14.61   14.61    N/A
+ 12083789824    3020947456     float     sum      -1   827427   14.60   14.60       0   827413   14.60   14.60    N/A
+ 12608077824    3152019456     float     sum      -1   863282   14.60   14.60       0   863394   14.60   14.60    N/A
+n014:230131:230131 [0] NCCL INFO comm 0x5a206d0 rank 1 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+n013:781191:781191 [0] NCCL INFO comm 0x5a37500 rank 0 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 14.6022 
+#
+# Collective test concluded: sendrecv_perf
+

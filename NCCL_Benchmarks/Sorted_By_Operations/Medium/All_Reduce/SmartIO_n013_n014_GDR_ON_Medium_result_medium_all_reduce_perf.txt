@@ -1,0 +1,258 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 1 minBytes 1048576 maxBytes 1073741824 step: 10485760(bytes) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 111751 on       n015 device  0 [0000:a1:09] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 111752 on       n015 device  1 [0000:a1:0a] NVIDIA A100-PCIE-40GB
+n015:111751:111751 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n015:111751:111751 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.15<0>
+n015:111751:111751 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n015:111751:111751 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.16.5+cuda11.8
+n015:111752:111752 [1] NCCL INFO cudaDriverVersion 13010
+n015:111751:111764 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n015:111751:111764 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.15<0>
+n015:111751:111764 [0] NCCL INFO Using network IB
+n015:111751:111764 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n015:111752:111752 [1] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n015:111752:111752 [1] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.15<0>
+n015:111752:111752 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n015:111752:111767 [1] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n015:111752:111767 [1] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.15<0>
+n015:111752:111767 [1] NCCL INFO Using network IB
+n015:111752:111767 [1] NCCL INFO DMA-BUF is available on GPU device 1
+n015:111751:111764 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n015:111752:111767 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n015:111751:111764 [0] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n015:111751:111764 [0] NCCL INFO GPU Direct RDMA Enabled for GPU a1090 / HCA 0 (distance 6 <= 7), read 0
+n015:111751:111764 [0] NCCL INFO GPU Direct RDMA Enabled for GPU a10a0 / HCA 0 (distance 6 <= 7), read 0
+n015:111751:111764 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n015:111751:111764 [0] NCCL INFO CPU/1 (1/2/-1)
+n015:111751:111764 [0] NCCL INFO + PCI[24.0] - GPU/A1090 (0)
+n015:111751:111764 [0] NCCL INFO + PCI[24.0] - GPU/A10A0 (1)
+n015:111751:111764 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n015:111751:111764 [0] NCCL INFO ==========================================
+n015:111751:111764 [0] NCCL INFO GPU/A1090 :GPU/A1090 (0/5000.000000/LOC) GPU/A10A0 (2/24.000000/PHB) CPU/1 (1/24.000000/PHB) 
+n015:111751:111764 [0] NCCL INFO GPU/A10A0 :GPU/A1090 (2/24.000000/PHB) GPU/A10A0 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) 
+n015:111751:111764 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+n015:111751:111764 [0] NCCL INFO  0 : GPU/0 GPU/1
+n015:111751:111764 [0] NCCL INFO  1 : GPU/0 GPU/1
+n015:111751:111764 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n015:111751:111764 [0] NCCL INFO  0 : GPU/0 GPU/1
+n015:111751:111764 [0] NCCL INFO  1 : GPU/1 GPU/0
+n015:111751:111764 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n015:111751:111764 [0] NCCL INFO  0 : GPU/0 GPU/1
+n015:111751:111764 [0] NCCL INFO  1 : GPU/1 GPU/0
+n015:111752:111767 [1] NCCL INFO NCCL_NET_GDR_LEVEL set by environment to SYS
+n015:111752:111767 [1] NCCL INFO GPU Direct RDMA Enabled for GPU a1090 / HCA 0 (distance 6 <= 7), read 0
+n015:111752:111767 [1] NCCL INFO GPU Direct RDMA Enabled for GPU a10a0 / HCA 0 (distance 6 <= 7), read 0
+n015:111752:111767 [1] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n015:111752:111767 [1] NCCL INFO CPU/1 (1/2/-1)
+n015:111752:111767 [1] NCCL INFO + PCI[24.0] - GPU/A1090 (0)
+n015:111752:111767 [1] NCCL INFO + PCI[24.0] - GPU/A10A0 (1)
+n015:111752:111767 [1] NCCL INFO + PCI[24.0] - NIC/D1000
+n015:111752:111767 [1] NCCL INFO ==========================================
+n015:111752:111767 [1] NCCL INFO GPU/A1090 :GPU/A1090 (0/5000.000000/LOC) GPU/A10A0 (2/24.000000/PHB) CPU/1 (1/24.000000/PHB) 
+n015:111752:111767 [1] NCCL INFO GPU/A10A0 :GPU/A1090 (2/24.000000/PHB) GPU/A10A0 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) 
+n015:111752:111767 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 2, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+n015:111752:111767 [1] NCCL INFO  0 : GPU/0 GPU/1
+n015:111752:111767 [1] NCCL INFO  1 : GPU/0 GPU/1
+n015:111752:111767 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n015:111752:111767 [1] NCCL INFO  0 : GPU/0 GPU/1
+n015:111752:111767 [1] NCCL INFO  1 : GPU/1 GPU/0
+n015:111752:111767 [1] NCCL INFO Pattern 3, crossNic 0, nChannels 2, bw 22.000000/22.000000, type PHB/PIX, sameChannels 0
+n015:111752:111767 [1] NCCL INFO  0 : GPU/0 GPU/1
+n015:111752:111767 [1] NCCL INFO  1 : GPU/1 GPU/0
+n015:111751:111764 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n015:111751:111764 [0] NCCL INFO Tree 2 : -1 -> 0 -> 1/-1/-1
+n015:111751:111764 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n015:111751:111764 [0] NCCL INFO Tree 3 : 1 -> 0 -> -1/-1/-1
+n015:111751:111764 [0] NCCL INFO Channel 00/04 :    0   1
+n015:111751:111764 [0] NCCL INFO Channel 01/04 :    0   1
+n015:111751:111764 [0] NCCL INFO Channel 02/04 :    0   1
+n015:111751:111764 [0] NCCL INFO Channel 03/04 :    0   1
+n015:111751:111764 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n015:111751:111764 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n015:111752:111767 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n015:111752:111767 [1] NCCL INFO Tree 2 : 0 -> 1 -> -1/-1/-1
+n015:111752:111767 [1] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n015:111752:111767 [1] NCCL INFO Tree 3 : -1 -> 1 -> 0/-1/-1
+n015:111752:111767 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n015:111752:111767 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n015:111752:111767 [1] NCCL INFO Ring 02 : 0 -> 1 -> 0
+n015:111752:111767 [1] NCCL INFO Ring 03 : 0 -> 1 -> 0
+n015:111752:111767 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1 [2] -1/-1/-1->1->0 [3] 0/-1/-1->1->-1
+n015:111752:111767 [1] NCCL INFO P2P Chunksize set to 131072
+n015:111751:111764 [0] NCCL INFO Ring 02 : 1 -> 0 -> 1
+n015:111751:111764 [0] NCCL INFO Ring 03 : 1 -> 0 -> 1
+n015:111751:111764 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1 [2] 1/-1/-1->0->-1 [3] -1/-1/-1->0->1
+n015:111751:111764 [0] NCCL INFO P2P Chunksize set to 131072
+n015:111751:111769 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d50
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000ca0
+n015:111752:111770 [1] NCCL INFO New proxy recv connection 0 from local rank 1, transport 0
+n015:111751:111769 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000d90
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000ce0
+n015:111752:111770 [1] NCCL INFO New proxy recv connection 1 from local rank 1, transport 0
+n015:111751:111769 [0] NCCL INFO New proxy recv connection 2 from local rank 0, transport 0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000dd0
+n015:111752:111770 [1] NCCL INFO New proxy recv connection 2 from local rank 1, transport 0
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000d20
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000d60
+n015:111752:111770 [1] NCCL INFO New proxy recv connection 3 from local rank 1, transport 0
+n015:111751:111769 [0] NCCL INFO New proxy recv connection 3 from local rank 0, transport 0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e10
+n015:111751:111764 [0] NCCL INFO Channel 00/0 : 0[a1090] -> 1[a10a0] via P2P/IPC
+n015:111752:111767 [1] NCCL INFO Channel 00/0 : 1[a10a0] -> 0[a1090] via P2P/IPC
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e50
+n015:111751:111769 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 0
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000da0
+n015:111752:111770 [1] NCCL INFO New proxy send connection 4 from local rank 1, transport 0
+n015:111751:111764 [0] NCCL INFO Channel 01/0 : 0[a1090] -> 1[a10a0] via P2P/IPC
+n015:111752:111767 [1] NCCL INFO Channel 01/0 : 1[a10a0] -> 0[a1090] via P2P/IPC
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000e90
+n015:111751:111769 [0] NCCL INFO New proxy send connection 5 from local rank 0, transport 0
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000de0
+n015:111752:111770 [1] NCCL INFO New proxy send connection 5 from local rank 1, transport 0
+n015:111751:111764 [0] NCCL INFO Channel 02/0 : 0[a1090] -> 1[a10a0] via P2P/IPC
+n015:111752:111767 [1] NCCL INFO Channel 02/0 : 1[a10a0] -> 0[a1090] via P2P/IPC
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000ed0
+n015:111751:111769 [0] NCCL INFO New proxy send connection 6 from local rank 0, transport 0
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000e20
+n015:111752:111770 [1] NCCL INFO New proxy send connection 6 from local rank 1, transport 0
+n015:111751:111764 [0] NCCL INFO Channel 03/0 : 0[a1090] -> 1[a10a0] via P2P/IPC
+n015:111751:111769 [0] NCCL INFO New proxy send connection 7 from local rank 0, transport 0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f10
+n015:111752:111767 [1] NCCL INFO Channel 03/0 : 1[a10a0] -> 0[a1090] via P2P/IPC
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000e60
+n015:111752:111770 [1] NCCL INFO New proxy send connection 7 from local rank 1, transport 0
+n015:111751:111764 [0] NCCL INFO Connected all rings
+n015:111751:111764 [0] NCCL INFO Connected all trees
+n015:111752:111767 [1] NCCL INFO Connected all rings
+n015:111752:111767 [1] NCCL INFO Connected all trees
+n015:111752:111767 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n015:111752:111767 [1] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n015:111751:111764 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n015:111751:111764 [0] NCCL INFO 4 coll channels, 4 p2p channels, 2 p2p channels per peer
+n015:111752:111770 [1] NCCL INFO New proxy send connection 8 from local rank 1, transport 2
+n015:111751:111769 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 2
+n015:111752:111767 [1] NCCL INFO Connection to proxy localRank 1 -> connection 0x1554e4000ea0
+n015:111751:111764 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554ec000f50
+n015:111752:111767 [1] NCCL INFO comm 0x5a30800 rank 1 nranks 2 cudaDev 1 busId a10a0 commId 0xaa0148ee3fe28f35 - Init COMPLETE
+n015:111751:111764 [0] NCCL INFO comm 0x5a46ea0 rank 0 nranks 2 cudaDev 0 busId a1090 commId 0xaa0148ee3fe28f35 - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+     1048576        262144     float     sum      -1   137.58    7.62    7.62       0   135.84    7.72    7.72       0
+    11534336       2883584     float     sum      -1   803.72   14.35   14.35       0   639.34   18.04   18.04       0
+    22020096       5505024     float     sum      -1  1177.80   18.70   18.70       0  1165.02   18.90   18.90       0
+    32505856       8126464     float     sum      -1  1734.92   18.74   18.74       0  1739.63   18.69   18.69       0
+    42991616      10747904     float     sum      -1  2269.25   18.95   18.95       0  2252.54   19.09   19.09       0
+    53477376      13369344     float     sum      -1  2797.86   19.11   19.11       0  2786.62   19.19   19.19       0
+    63963136      15990784     float     sum      -1  3327.77   19.22   19.22       0  3342.49   19.14   19.14       0
+    74448896      18612224     float     sum      -1  3863.72   19.27   19.27       0  3864.40   19.27   19.27       0
+    84934656      21233664     float     sum      -1  4405.75   19.28   19.28       0  4410.63   19.26   19.26       0
+    95420416      23855104     float     sum      -1  4954.25   19.26   19.26       0  4938.64   19.32   19.32       0
+   105906176      26476544     float     sum      -1  5477.60   19.33   19.33       0  5444.27   19.45   19.45       0
+   116391936      29097984     float     sum      -1  5995.09   19.41   19.41       0  5997.13   19.41   19.41       0
+   126877696      31719424     float     sum      -1  6523.65   19.45   19.45       0  6525.02   19.44   19.44       0
+   137363456      34340864     float     sum      -1  7037.88   19.52   19.52       0  7050.32   19.48   19.48       0
+   147849216      36962304     float     sum      -1  7612.99   19.42   19.42       0  7615.15   19.42   19.42       0
+   158334976      39583744     float     sum      -1  8102.61   19.54   19.54       0  8128.11   19.48   19.48       0
+   168820736      42205184     float     sum      -1  8692.04   19.42   19.42       0  8624.23   19.58   19.58       0
+   179306496      44826624     float     sum      -1  9218.67   19.45   19.45       0  9237.52   19.41   19.41       0
+   189792256      47448064     float     sum      -1  9748.19   19.47   19.47       0  9716.65   19.53   19.53       0
+   200278016      50069504     float     sum      -1  10294.5   19.45   19.45       0  10257.2   19.53   19.53       0
+   210763776      52690944     float     sum      -1  10816.1   19.49   19.49       0  10777.9   19.56   19.56       0
+   221249536      55312384     float     sum      -1  11355.5   19.48   19.48       0  11297.1   19.58   19.58       0
+   231735296      57933824     float     sum      -1  11870.5   19.52   19.52       0  11851.0   19.55   19.55       0
+   242221056      60555264     float     sum      -1  12435.9   19.48   19.48       0  12376.6   19.57   19.57       0
+   252706816      63176704     float     sum      -1  12968.5   19.49   19.49       0  12970.3   19.48   19.48       0
+   263192576      65798144     float     sum      -1  13501.2   19.49   19.49       0  13487.3   19.51   19.51       0
+   273678336      68419584     float     sum      -1  13981.0   19.57   19.57       0  13978.2   19.58   19.58       0
+   284164096      71041024     float     sum      -1  14568.4   19.51   19.51       0  14552.1   19.53   19.53       0
+   294649856      73662464     float     sum      -1  15065.1   19.56   19.56       0  15059.1   19.57   19.57       0
+   305135616      76283904     float     sum      -1  15664.4   19.48   19.48       0  15628.2   19.52   19.52       0
+   315621376      78905344     float     sum      -1  16122.0   19.58   19.58       0  16166.1   19.52   19.52       0
+   326107136      81526784     float     sum      -1  16671.6   19.56   19.56       0  16617.9   19.62   19.62       0
+   336592896      84148224     float     sum      -1  17246.1   19.52   19.52       0  17231.2   19.53   19.53       0
+   347078656      86769664     float     sum      -1  17775.9   19.53   19.53       0  17769.3   19.53   19.53       0
+   357564416      89391104     float     sum      -1  18222.6   19.62   19.62       0  18245.9   19.60   19.60       0
+   368050176      92012544     float     sum      -1  18879.1   19.50   19.50       0  18800.4   19.58   19.58       0
+   378535936      94633984     float     sum      -1  19323.9   19.59   19.59       0  19354.4   19.56   19.56       0
+   389021696      97255424     float     sum      -1  19894.2   19.55   19.55       0  19831.7   19.62   19.62       0
+   399507456      99876864     float     sum      -1  20447.5   19.54   19.54       0  20441.2   19.54   19.54       0
+   409993216     102498304     float     sum      -1  20968.1   19.55   19.55       0  20981.7   19.54   19.54       0
+   420478976     105119744     float     sum      -1  21491.3   19.57   19.57       0  21455.4   19.60   19.60       0
+   430964736     107741184     float     sum      -1  22052.7   19.54   19.54       0  21944.0   19.64   19.64       0
+   441450496     110362624     float     sum      -1  22559.4   19.57   19.57       0  22546.8   19.58   19.58       0
+   451936256     112984064     float     sum      -1  23114.2   19.55   19.55       0  23165.4   19.51   19.51       0
+   462422016     115605504     float     sum      -1  23696.0   19.51   19.51       0  23655.8   19.55   19.55       0
+   472907776     118226944     float     sum      -1  24079.6   19.64   19.64       0  24157.4   19.58   19.58       0
+   483393536     120848384     float     sum      -1  24674.8   19.59   19.59       0  24677.0   19.59   19.59       0
+   493879296     123469824     float     sum      -1  25241.8   19.57   19.57       0  25205.9   19.59   19.59       0
+   504365056     126091264     float     sum      -1  25881.4   19.49   19.49       0  25752.5   19.59   19.59       0
+   514850816     128712704     float     sum      -1  26332.9   19.55   19.55       0  26254.9   19.61   19.61       0
+   525336576     131334144     float     sum      -1  26812.8   19.59   19.59       0  26710.9   19.67   19.67       0
+   535822336     133955584     float     sum      -1  27376.7   19.57   19.57       0  27280.4   19.64   19.64       0
+   546308096     136577024     float     sum      -1  27927.8   19.56   19.56       0  27855.5   19.61   19.61       0
+   556793856     139198464     float     sum      -1  28486.2   19.55   19.55       0  28391.9   19.61   19.61       0
+   567279616     141819904     float     sum      -1  28992.8   19.57   19.57       0  28919.5   19.62   19.62       0
+   577765376     144441344     float     sum      -1  29523.3   19.57   19.57       0  29452.6   19.62   19.62       0
+   588251136     147062784     float     sum      -1  30003.2   19.61   19.61       0  30104.7   19.54   19.54       0
+   598736896     149684224     float     sum      -1  30578.2   19.58   19.58       0  30477.0   19.65   19.65       0
+   609222656     152305664     float     sum      -1  31046.7   19.62   19.62       0  31099.9   19.59   19.59       0
+   619708416     154927104     float     sum      -1  31675.4   19.56   19.56       0  31630.8   19.59   19.59       0
+   630194176     157548544     float     sum      -1  32116.5   19.62   19.62       0  32118.7   19.62   19.62       0
+   640679936     160169984     float     sum      -1  32704.5   19.59   19.59       0  32603.9   19.65   19.65       0
+   651165696     162791424     float     sum      -1  33185.9   19.62   19.62       0  33165.0   19.63   19.63       0
+   661651456     165412864     float     sum      -1  33804.0   19.57   19.57       0  33767.8   19.59   19.59       0
+   672137216     168034304     float     sum      -1  34369.2   19.56   19.56       0  34305.8   19.59   19.59       0
+   682622976     170655744     float     sum      -1  34884.3   19.57   19.57       0  34770.5   19.63   19.63       0
+   693108736     173277184     float     sum      -1  35453.3   19.55   19.55       0  35328.3   19.62   19.62       0
+   703594496     175898624     float     sum      -1  35890.2   19.60   19.60       0  35835.0   19.63   19.63       0
+   714080256     178520064     float     sum      -1  36335.8   19.65   19.65       0  36464.8   19.58   19.58       0
+   724566016     181141504     float     sum      -1  36972.4   19.60   19.60       0  36946.2   19.61   19.61       0
+   735051776     183762944     float     sum      -1  37438.1   19.63   19.63       0  37447.4   19.63   19.63       0
+   745537536     186384384     float     sum      -1  38066.8   19.59   19.59       0  37995.7   19.62   19.62       0
+   756023296     189005824     float     sum      -1  38620.8   19.58   19.58       0  38535.6   19.62   19.62       0
+   766509056     191627264     float     sum      -1  39139.7   19.58   19.58       0  39014.8   19.65   19.65       0
+   776994816     194248704     float     sum      -1  39692.0   19.58   19.58       0  39536.0   19.65   19.65       0
+   787480576     196870144     float     sum      -1  40220.9   19.58   19.58       0  40209.2   19.58   19.58       0
+   797966336     199491584     float     sum      -1  40643.7   19.63   19.63       0  40660.0   19.63   19.63       0
+   808452096     202113024     float     sum      -1  41281.4   19.58   19.58       0  41199.5   19.62   19.62       0
+   818937856     204734464     float     sum      -1  41682.6   19.65   19.65       0  41714.3   19.63   19.63       0
+   829423616     207355904     float     sum      -1  42259.3   19.63   19.63       0  42356.1   19.58   19.58       0
+   839909376     209977344     float     sum      -1  42851.1   19.60   19.60       0  42861.0   19.60   19.60       0
+   850395136     212598784     float     sum      -1  43420.5   19.59   19.59       0  43353.0   19.62   19.62       0
+   860880896     215220224     float     sum      -1  43779.2   19.66   19.66       0  43901.1   19.61   19.61       0
+   871366656     217841664     float     sum      -1  44415.1   19.62   19.62       0  44437.3   19.61   19.61       0
+   881852416     220463104     float     sum      -1  44981.5   19.60   19.60       0  44872.8   19.65   19.65       0
+   892338176     223084544     float     sum      -1  45451.5   19.63   19.63       0  45436.2   19.64   19.64       0
+   902823936     225705984     float     sum      -1  46102.8   19.58   19.58       0  45949.1   19.65   19.65       0
+   913309696     228327424     float     sum      -1  46487.7   19.65   19.65       0  46606.2   19.60   19.60       0
+   923795456     230948864     float     sum      -1  47118.8   19.61   19.61       0  47046.9   19.64   19.64       0
+   934281216     233570304     float     sum      -1  47703.6   19.59   19.59       0  47563.8   19.64   19.64       0
+   944766976     236191744     float     sum      -1  48218.7   19.59   19.59       0  48054.0   19.66   19.66       0
+   955252736     238813184     float     sum      -1  48743.3   19.60   19.60       0  48782.8   19.58   19.58       0
+   965738496     241434624     float     sum      -1  49133.8   19.66   19.66       0  49184.9   19.63   19.63       0
+   976224256     244056064     float     sum      -1  49748.8   19.62   19.62       0  49711.0   19.64   19.64       0
+   986710016     246677504     float     sum      -1  50265.5   19.63   19.63       0  50292.8   19.62   19.62       0
+   997195776     249298944     float     sum      -1  50873.8   19.60   19.60       0  50776.8   19.64   19.64       0
+  1007681536     251920384     float     sum      -1  51377.7   19.61   19.61       0  51325.7   19.63   19.63       0
+  1018167296     254541824     float     sum      -1  51923.4   19.61   19.61       0  51802.6   19.65   19.65       0
+  1028653056     257163264     float     sum      -1  52448.0   19.61   19.61       0  52359.4   19.65   19.65       0
+  1039138816     259784704     float     sum      -1  53043.7   19.59   19.59       0  52882.1   19.65   19.65       0
+  1049624576     262406144     float     sum      -1  53501.1   19.62   19.62       0  53512.5   19.61   19.61       0
+  1060110336     265027584     float     sum      -1  54042.2   19.62   19.62       0  53934.7   19.66   19.66       0
+  1070596096     267649024     float     sum      -1  54563.0   19.62   19.62       0  54662.4   19.59   19.59       0
+n015:111752:111752 [1] NCCL INFO comm 0x5a30800 rank 1 nranks 2 cudaDev 1 busId a10a0 - Destroy COMPLETE
+n015:111751:111751 [0] NCCL INFO comm 0x5a46ea0 rank 0 nranks 2 cudaDev 0 busId a1090 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 19.3895 
+#
+# Collective test concluded: all_reduce_perf
+

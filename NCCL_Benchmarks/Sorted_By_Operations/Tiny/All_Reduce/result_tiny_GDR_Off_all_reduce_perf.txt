@@ -1,0 +1,234 @@
+# nccl-tests version 2.17.6 nccl-headers=21605 nccl-library=21605
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 1 minBytes 1 maxBytes 10240 step: 100(bytes) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid 1255464 on       n013 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+#  Rank  1 Group  0 Pid 561889 on       n014 device  0 [0000:81:00] NVIDIA A100-PCIE-40GB
+n013:1255464:1255464 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n013:1255464:1255464 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.13<0>
+n013:1255464:1255464 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n013:1255464:1255464 [0] NCCL INFO cudaDriverVersion 13020
+NCCL version 2.16.5+cuda11.8
+n014:561889:561889 [0] NCCL INFO cudaDriverVersion 13020
+n013:1255464:1255474 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n013:1255464:1255474 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.13<0>
+n013:1255464:1255474 [0] NCCL INFO Using network IB
+n013:1255464:1255474 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:561889:561889 [0] NCCL INFO NCCL_SOCKET_IFNAME set to ibp209s0f0
+n014:561889:561889 [0] NCCL INFO Bootstrap : Using ibp209s0f0:10.128.3.14<0>
+n014:561889:561889 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+n014:561889:561899 [0] NCCL INFO NCCL_IB_HCA set to mlx5_2
+n014:561889:561899 [0] NCCL INFO NET/IB : Using [0]mlx5_2:1/IB [RO]; OOB ibp209s0f0:10.128.3.14<0>
+n014:561889:561899 [0] NCCL INFO Using network IB
+n014:561889:561899 [0] NCCL INFO DMA-BUF is available on GPU device 0
+n014:561889:561899 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561899 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n014:561889:561899 [0] NCCL INFO CPU/1 (1/2/-1)
+n014:561889:561899 [0] NCCL INFO + PCI[24.0] - GPU/81000 (1)
+n014:561889:561899 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n014:561889:561899 [0] NCCL INFO               + NET[25.0] - NET/0 (5a862d0003f6ceb8/1/25.000000)
+n014:561889:561899 [0] NCCL INFO ==========================================
+n014:561889:561899 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n014:561889:561899 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n014:561889:561899 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:561889:561899 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:561889:561899 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n014:561889:561899 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+n014:561889:561899 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:1255464:1255474 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_2'
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n013:1255464:1255474 [0] NCCL INFO === System : maxBw 24.0 totalBw 24.0 ===
+n013:1255464:1255474 [0] NCCL INFO CPU/1 (1/2/-1)
+n013:1255464:1255474 [0] NCCL INFO + PCI[24.0] - GPU/81000 (0)
+n013:1255464:1255474 [0] NCCL INFO + PCI[24.0] - NIC/D1000
+n013:1255464:1255474 [0] NCCL INFO               + NET[25.0] - NET/0 (7a852d0003f6ceb8/1/25.000000)
+n013:1255464:1255474 [0] NCCL INFO ==========================================
+n013:1255464:1255474 [0] NCCL INFO GPU/81000 :GPU/81000 (0/5000.000000/LOC) CPU/1 (1/24.000000/PHB) NET/0 (3/24.000000/PHB) 
+n013:1255464:1255474 [0] NCCL INFO NET/0 :GPU/81000 (3/24.000000/PHB) CPU/1 (2/24.000000/PHB) NET/0 (0/5000.000000/LOC) 
+n013:1255464:1255474 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 24.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:1255464:1255474 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:1255464:1255474 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 48.000000/24.000000, type LOC/PHB, sameChannels 1
+n013:1255464:1255474 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+n013:1255464:1255474 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+n013:1255464:1255474 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+n013:1255464:1255474 [0] NCCL INFO Tree 1 : 1 -> 0 -> -1/-1/-1
+n013:1255464:1255474 [0] NCCL INFO Channel 00/02 :    0   1
+n013:1255464:1255474 [0] NCCL INFO Channel 01/02 :    0   1
+n013:1255464:1255474 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+n013:1255464:1255474 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+n013:1255464:1255474 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+n013:1255464:1255474 [0] NCCL INFO P2P Chunksize set to 131072
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561899 [0] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+n014:561889:561899 [0] NCCL INFO Tree 1 : -1 -> 1 -> 0/-1/-1
+n014:561889:561899 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+n014:561889:561899 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+n014:561889:561899 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+n014:561889:561899 [0] NCCL INFO P2P Chunksize set to 131072
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561901 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n014:561889:561899 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554e8000ca0
+n014:561889:561899 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561901 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n013:1255464:1255476 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+n013:1255464:1255474 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x155500000d50
+n013:1255464:1255474 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n013:1255464:1255476 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+n013:1255464:1255474 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x155500000d90
+n013:1255464:1255474 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [receive] via NET/IB/0
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n013:1255464:1255476 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n014:561889:561899 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554e8000ce0
+n014:561889:561899 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [receive] via NET/IB/0
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561901 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+n013:1255464:1255474 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x155500000dd0
+n013:1255464:1255474 [0] NCCL INFO Channel 00/0 : 0[81000] -> 1[81000] [send] via NET/IB/0
+n013:1255464:1255474 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n013:1255464:1255476 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n014:561889:561899 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554e8000d20
+n014:561889:561899 [0] NCCL INFO Channel 00/0 : 1[81000] -> 0[81000] [send] via NET/IB/0
+n014:561889:561899 [0] NCCL INFO GPU Direct RDMA Disabled for GPU 81000 / HCA 0 (distance 6 > 4)
+n014:561889:561901 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+n013:1255464:1255474 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x155500000e10
+n013:1255464:1255474 [0] NCCL INFO Channel 01/0 : 0[81000] -> 1[81000] [send] via NET/IB/0
+n014:561889:561899 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554e8000d60
+n014:561889:561899 [0] NCCL INFO Channel 01/0 : 1[81000] -> 0[81000] [send] via NET/IB/0
+n013:1255464:1255476 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 4297 mtu 5 LID 37
+n014:561889:561901 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 4188 mtu 5 LID 43
+n014:561889:561901 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 4189 mtu 5 LID 43
+n013:1255464:1255476 [0] NCCL INFO NET/IB: Dev 0 Port 1 qpn 4298 mtu 5 LID 37
+n014:561889:561899 [0] NCCL INFO Connected all rings
+n014:561889:561899 [0] NCCL INFO Connected all trees
+n014:561889:561899 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n014:561889:561899 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n014:561889:561901 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n013:1255464:1255474 [0] NCCL INFO Connected all rings
+n013:1255464:1255474 [0] NCCL INFO Connected all trees
+n013:1255464:1255474 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+n013:1255464:1255474 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+n013:1255464:1255476 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+n014:561889:561899 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x1554e8000da0
+n014:561889:561899 [0] NCCL INFO comm 0x5a488f0 rank 1 nranks 2 cudaDev 0 busId 81000 commId 0xce439ba4e6d77fec - Init COMPLETE
+n013:1255464:1255474 [0] NCCL INFO Connection to proxy localRank 0 -> connection 0x155500000e50
+n013:1255464:1255474 [0] NCCL INFO comm 0x5a5ed70 rank 0 nranks 2 cudaDev 0 busId 81000 commId 0xce439ba4e6d77fec - Init COMPLETE
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+           0             0     float     sum      -1    11.58    0.00    0.00       0    11.39    0.00    0.00       0
+         100            25     float     sum      -1    30.80    0.00    0.00       0    32.56    0.00    0.00       0
+         200            50     float     sum      -1    33.37    0.01    0.01       0    31.14    0.01    0.01       0
+         300            75     float     sum      -1    33.27    0.01    0.01       0    32.96    0.01    0.01       0
+         400           100     float     sum      -1    32.61    0.01    0.01       0    32.31    0.01    0.01       0
+         500           125     float     sum      -1    33.32    0.02    0.02       0    33.52    0.01    0.01       0
+         600           150     float     sum      -1    34.06    0.02    0.02       0    32.60    0.02    0.02       0
+         700           175     float     sum      -1    34.20    0.02    0.02       0    33.51    0.02    0.02       0
+         800           200     float     sum      -1    35.05    0.02    0.02       0    33.87    0.02    0.02       0
+         900           225     float     sum      -1    34.26    0.03    0.03       0    34.26    0.03    0.03       0
+        1000           250     float     sum      -1    34.42    0.03    0.03       0    33.61    0.03    0.03       0
+        1100           275     float     sum      -1    33.74    0.03    0.03       0    34.09    0.03    0.03       0
+        1200           300     float     sum      -1    33.99    0.04    0.04       0    32.35    0.04    0.04       0
+        1300           325     float     sum      -1    33.64    0.04    0.04       0    33.97    0.04    0.04       0
+        1400           350     float     sum      -1    33.55    0.04    0.04       0    34.55    0.04    0.04       0
+        1500           375     float     sum      -1    34.63    0.04    0.04       0    34.25    0.04    0.04       0
+        1600           400     float     sum      -1    39.60    0.04    0.04       0    38.92    0.04    0.04       0
+        1700           425     float     sum      -1    39.92    0.04    0.04       0    41.70    0.04    0.04       0
+        1800           450     float     sum      -1    34.94    0.05    0.05       0    38.60    0.05    0.05       0
+        1900           475     float     sum      -1    40.14    0.05    0.05       0    34.77    0.05    0.05       0
+        2000           500     float     sum      -1    41.15    0.05    0.05       0    40.13    0.05    0.05       0
+        2100           525     float     sum      -1    37.13    0.06    0.06       0    42.43    0.05    0.05       0
+        2200           550     float     sum      -1    41.79    0.05    0.05       0    41.60    0.05    0.05       0
+        2300           575     float     sum      -1    41.73    0.06    0.06       0    42.29    0.05    0.05       0
+        2400           600     float     sum      -1    37.63    0.06    0.06       0    40.98    0.06    0.06       0
+        2500           625     float     sum      -1    41.50    0.06    0.06       0    41.85    0.06    0.06       0
+        2600           650     float     sum      -1    36.17    0.07    0.07       0    40.35    0.06    0.06       0
+        2700           675     float     sum      -1    43.69    0.06    0.06       0    41.75    0.06    0.06       0
+        2800           700     float     sum      -1    41.87    0.07    0.07       0    41.67    0.07    0.07       0
+        2900           725     float     sum      -1    41.79    0.07    0.07       0    41.76    0.07    0.07       0
+        3000           750     float     sum      -1    41.66    0.07    0.07       0    40.78    0.07    0.07       0
+        3100           775     float     sum      -1    41.29    0.08    0.08       0    41.61    0.07    0.07       0
+        3200           800     float     sum      -1    41.30    0.08    0.08       0    41.77    0.08    0.08       0
+        3300           825     float     sum      -1    41.44    0.08    0.08       0    42.44    0.08    0.08       0
+        3400           850     float     sum      -1    40.91    0.08    0.08       0    41.71    0.08    0.08       0
+        3500           875     float     sum      -1    38.55    0.09    0.09       0    42.31    0.08    0.08       0
+        3600           900     float     sum      -1    41.93    0.09    0.09       0    41.83    0.09    0.09       0
+        3700           925     float     sum      -1    43.50    0.09    0.09       0    41.64    0.09    0.09       0
+        3800           950     float     sum      -1    42.30    0.09    0.09       0    41.68    0.09    0.09       0
+        3900           975     float     sum      -1    41.68    0.09    0.09       0    40.99    0.10    0.10       0
+        4000          1000     float     sum      -1    42.18    0.09    0.09       0    41.76    0.10    0.10       0
+        4100          1025     float     sum      -1    48.33    0.08    0.08       0    46.67    0.09    0.09       0
+        4200          1050     float     sum      -1    47.53    0.09    0.09       0    47.50    0.09    0.09       0
+        4300          1075     float     sum      -1    42.12    0.10    0.10       0    47.94    0.09    0.09       0
+        4400          1100     float     sum      -1    48.49    0.09    0.09       0    47.82    0.09    0.09       0
+        4500          1125     float     sum      -1    41.82    0.11    0.11       0    46.29    0.10    0.10       0
+        4600          1150     float     sum      -1    48.18    0.10    0.10       0    46.38    0.10    0.10       0
+        4700          1175     float     sum      -1    47.57    0.10    0.10       0    41.68    0.11    0.11       0
+        4800          1200     float     sum      -1    47.58    0.10    0.10       0    47.04    0.10    0.10       0
+        4900          1225     float     sum      -1    41.98    0.12    0.12       0    46.74    0.10    0.10       0
+        5000          1250     float     sum      -1    42.14    0.12    0.12       0    46.06    0.11    0.11       0
+        5100          1275     float     sum      -1    42.13    0.12    0.12       0    47.29    0.11    0.11       0
+        5200          1300     float     sum      -1    43.97    0.12    0.12       0    48.78    0.11    0.11       0
+        5300          1325     float     sum      -1    43.75    0.12    0.12       0    43.65    0.12    0.12       0
+        5400          1350     float     sum      -1    43.59    0.12    0.12       0    43.24    0.12    0.12       0
+        5500          1375     float     sum      -1    44.19    0.12    0.12       0    41.06    0.13    0.13       0
+        5600          1400     float     sum      -1    41.55    0.13    0.13       0    41.08    0.14    0.14       0
+        5700          1425     float     sum      -1    44.49    0.13    0.13       0    43.43    0.13    0.13       0
+        5800          1450     float     sum      -1    40.70    0.14    0.14       0    42.80    0.14    0.14       0
+        5900          1475     float     sum      -1    43.22    0.14    0.14       0    43.11    0.14    0.14       0
+        6000          1500     float     sum      -1    43.24    0.14    0.14       0    43.78    0.14    0.14       0
+        6100          1525     float     sum      -1    43.01    0.14    0.14       0    43.79    0.14    0.14       0
+        6200          1550     float     sum      -1    41.84    0.15    0.15       0    42.03    0.15    0.15       0
+        6300          1575     float     sum      -1    42.57    0.15    0.15       0    41.76    0.15    0.15       0
+        6400          1600     float     sum      -1    44.01    0.15    0.15       0    43.85    0.15    0.15       0
+        6500          1625     float     sum      -1    42.88    0.15    0.15       0    43.89    0.15    0.15       0
+        6600          1650     float     sum      -1    44.63    0.15    0.15       0    43.66    0.15    0.15       0
+        6700          1675     float     sum      -1    44.30    0.15    0.15       0    44.66    0.15    0.15       0
+        6800          1700     float     sum      -1    46.83    0.15    0.15       0    43.72    0.16    0.16       0
+        6900          1725     float     sum      -1    44.41    0.16    0.16       0    44.09    0.16    0.16       0
+        7000          1750     float     sum      -1    43.04    0.16    0.16       0    43.03    0.16    0.16       0
+        7100          1775     float     sum      -1    43.40    0.16    0.16       0    43.07    0.16    0.16       0
+        7200          1800     float     sum      -1    43.99    0.16    0.16       0    43.88    0.16    0.16       0
+        7300          1825     float     sum      -1    43.69    0.17    0.17       0    42.45    0.17    0.17       0
+        7400          1850     float     sum      -1    43.87    0.17    0.17       0    44.08    0.17    0.17       0
+        7500          1875     float     sum      -1    45.65    0.16    0.16       0    44.52    0.17    0.17       0
+        7600          1900     float     sum      -1    43.70    0.17    0.17       0    43.45    0.17    0.17       0
+        7700          1925     float     sum      -1    44.27    0.17    0.17       0    43.62    0.18    0.18       0
+        7800          1950     float     sum      -1    45.03    0.17    0.17       0    43.74    0.18    0.18       0
+        7900          1975     float     sum      -1    47.00    0.17    0.17       0    44.80    0.18    0.18       0
+        8000          2000     float     sum      -1    44.12    0.18    0.18       0    43.97    0.18    0.18       0
+        8100          2025     float     sum      -1    46.13    0.18    0.18       0    45.27    0.18    0.18       0
+        8200          2050     float     sum      -1    50.42    0.16    0.16       0    45.81    0.18    0.18       0
+        8300          2075     float     sum      -1    46.32    0.18    0.18       0    46.15    0.18    0.18       0
+        8400          2100     float     sum      -1    45.63    0.18    0.18       0    45.87    0.18    0.18       0
+        8500          2125     float     sum      -1    46.23    0.18    0.18       0    46.32    0.18    0.18       0
+        8600          2150     float     sum      -1    45.95    0.19    0.19       0    46.16    0.19    0.19       0
+        8700          2175     float     sum      -1    46.29    0.19    0.19       0    46.11    0.19    0.19       0
+        8800          2200     float     sum      -1    46.63    0.19    0.19       0    46.68    0.19    0.19       0
+        8900          2225     float     sum      -1    44.47    0.20    0.20       0    46.91    0.19    0.19       0
+        9000          2250     float     sum      -1    46.06    0.20    0.20       0    45.21    0.20    0.20       0
+        9100          2275     float     sum      -1    43.98    0.21    0.21       0    46.24    0.20    0.20       0
+        9200          2300     float     sum      -1    44.46    0.21    0.21       0    46.17    0.20    0.20       0
+        9300          2325     float     sum      -1    44.71    0.21    0.21       0   994.85    0.01    0.01       0
+        9400          2350     float     sum      -1    46.80    0.20    0.20       0    46.74    0.20    0.20       0
+        9500          2375     float     sum      -1    54.53    0.17    0.17       0    54.60    0.17    0.17       0
+        9600          2400     float     sum      -1    55.71    0.17    0.17       0    54.73    0.18    0.18       0
+        9700          2425     float     sum      -1    54.32    0.18    0.18       0    53.99    0.18    0.18       0
+        9800          2450     float     sum      -1    54.06    0.18    0.18       0    54.09    0.18    0.18       0
+        9900          2475     float     sum      -1    56.69    0.17    0.17       0    52.95    0.19    0.19       0
+       10000          2500     float     sum      -1    57.59    0.17    0.17       0    62.83    0.16    0.16       0
+       10100          2525     float     sum      -1    62.12    0.16    0.16       0    61.17    0.17    0.17       0
+       10200          2550     float     sum      -1    62.12    0.16    0.16       0    61.72    0.17    0.17       0
+n014:561889:561889 [0] NCCL INFO comm 0x5a488f0 rank 1 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+n013:1255464:1255464 [0] NCCL INFO comm 0x5a5ed70 rank 0 nranks 2 cudaDev 0 busId 81000 - Destroy COMPLETE
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 0.111643 
+#
+# Collective test concluded: all_reduce_perf
+
